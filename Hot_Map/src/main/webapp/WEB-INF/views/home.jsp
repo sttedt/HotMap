@@ -7,10 +7,8 @@
 	<title>Home</title>
 </head>
 <body>
-<h1>
-	Hello world!  
-</h1>
-
-<P>  The time on the server is ${serverTime}11111111111111. </P>
+	<a href="join" style="text-decoration:none">회원가입</a>
+	<a href="login" style="text-decoration:none">로그인</a>
 </body>
+
 </html>

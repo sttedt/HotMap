@@ -1,1 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- mapper할때 써야됨 -->
+<mapper namespace="member">
+	<insert id="joinInsert">
+		INSERT INTO MEMBER (MEM_ID, NAME, PW, EMAIL, ADDRESS, PHONE)
+		VALUES (#{id}, #{name}, #{pw}, #{email}, #{address}, #{phone} )
+	</insert>
+	
+	<select id="joinSelect">
+		SELECT * FROM MEMBER
+		WHERE MEM_ID=#{ID} AND PW=#{PW}
+		
+	</select>
+</mapper>
