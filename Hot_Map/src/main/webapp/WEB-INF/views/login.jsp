@@ -9,12 +9,8 @@
 </head>
 
 <body>
-
-	<div class="container" style="text-align: center";>
-		<a href="home" style="text-decoration:none; font-size:70px; display: inline-block;" >HotMap</a>
-		<input type="text" class="form-control" style="max-width: 300px; display: inline-block;" placeholder="search">
-	</div>
-	
+	<!-- 상단바 -->
+	<jsp:include page="topbar.jsp"></jsp:include>
 	<hr>
 	<div class="container" style="max-width: 540px;">
 		<form method="post">

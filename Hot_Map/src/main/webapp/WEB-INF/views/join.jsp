@@ -10,11 +10,9 @@
 
 
 <body>
-	<div class="container">
-		<h1 style="text-align: center">
-			<a href="home" style="text-color:url(resources/img/cc.jpg); text-decoration:none">HotMap <span></span></a>
-		</h1>
-	</div>
+	<!-- 상단바 -->
+	<jsp:include page="topbar.jsp"></jsp:include>
+
 	<hr>
 	<div class="container" style="max-width: 540px">
 		<form method="post">
