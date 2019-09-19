@@ -19,18 +19,25 @@ public class BoardController {
 
 	// 주소를 불러서 그쪽으로 출력 value값에 치고들어가는 주소를 적음
 	// board이란 페이지를 불러오기위한 코드
-	@RequestMapping(value="board", method = RequestMethod.GET)
+	@RequestMapping(value="boardw", method = RequestMethod.GET)
 	// param은 map을 받는다
 	public String board(Model model) {
-		return "board";
+		return "boardw";
 	}
 	// join이란 페이지에서 데이터를 보내기 위한 코드
-	@RequestMapping(value="board", method = RequestMethod.POST)
+	@RequestMapping(value="boardw", method = RequestMethod.POST)
 	public String board(@RequestParam Map<String, Object> map) {
 		boardService.boardInsert(map);
 		
-		return "board";
+		return "boardw";
 	}
 	
+	// join이란 페이지에서 데이터를 보내기 위한 코드
+	@RequestMapping(value="board", method = RequestMethod.GET)
+	public String list(Model model) {
+		model.addAttribute("b_list", boardService.boardList());
+		
+		return "board";
+	}
 
 }

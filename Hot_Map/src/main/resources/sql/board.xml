@@ -7,9 +7,9 @@
 		VALUES (#{title}, #{content}, NOW() )
 	</insert>
 	
-	<select id="boardInsert">
-		SELECT BOARD (TITLE, CONTENT, DATE)
-		VALUES (#{title}, #{content}, NOW()  )
+	<select id="boardList" resultType="map">
+		SELECT * FROM BOARD 
+		ORDER BY Brd_NO ASC
 	</select>
 
 </mapper>

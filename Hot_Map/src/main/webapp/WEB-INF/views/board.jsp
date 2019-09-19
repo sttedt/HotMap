@@ -1,23 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<link rel="stylesheet" href="resources/css/bootstrap.min.css">
 <head>
-<meta charset="UTF-8">
-<title>Q & A</title>
+	<title>Q&A 목록</title>
 </head>
 <body>
-<form action="board" method = "post">
-	Q&A 
+	Q&A 목록
 	<hr />
-	제목 : <input type="text" name="title" />
-	<br />
-	내용 : <textarea rows="6" name="content"></textarea>
-	<br /> 
-	작성자 :<input type="text" name="writer" />
-	<br />
-	<input type="submit" value="글쓰기" />
-	</form>
-
+	<a href="boardw">글쓰기</a>
+	<table>
+		<thead>
+			<tr>
+				<th>글번호</th>
+				<th>글제목</th>
+				<th>작성자</th>
+				<th>날짜</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach items="${b_list}" var="map">
+				<tr>
+					<th>${map.Brd_NO}</th>
+					<th>${map.title}</th>
+					<th>${map.mem_id}</th>
+					<th>${map.date}</th>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
 </body>
-</html>

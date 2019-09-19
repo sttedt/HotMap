@@ -7,7 +7,7 @@
 <title>Q & A</title>
 </head>
 <body>
-<form action="board" method = "post">
+<form action="boardw" method = "post">
 	Q&A 
 	<hr />
 	제목 : <input type="text" name="title" />
