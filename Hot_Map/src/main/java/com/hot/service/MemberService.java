@@ -18,8 +18,8 @@ public class MemberService {
 	public void joinSelect(Map<String, Object> map) {
 		memberDao.joinSelect(map);
 	}
-	public Map<String, Object> loginSelect(String id) {
-		return memberDao.loginSelect(id);
+	public Map<String, Object> loginSelect(Map<String, Object> map) {
+		return memberDao.loginSelect(map);
 	}
 	
 }

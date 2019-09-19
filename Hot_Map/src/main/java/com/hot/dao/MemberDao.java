@@ -21,7 +21,7 @@ public class MemberDao {
 		return sessionTemplate.selectOne("member.joinSelect", map);
 		
 	}
-	public Map<String, Object> loginSelect(String id) {
-		return sessionTemplate.selectOne("member.loginSelect", id);
+	public Map<String, Object> loginSelect(Map<String, Object> map) {
+		return sessionTemplate.selectOne("member.loginSelect", map);
 	}
 }

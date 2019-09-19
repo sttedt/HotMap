@@ -42,24 +42,34 @@ public class MemberController {
 	}
 	// join이란 페이지에서 데이터를 보내기 위한 코드
 	@RequestMapping(value="login", method = RequestMethod.POST)
-	public String login(Model model,@RequestParam("id") String id , HttpSession httpSession) {
-		model.addAttribute("id",memberService.loginSelect(id));
+	public String login(Model model,@RequestParam Map<String, Object> map , HttpSession httpSession, HttpServletRequest request) {
+		Map<String, Object> map2 = memberService.loginSelect(map);
+		System.out.println("map2 : " + map2);
 		try {
-			if(id !=null) {
-				httpSession.setAttribute("SID", id);
+			if(map2 !=null) {
+				httpSession.setAttribute("SID", map.get("id"));
 				
-				return "home";
+				String backUrl = (String) httpSession.getAttribute("BACK_URL");
+				
+				request.setAttribute("type", "success");
+				request.setAttribute("msg", "로그인성공");
+				request.setAttribute("url", "home");
+				return "alert";
 			}
 		}
 		catch (Exception e) {
 			return "redirect:login";
 		}
-		return "home";
+		return "login";
 	}
 	@RequestMapping(value = "logout", method = {RequestMethod.GET, RequestMethod.POST})
 	public String logout(HttpServletRequest request, HttpSession httpsession) {
 		httpsession.invalidate(); //세션삭제
-		return "home";
+		
+		request.setAttribute("type", "success");
+		request.setAttribute("msg", "로그아웃");
+		request.setAttribute("url", "home");
+		return "alert";
 		
 	}
 }
