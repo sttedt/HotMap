@@ -10,6 +10,10 @@
 	<select id="joinSelect">
 		SELECT * FROM MEMBER
 		WHERE MEM_ID=#{ID} AND PW=#{PW}
-		
+	</select>
+	
+	<select id="loginSelect" resultType="map">
+		SELECT * FROM MEMBER 
+		WHERE MEM_ID=#{ID}
 	</select>
 </mapper>

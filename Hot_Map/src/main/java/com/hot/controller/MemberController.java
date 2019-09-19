@@ -1,10 +1,14 @@
 package com.hot.controller;
 
+import java.util.HashMap;
 import java.util.Map;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -39,10 +43,10 @@ public class MemberController {
 	}
 	// join이란 페이지에서 데이터를 보내기 위한 코드
 	@RequestMapping(value="login", method = RequestMethod.POST)
-	public String login(@RequestParam Map<String, Object> map) {
-		memberService.joinSelect(map);
+	public String login(Model model,@RequestParam("id") String id , HttpSession httpSession) {
+		model.addAttribute("id",memberService.loginSelect(id));
+		System.out.println(id);
+		
 		return "home";
 	}
-	
-
 }

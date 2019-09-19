@@ -2,13 +2,12 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false" %>
-<html>
+
+<link rel="stylesheet" href="resources/css/bootstrap.min.css">
 <head>
 	<title>Home</title>
 </head>
 <body>
-	<a href="join" style="text-decoration:none">회원가입</a>
-	<a href="login" style="text-decoration:none">로그인</a>
+	<jsp:include page="topbar.jsp"></jsp:include>
 </body>
 
-</html>
