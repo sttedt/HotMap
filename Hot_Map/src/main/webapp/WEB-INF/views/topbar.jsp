@@ -15,13 +15,13 @@
 			<ul class="list-inline">
 				<c:if test="${sessionScope.SID eq null}">
 					<li class="list-inline-item">
-						<a class="list-inline-item" href="login.do" style="color:#fff; text-decoration: none; margin-top:15px;"> LOGIN </a> &nbsp;
+						<a class="list-inline-item" href="login" style="color:#fff; text-decoration: none; margin-top:15px;"> LOGIN </a> &nbsp;
 					</li> 
 					<li class="list-inline-item">
-						<a class="list-inline-item" href="join.do"  style="color:#fff; text-decoration: none;"> JOIN </a>&nbsp;
+						<a class="list-inline-item" href="join"  style="color:#fff; text-decoration: none;"> JOIN </a>&nbsp;
 					</li>
 					<li class="list-inline-item">
-						<a class="list-inline-item" href="board.do"  style="color:#fff; text-decoration: none;"> Q & A</a> &nbsp;
+						<a class="list-inline-item" href="board"  style="color:#fff; text-decoration: none;"> Q & A</a> &nbsp;
 					</li>
 				</c:if>
 				
@@ -30,18 +30,18 @@
 						<a class="list-inline-item" style="color:#fff; text-decoration: none; margin-top:15px;"> ${sessionScope.SID} 님</a> &nbsp;
 					</li>
 					<li class="list-inline-item">
-						<a class="list-inline-item" href="logout.do"  style="color:#fff; text-decoration: none; "> LOGOUT</a> &nbsp; 
+						<a class="list-inline-item" href="logout"  style="color:#fff; text-decoration: none; "> LOGOUT</a> &nbsp; 
 					</li>
 					<li class="list-inline-item">
-						<a class="list-inline-item" href="profile.do" style="color:#fff; text-decoration: none;"> MY PAGE </a> &nbsp; 
+						<a class="list-inline-item" href="profile" style="color:#fff; text-decoration: none;"> MY PAGE </a> &nbsp; 
 					</li>
 					<c:if test="${sessionScope.SLEV eq 'ADMIN'}">
 						<li class="list-inline-item">
-							<a class="list-inline-item" href="admin.do"   style="color:#fff; text-decoration: none;"> ADMIN </a>&nbsp;
+							<a class="list-inline-item" href="admin"   style="color:#fff; text-decoration: none;"> ADMIN </a>&nbsp;
 						</li>
 					</c:if> 
 					<li class="list-inline-item">
-						<a class="list-inline-item" href="board.do"   style="color:#fff; text-decoration: none;"> Q & A</a> &nbsp;
+						<a class="list-inline-item" href="board"   style="color:#fff; text-decoration: none;"> Q & A</a> &nbsp;
 					</li>
 				</c:if>
 			</ul>
