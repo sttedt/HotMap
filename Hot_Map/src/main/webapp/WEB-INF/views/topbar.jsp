@@ -1,17 +1,50 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page session="true"%>
 
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top" >
 	<div>
-		<a href="home" style="text-decoration:none; font-size:70px; display: inline-block;" >HotMap</a>
+		<a href="home" style="text-decoration:none; font-size:70px; display: inline-block;" >HotMap</a><br>
 		<input type="text" class="form-control" style="max-width: 200px; display: inline-block;" placeholder="search"> 
 		<input type="button" class="btn btn-light" style="margin-top:-5px" value="검색">
 	</div>
-    <div class="collapse navbar-collapse" id="navbarResponsive" style="margin-left:700px; margin-top:-120px; display: inline-block;">
-			<a class="nav-link" href="login">login</a>
-			<a class="nav-link" href="join">join</a>
-			<a class="nav-link" href="Q&A">Q&A</a>
-    </div>
+	<div class="collapse navbar-collapse" id="navbarResponsive">
+		<form>
+			<ul class="list-inline">
+				<c:if test="${sessionScope.SID eq null}">
+					<li class="list-inline-item">
+						<a class="list-inline-item" href="login.do" style="color:#fff; text-decoration: none; margin-top:15px;"> LOGIN </a> &nbsp;
+					</li> 
+					<li class="list-inline-item">
+						<a class="list-inline-item" href="join.do"  style="color:#fff; text-decoration: none;"> JOIN </a>&nbsp;
+					</li>
+					<li class="list-inline-item">
+						<a class="list-inline-item" href="board.do"  style="color:#fff; text-decoration: none;"> Q & A</a> &nbsp;
+					</li>
+				</c:if>
+				
+				<c:if test="${sessionScope.SID ne null}">
+					<li class="list-inline-item">
+						<a class="list-inline-item" style="color:#fff; text-decoration: none; margin-top:15px;"> ${sessionScope.SID} 님</a> &nbsp;
+					</li>
+					<li class="list-inline-item">
+						<a class="list-inline-item" href="logout.do"  style="color:#fff; text-decoration: none; "> LOGOUT</a> &nbsp; 
+					</li>
+					<li class="list-inline-item">
+						<a class="list-inline-item" href="profile.do" style="color:#fff; text-decoration: none;"> MY PAGE </a> &nbsp; 
+					</li>
+					<c:if test="${sessionScope.SLEV eq 'ADMIN'}">
+						<li class="list-inline-item">
+							<a class="list-inline-item" href="admin.do"   style="color:#fff; text-decoration: none;"> ADMIN </a>&nbsp;
+						</li>
+					</c:if> 
+					<li class="list-inline-item">
+						<a class="list-inline-item" href="board.do"   style="color:#fff; text-decoration: none;"> Q & A</a> &nbsp;
+					</li>
+				</c:if>
+			</ul>
+		</form>
+	</div>
 </nav>
