@@ -1,14 +1,13 @@
 package com.hot.controller;
 
-import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -45,8 +44,22 @@ public class MemberController {
 	@RequestMapping(value="login", method = RequestMethod.POST)
 	public String login(Model model,@RequestParam("id") String id , HttpSession httpSession) {
 		model.addAttribute("id",memberService.loginSelect(id));
-		System.out.println(id);
-		
+		try {
+			if(id !=null) {
+				httpSession.setAttribute("SID", id);
+				
+				return "home";
+			}
+		}
+		catch (Exception e) {
+			return "redirect:login";
+		}
 		return "home";
+	}
+	@RequestMapping(value = "logout", method = {RequestMethod.GET, RequestMethod.POST})
+	public String logout(HttpServletRequest request, HttpSession httpsession) {
+		httpsession.invalidate(); //세션삭제
+		return "home";
+		
 	}
 }
