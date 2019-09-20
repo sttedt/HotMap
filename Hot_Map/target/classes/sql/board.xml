@@ -3,13 +3,18 @@
 <!-- mapper할때 써야됨 -->
 <mapper namespace="board">
 	<insert id="boardInsert">
-		INSERT INTO BOARD (TITLE, CONTENT, DATE)
-		VALUES (#{title}, #{content}, NOW() )
+		INSERT INTO BOARD (TITLE, CONTENT, DATE, MEM_ID)
+		VALUES (#{title}, #{content}, NOW(), #{mem_id})
 	</insert>
 	
 	<select id="boardList" resultType="map">
 		SELECT * FROM BOARD 
 		ORDER BY Brd_NO ASC
 	</select>
+	<select id="boardOne" resultType="map" parameterType="_int">
+		SELECT * FROM BOARD
+		 WHERE Brd_NO = #{Brd_NO}
+	</select>
+	
 
 </mapper>

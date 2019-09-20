@@ -19,5 +19,9 @@ public class BoardService {
 	public List<Map<String, Object>> boardList() {
 		return boardDao.boardList();
 	}
+	public Map<String, Object> boardOne(int Brd_NO) {
+//		boardDao.update(id); // 조회수 증가
+		return boardDao.boardOne(Brd_NO);
+	}
 	
 }

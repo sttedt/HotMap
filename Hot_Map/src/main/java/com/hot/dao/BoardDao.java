@@ -21,5 +21,7 @@ public class BoardDao {
 		return sessionTemplate.selectList("board.boardList");
 	}
 	
-
+	public Map<String, Object> boardOne(int Brd_NO) {
+		return sessionTemplate.selectOne("board.boardOne", Brd_NO);
+	}
 }

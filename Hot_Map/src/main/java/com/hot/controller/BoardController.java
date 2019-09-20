@@ -5,6 +5,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -32,12 +33,19 @@ public class BoardController {
 		return "boardw";
 	}
 	
-	// join이란 페이지에서 데이터를 보내기 위한 코드
+	// board이란 페이지에서 데이터를 보내기 위한 코드
 	@RequestMapping(value="board", method = RequestMethod.GET)
 	public String list(Model model) {
 		model.addAttribute("b_list", boardService.boardList());
 		
 		return "board";
 	}
+	@RequestMapping(value="boardr")
+	public String show(Model model, @RequestParam("Brd_NO") int Brd_NO) {
+		model.addAttribute("detail", boardService.boardOne(Brd_NO));
+		return "boardr";
+	}
+	
+	
 
 }
