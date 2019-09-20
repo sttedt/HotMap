@@ -16,38 +16,38 @@
 	<hr>
 	<div class="container" style="max-width: 540px">
 		<form method="post">
-			<input type="text"     name ="id"      id="mem_id"  placeholder="아이디"  class="form-control"><br>
+			<input type="text"     name ="id"      id="id"  placeholder="아이디"  class="form-control"><br>
 			<div align="right">	
 				<span id="idMsg"></span>	
 			</div>
-			<input type="text"     name ="name"    id="mem_name"  placeholder="이름"    class="form-control"><br>
+			<input type="text"     name ="name"    id="name"  placeholder="이름"    class="form-control"><br>
 			<div align="right">	
 				<span id="nameMsg"></span>	
 			</div>
-			<input type="password" name ="pw"      id="mem_pw"  placeholder="비밀번호" class="form-control"><br>
+			<input type="password" name ="pw"      id="pw"  placeholder="비밀번호" class="form-control"><br>
 			<div align="right">	
 				<span id="pwMsg"></span>	
 			</div>
-			<input type="email"    name ="email"   id="mem_email"  placeholder="이메일"   class="form-control"><br>
+			<input type="email"    name ="email"   id="email"  placeholder="이메일"   class="form-control"><br>
 			<div align="right">	
 				<span id="emailMsg"></span>	
 			</div>
 			<div class="form-group input-group">
-				<input type="text" id="mem_postcode" path="mem_postcode" class="form-control" placeholder="우편번호" readonly="true"/>
+				<input type="text" id="postcode" path="address" class="form-control" placeholder="우편번호" readonly/>
 				<label>&nbsp;</label> 
 				<input type="button" onclick="sample6_execDaumPostcode()" class="btn btn-primary btn-sm" value="우편번호검색" />
 			</div>
 			<div class="form-group input-group">
-				<input type="text" path="mem_address1" id="mem_address1" class="form-control" placeholder="주소" readonly="true"/>
+				<input type="text" path="address1" id="address1" class="form-control" placeholder="주소" readonly/>
 			</div>
 
 			<div class="form-group input-group" style="margin-bottom: 5px">
-				<input type="text" path="mem_address2" id="mem_address2" style="width: 300px; border: 1px; border-bottom: 1px solid #4ABECA;" placeholder="상세주소" />
+				<input type="text" path="address2" id="address2" style="width: 300px; border: 1px; border-bottom: 1px solid #4ABECA;" placeholder="상세주소" />
 			</div>
 			<div align="right">
 				<span id="addressMsg" ></span>	
 			</div>
-			<input type="number"   name ="phone"   id="mem_phone" placeholder="폰번호"   class="form-control"><br>
+			<input type="number"   name ="phone"   id="phone" placeholder="폰번호"   class="form-control"><br>
 			<div align="right">	
 				<span id="phoneMsg"></span>	
 			</div>	
@@ -71,19 +71,19 @@
 				}
 			});
 			
-			$('#mem_id').keyup(function(){
+			$('#id').keyup(function(){
 				checkId();
 			});
-		 	$('#mem_pw').keyup(function(){
+		 	$('#pw').keyup(function(){
 		 		checkPw();
 		 	});
-			$("#mem_name").keyup(function(){
+			$("#name").keyup(function(){
 				checkName(event);
 			});
-		 	$('#mem_age').keyup(function(){
+		 	$('#age').keyup(function(){
 		 		checkAge();
 		 	});	
-			$('#mem_email').keyup(function(){
+			$('#email').keyup(function(){
 				checkEmail();
 			});
 		});
@@ -100,7 +100,7 @@
 			
 		function checkId() {
 			var Msg = $('#idMsg');
-			var id = $('#mem_id').val();
+			var id = $('#id').val();
 			
 			if(id == ""){
 				ErrorMsg(Msg, "필수입니다");
@@ -115,7 +115,8 @@
 					ErrorMsg(Msg, "아이디는 12자리를 넘을수 없습니다.");
 					return false
 				}
-				$.get('ajax_id_check.do?mem_id=' + id, function(data) {
+				$.get('ajax_id_check?mem_id=' + id, function(data) {
+					console.log(data);
 					if (data.ret == 'n') {
 						SuccessMsg(Msg, "사용가능합니다");
 						return true;
@@ -131,7 +132,7 @@
 			
 		function checkPw(){
 			var Msg = $('#pwMsg');
-			var pw = $('#mem_pw').val();
+			var pw = $('#pw').val();
 			if(pw == ""){
 				ErrorMsg(Msg, "필수입니다");
 				return false;
@@ -152,7 +153,7 @@
 			//v = $(this).val();
 			
 			var Msg = $('#nameMsg');
-			var name = $('#mem_name').val();
+			var name = $('#name').val();
 			
 			if(name == "") {
 				ErrorMsg(Msg, "필수입니다.");
@@ -160,7 +161,7 @@
 			}
 			if( regexp.test(name) ) {
 				ErrorMsg(Msg, "한글만 입력가능합니다.");
-				$('#mem_name').val("");
+				$('#name').val("");
 				//$(this).val(name.replace(regexp,''));
 				return false;
 			}
@@ -173,7 +174,7 @@
 			 
 		function checkEmail(){
 			var Msg = $('#emailMsg');
-			var email = $('#mem_email').val();
+			var email = $('#email').val();
 			if(email  == "") {
 				ErrorMsg(Msg, "필수입니다");
 				return false;
@@ -187,9 +188,9 @@
 		
 		function checkAddress() {
 			var Msg = $('#addressMsg');
-			var postcode = $('#mem_postcode').val();
-			var address1 = $('#mem_address1').val();
-			var address2 = $('#mem_address2').val();
+			var postcode = $('#postcode').val();
+			var address1 = $('#address1').val();
+			var address2 = $('#address2').val();
 			if( (postcode == "") && (address1 == "") && (address2=="") ) {
 				ErrorMsg(Msg, "주소를 입력하세요");
 				return false;
@@ -245,11 +246,11 @@
 					}
 
 					// 우편번호와 주소 정보를 해당 필드에 넣는다.
-					document.getElementById('mem_postcode').value = data.zonecode; //5자리 새우편번호 사용
-					document.getElementById('mem_address1').value = fullAddr;
+					document.getElementById('postcode').value = data.zonecode; //5자리 새우편번호 사용
+					document.getElementById('address1').value = fullAddr;
 
 					// 커서를 상세주소 필드로 이동한다.
-					document.getElementById('mem_address2').focus();
+					document.getElementById('address2').focus();
 				}
 			}).open();
 		}

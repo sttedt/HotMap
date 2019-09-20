@@ -24,4 +24,9 @@ public class MemberDao {
 	public Map<String, Object> loginSelect(Map<String, Object> map) {
 		return sessionTemplate.selectOne("member.loginSelect", map);
 	}
+
+	public Map<String, Object> joinIdCheck(Map<String, Object> map) {
+ 
+		return sessionTemplate.selectOne("member.joinIdCheck", map);
+	}
 }

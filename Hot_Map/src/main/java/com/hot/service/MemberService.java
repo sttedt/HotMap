@@ -21,5 +21,10 @@ public class MemberService {
 	public Map<String, Object> loginSelect(Map<String, Object> map) {
 		return memberDao.loginSelect(map);
 	}
+
+	public Map<String, Object> joinIdCheck(Map<String, Object> map) {
+
+		return memberDao.joinIdCheck(map);
+	}
 	
 }
