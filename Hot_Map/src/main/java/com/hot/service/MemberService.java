@@ -22,9 +22,9 @@ public class MemberService {
 		return memberDao.loginSelect(map);
 	}
 
-	public Map<String, Object> joinIdCheck(Map<String, Object> map) {
+	public int joinIdCheck(String id) {
 
-		return memberDao.joinIdCheck(map);
+		return memberDao.joinIdCheck(id);
 	}
 	
 }
