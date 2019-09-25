@@ -35,6 +35,9 @@
 					<li class="list-inline-item">
 						<a class="list-inline-item" href="profile" style="color:#fff; text-decoration: none;"> MY PAGE </a> &nbsp; 
 					</li>
+					<li class="list-inline-item">
+						<a class="list-inline-item" href="store" style="color:#fff; text-decoration: none;"> STORE</a> &nbsp; 
+					</li>
 					<c:if test="${sessionScope.SLEV eq 'ADMIN'}">
 						<li class="list-inline-item">
 							<a class="list-inline-item" href="admin"   style="color:#fff; text-decoration: none;"> ADMIN </a>&nbsp;
