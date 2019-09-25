@@ -12,16 +12,24 @@ import com.hot.dao.BoardDao;
 public class BoardService {
 	@Autowired
 	BoardDao boardDao;
+
 	public void boardInsert(Map<String, Object> map) {
 		boardDao.boardInsert(map);
 	}
-	
+
 	public List<Map<String, Object>> boardList() {
 		return boardDao.boardList();
 	}
+
 	public Map<String, Object> boardOne(int Brd_NO) {
 //		boardDao.update(id); // 조회수 증가
 		return boardDao.boardOne(Brd_NO);
 	}
-	
+
+	public Map<String, Object> upd(int Brd_NO) {
+		return boardDao.upd(Brd_NO);
+	}
+	public void boardUpdate(Map<String, Object> map) {
+		boardDao.boardUpdate(map);
+	}
 }

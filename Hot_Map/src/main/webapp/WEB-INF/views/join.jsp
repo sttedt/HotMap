@@ -104,28 +104,37 @@
 			
 			if(id == ""){
 				ErrorMsg(Msg, "필수입니다");
+				$("#idMsg").css("color", "red");
 				return false;
 			}
 			else if(id.length>1 && id.length<6){
 				ErrorMsg(Msg, "아이디는 6자리 이상입니다");
+				$("#idMsg").css("color", "red");
 				return false;
 			}
 			else if(id.length > 5){
 				if(id.length>12) {
 					ErrorMsg(Msg, "아이디는 12자리를 넘을수 없습니다.");
+					$("#idMsg").css("color", "red");
 					return false
 				}
-				$.get('ajax_id_check?mem_id=' + id, function(data) {
-					console.log(data);
-					if (data.ret == 'n') {
-						SuccessMsg(Msg, "사용가능합니다");
-						return true;
-					} else if(data.ret == 'y') {
-						ErrorMsg(Msg, "사용중인 아이디입니다.");
-						return false;
+				$.ajax({
+					url : 'ajax_id_check?id=' + id,
+					type : 'get',
+					success : function(data){
+						
+						if(data == 1 ){
+							ErrorMsg(Msg, "중복된 아이디 입니다.");
+							$("#idMsg").css("color", "red");
+							return false;
+						}else{
+							SuccessMsg(Msg, "사용가능한 아이디 입니다.");
+							$("#idMsg").css("color", "green");
+							return true;
+						}
 					}
-					//console.log(data);
-				}, 'json');
+				})
+
 			}
 			return true;
 		}
@@ -135,14 +144,17 @@
 			var pw = $('#pw').val();
 			if(pw == ""){
 				ErrorMsg(Msg, "필수입니다");
+				$("#pwMsg").css("color", "red");
 				return false;
 			}
 			else if(pw.length < 8){
 				ErrorMsg(Msg, "비밀번호는 8자리 이상입니다");
+				$("#pwMsg").css("color", "red");
 				return false;
 			}
 			else {
 				SuccessMsg(Msg, "사용가능한 비밀번호 입니다");
+				$("#pwMsg").css("color", "green");
 				return true;
 			}
 			return true;
@@ -157,30 +169,42 @@
 			
 			if(name == "") {
 				ErrorMsg(Msg, "필수입니다.");
+				$("#nameMsg").css("color", "red");
 				return false;
 			}
 			if( regexp.test(name) ) {
 				ErrorMsg(Msg, "한글만 입력가능합니다.");
+				$("#nameMsg").css("color", "red");
 				$('#name').val("");
 				//$(this).val(name.replace(regexp,''));
 				return false;
 			}
 			else if(name != ""){
 				SuccessMsg(Msg, "OK!");
+				$("#nameMsg").css("color", "green");
 				return true;
 			}
 			return true;
 		}
-			 
+		
 		function checkEmail(){
 			var Msg = $('#emailMsg');
+			var exptext = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
 			var email = $('#email').val();
-			if(email  == "") {
+			if(email == ""){
 				ErrorMsg(Msg, "필수입니다");
+				$("#emailMsg").css("color", "red");
 				return false;
 			}
+			if(exptext.test(email)  == false)
+				 {
+					ErrorMsg(Msg, "형식이 맞지 않습니다.");
+					$("#emailMsg").css("color", "red");
+					return false;
+				}
 			else {
 				SuccessMsg(Msg, "OK!");
+				$("#emailMsg").css("color", "green");
 				return true;
 			}
 			return true;
@@ -193,10 +217,12 @@
 			var address2 = $('#address2').val();
 			if( (postcode == "") && (address1 == "") && (address2=="") ) {
 				ErrorMsg(Msg, "주소를 입력하세요");
+				$("#addressMsg").css("color", "red");
 				return false;
 			}
 			else {
 				SuccessMsg(Msg, "OK!");
+				$("#addressMsg").css("color", "green");
 				return true;
 			}
 			return true;

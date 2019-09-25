@@ -9,12 +9,23 @@
 	
 	<select id="boardList" resultType="map">
 		SELECT * FROM BOARD 
-		ORDER BY Brd_NO ASC
+		ORDER BY Brd_NO DESC
 	</select>
 	<select id="boardOne" resultType="map" parameterType="_int">
 		SELECT * FROM BOARD
 		 WHERE Brd_NO = #{Brd_NO}
 	</select>
 	
+	<select id="upd" resultType="map" parameterType="_int">
+		SELECT * FROM BOARD
+		 WHERE Brd_NO = #{Brd_NO}
+	</select>
+	
+	<update id="boardUpdate" >
+		UPDATE BOARD 
+		SET TITLE=#{title}, CONTENT=#{content}
+		where Brd_NO=#{Brd_NO}
+	
+	</update>
 
 </mapper>

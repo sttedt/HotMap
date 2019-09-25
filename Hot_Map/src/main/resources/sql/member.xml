@@ -17,7 +17,7 @@
 		WHERE MEM_ID=#{id} AND PW=#{pw}
 	</select>
 	
-	<select id="joinIdCheck" resultType="map" parameterType="map">
+	<select id="joinIdCheck" resultType="int" parameterType="String">
 		SELECT (COUNT(*)) CON FROM MEMBER 
 		WHERE MEM_ID=#{id}
 	</select>
