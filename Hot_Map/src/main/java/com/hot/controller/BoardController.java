@@ -46,6 +46,18 @@ public class BoardController {
 		return "boardr";
 	}
 	
-	
+	@RequestMapping(value="upd" , method = RequestMethod.GET)
+	public String up(Model model, @RequestParam("Brd_NO") int Brd_NO) {
+		model.addAttribute("upd", boardService.upd(Brd_NO));
+		return "boardup";
+	}
+	@RequestMapping(value="upd", method = RequestMethod.POST)
+	public String up(@RequestParam Map<String, Object> map) {
+		boardService.boardUpdate(map);
+		System.out.println("map : " + map);
+		
+		return "boardr";
+	}
+
 
 }

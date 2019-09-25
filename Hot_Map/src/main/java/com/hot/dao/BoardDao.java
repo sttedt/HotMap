@@ -24,4 +24,11 @@ public class BoardDao {
 	public Map<String, Object> boardOne(int Brd_NO) {
 		return sessionTemplate.selectOne("board.boardOne", Brd_NO);
 	}
+	public Map<String, Object> upd(int Brd_NO) {
+		return sessionTemplate.selectOne("board.upd", Brd_NO);
+	}
+	public int boardUpdate(Map<String, Object> map) {
+		return sessionTemplate.update("board.boardUpdate", map);
+		
+	}
 }
