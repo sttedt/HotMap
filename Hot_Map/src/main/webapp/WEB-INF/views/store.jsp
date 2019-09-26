@@ -9,11 +9,11 @@
 <!-- 상단바 -->
 <jsp:include page="topbar.jsp"></jsp:include>
 
-	<div class="container">
+	<div class="container" style="width:500px">
 		<form action="store" method = "post">
 			<div>
-				<h3 style="text-align: center;">
-					Q&A 글쓰기
+				<h3 style="text-align: center; margin-top: 20px;">
+					매장 등록
 				</h3>
 				<hr>
 			</div>	
