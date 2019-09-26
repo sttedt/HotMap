@@ -20,12 +20,12 @@
 	<div style=" margin-top:100px; height:300px; display: inline-block;" >
 		<div class="card card_size"  style="margin-left:100px;">
 			<div class="card-header">
-				TEST Header
+				피존투
 			</div>	
-			<img src="resources/img/cc.jpg" alt="" />	
+			<img src="https://img.insight.co.kr/static/2019/09/24/700/e4me5y2knfqmfe8irs8g.jpg" style='width:100%' alt="" />	
 			<div class="card-body">
-				TEST Body
-			</div>	
+				히히
+			</div>
 		</div>
 		<div class="card card_size">
 			<div class="card-header">
@@ -99,4 +99,10 @@
 		</div>
 	</div>
 </body>
+<script type="text/javascript" src='resources/js/jquery-3.3.1.min.js'></script>
+<script>
+	$('img').on('click',function(){
+		location.href='http://www.naver.com'
+	})
+</script>
 
