@@ -60,7 +60,10 @@ public class MemberController {
 		catch (Exception e) {
 			return "redirect:login";
 		}
-		return "login";
+		request.setAttribute("type", "error");
+		request.setAttribute("msg", "로그인실패");
+		request.setAttribute("url", "login");
+		return "alert";
 	}
 	@RequestMapping(value = "logout", method = {RequestMethod.GET, RequestMethod.POST})
 	public String logout(HttpServletRequest request, HttpSession httpsession) {

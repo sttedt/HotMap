@@ -26,7 +26,7 @@
 		<!-- DataSource -->
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-        <property name="url" value="jdbc:mysql://192.168.0.53:3306/hotmap"></property>
+        <property name="url" value="jdbc:mysql://192.168.0.2:3306/hotmap?serverTimezone=UTC"></property>
         
 <!--         <property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property> -->
 <!--         <property name="url" value="jdbc:log4jdbc:mysql://192.168.0.62:3306/nodedb"></property> -->
