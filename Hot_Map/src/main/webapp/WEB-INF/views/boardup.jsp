@@ -10,7 +10,7 @@
 <jsp:include page="topbar.jsp"></jsp:include>
 
 	<div class="container">
-		<form action="upd" method = "post">
+		<form method = "post">
 			<div>
 				<h3 style="text-align: center;">
 					Q&A 수정

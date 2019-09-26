@@ -52,12 +52,19 @@ public class BoardController {
 		return "boardup";
 	}
 	@RequestMapping(value="upd", method = RequestMethod.POST)
-	public String up(@RequestParam Map<String, Object> map) {
-		boardService.boardUpdate(map);
+	public String up(@RequestParam Map<String, Object> map,
+			Model model, @RequestParam("Brd_NO") int Brd_NO) {
+		boardService.boardUpdate(map);//데이터넘기기
+		model.addAttribute("upd", boardService.upd(Brd_NO));
+		
+		
 		System.out.println("map : " + map);
 		
-		return "boardr";
+		return "redirect:/boardr?Brd_NO="+Brd_NO;
+		//redirect: 경로설정
+		
 	}
+	
 
 
 }
