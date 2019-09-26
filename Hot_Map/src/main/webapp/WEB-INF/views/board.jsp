@@ -1,21 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
 <head>
-	<title>Q&A 목록</title>
+<title>Q&A 목록</title>
 </head>
 <body>
-<!-- 상단바 -->
-<jsp:include page="topbar.jsp"></jsp:include>
+	<!-- 상단바 -->
+	<jsp:include page="topbar.jsp"></jsp:include>
 	<div class="container">
 		<div>
-			<h3 style="text-align: center;">
-				Q&A 목록
-			</h3>
-		</div>	
-		
-		<table class="table">
+			<h3 style="text-align: center;">Q&A 목록</h3>
+		</div>
+
+		<table class="table" id='target'>
 			<thead>
 				<tr>
 					<th>글번호</th>
@@ -28,7 +28,8 @@
 				<c:forEach items="${b_list}" var="map">
 					<tr>
 						<td>${map.Brd_NO}</td>
-						<td><a class="title" href="boardr?Brd_NO=${map.Brd_NO}" name="title" >${map.title}</a></td>
+						<td><a class="title" href="boardr?Brd_NO=${map.Brd_NO}"
+							name="title">${map.title}</a></td>
 						<td>${map.mem_id}</td>
 						<td>${map.date}</td>
 					</tr>
@@ -36,7 +37,24 @@
 			</tbody>
 		</table>
 		<div>
-			<a href="boardw" class="btn btn-primary" >글쓰기</a>
+			<a href="boardw" class="btn btn-primary">글쓰기</a>
 		</div>
 	</div>
 </body>
+<script type="text/javascript" src='/resources/js/jquery-3.3.1.min.js'></script>
+<script type="text/javascript" src='/resources/js/bootstrap.min.js'></script>
+<script type='text/javascript'
+	src='https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js'></script>
+<script type='text/javascript'
+	src='https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js'></script>
+<script>
+	$('#target').DataTable({
+		order : [ [ 0, 'desc' ] ],
+		ordering : true,
+		serverSide : false
+	})
+
+	$(document).ready(function() {
+		$('#target').DataTable()
+	})
+</script>
