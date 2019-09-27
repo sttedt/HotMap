@@ -38,8 +38,8 @@
 					<input type="time" name="closing_time" placeholder='마감시간' class="form-control col-mb-6" />
 				</div>
 			</div>
-			매장 사진 : <input type="text" name="img1" class="form-control" /></br> <input type="text" name="img2"
-				class="form-control" /> <br /> <input type="text" name="img3" class="form-control" /> <br /> 작성자 :<input
+			매장 사진 : <input type="file" name="img1" class="form-control" multiple/></br>
+	     작성자 :<input
 				type="text" name="mem_id" value="${sessionScope.SID}" class="form-control" readonly="readonly" /> <br />
 			<input type="submit" value="글쓰기" class="btn btn-primary" />
 		</form>
