@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- mapper할때 써야됨 -->
+<mapper namespace="profile">
+	<select id="profileOne" parameterType="String" resultType="map">
+		SELECT * FROM MEMBER WHERE mem_id = #{mem_id}
+	</select>
+
+</mapper>
