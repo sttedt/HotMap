@@ -6,103 +6,86 @@
 <link rel="stylesheet" href="resources/css/bootstrap.min.css">
 <head>
 	<title>Home</title>
-	
 	<style>
-		.card_size{
-			width:200px;
-			float :left;
+		.imgs{
+			max-width:100%;
+			height: 230px;
+				
+		}
+		
+		#div_left{
+			width:60%;
+			hight:300px;
+			float:left;
+			background-color: pink;
 			text-align: center;
-		}	
+		}
+		#div_right{
+		width: 20%;
+		height: 568px;
+		float:left;
+		margin-top: 50px;
+		margin-left: 30px;
+		background-color: purple;
+		text-align: center;
+		}
 	</style>
 </head>
 <body> 
 	<jsp:include page="topbar.jsp"></jsp:include>
-	<div style=" margin-top:100px; height:300px; display: inline-block;" >
-		<div class="card card_size"  style="margin-left:100px;">
-			<div class="card-header">
-				피존투
-			</div>	
-			<img src="https://img.insight.co.kr/static/2019/09/24/700/e4me5y2knfqmfe8irs8g.jpg" style='width:100%' alt="" />	
-			<div class="card-body">
+	
+	<div style="text-align: center; margin-top: 10px;">
+		<h2>신상 맛집 </h2>
+	</div>
+
+	<div style=" margin-top:50px; margin-left: 150px" id="div_left" >
+		<div style="width: 350px; background-color: red; display: inline-block; float: left; margin: 15px;">
+			<img class="imgs" src="https://img.insight.co.kr/static/2019/09/24/700/e4me5y2knfqmfe8irs8g.jpg" style="size: 300px" alt="" />	
+			<div >
 				히히
 			</div>
 		</div>
-		<div class="card card_size">
-			<div class="card-header">
-				TEST Header2
-			</div>	
-			<img src="resources/img/cc.jpg" alt="" />	
-			<div class="card-body">
+		<div style="width: 350px; background-color: red; display: inline-block; float: left; margin: 15px;">
+			<img class="imgs" src="resources/img/cc.jpg" alt="" />	
+			<div >
 				TEST Body2
 			</div>	
 		</div>
-		<div class="card card_size">
-			<div class="card-header">
-				TEST Header3
-			</div>	
-			<img src="resources/img/cc.jpg" alt="" />	
-			<div class="card-body">
+		<div style="width: 350px; background-color: red; display: inline-block; float: left; margin: 15px;">
+			<img class="imgs" src="resources/img/cc.jpg" alt="" />	
+			<div >
 				TEST Body3
 			</div>	
 		</div>
-		<div class="card card_size">
-			<div class="card-header">
-				TEST Header4
+		<div style="width: 350px; background-color: red; display: inline-block; float: left; margin: 15px;">
+			<img class="imgs" src="resources/img/cc.jpg" alt="" />	
+			<div >
+				TEST Body4
 			</div>	
-			<img src="resources/img/cc.jpg" alt="" />	
-			<div class="card-body">
+		</div>
+		<div style="width: 350px; background-color: red; display: inline-block; float: left; margin: 15px;">
+			<img class="imgs" src="resources/img/cc.jpg" alt="" />	
+			<div >
+				TEST Body4
+			</div>	
+		</div>		
+		<div style="width: 350px; background-color: red; display: inline-block; float: left; margin: 15px;">
+			<img class="imgs" src="resources/img/cc.jpg" alt="" />	
+			<div >
 				TEST Body4
 			</div>	
 		</div>
 	</div>
 	
-	<br/>
-	<div style=" margin-top:100px; height:300px; display: inline-block;" >
-		<div class="card card_size"  style="margin-left:100px;">
-			<div class="card-header">
-				TEST Header
-			</div>	
-			<img src="resources/img/cc.jpg" alt="" />	
-			<div class="card-body">
-				TEST Body
-			</div>	
-		</div>
-		
-		<div class="card card_size">
-			<div class="card-header">
-				TEST Header2
-			</div>	
-			<img src="resources/img/cc.jpg" alt="" />	
-			<div class="card-body">
-				TEST Body2
-			</div>	
-		</div>
-		
-		<div class="card card_size" >
-			<div class="card-header">
-				TEST Header3
-			</div>	
-			<img src="resources/img/cc.jpg" alt="" />	
-			<div class="card-body">
-				TEST Body3
-			</div>	
-		</div>
-		
-		<div class="card card_size">
-			<div class="card-header">
-				TEST Header4
-			</div>	
-			<img src="resources/img/cc.jpg" alt="" />	
-			<div class="card-body">
-				TEST Body4
-			</div>	
+	<div id="div_right">
+	
+		<div class="table">
+			
 		</div>
 	</div>
+	
+	
 </body>
 <script type="text/javascript" src='resources/js/jquery-3.3.1.min.js'></script>
-<script>
-	$('img').on('click',function(){
-		location.href='http://www.naver.com'
-	})
-</script>
+
 
