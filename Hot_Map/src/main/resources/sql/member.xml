@@ -3,7 +3,7 @@
 <!-- mapper할때 써야됨 -->
 <mapper namespace="member">
 	<insert id="joinInsert">
-		INSERT INTO MEMBER (MEM_ID, NAME, PW, EMAIL, ADDRESS,ADDRESS1,ADDRESS2, PHONE)
+		INSERT INTO MEMBER (MEM_ID, NAME, PW, EMAIL, ADDRESS, ADDRESS1, ADDRESS2, PHONE)
 		VALUES (#{id}, #{name}, #{pw}, #{email}, #{address},#{address1},#{address2}, #{phone} )
 	</insert>
 	

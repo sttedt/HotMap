@@ -33,16 +33,16 @@
 				<span id="emailMsg"></span>	
 			</div>
 			<div class="form-group input-group">
-				<input type="text" id="postcode" path="address" class="form-control" placeholder="우편번호" readonly/>
+				<input type="text" id="postcode" path="address" name="address" class="form-control" placeholder="우편번호" readonly/>
 				<label>&nbsp;</label> 
 				<input type="button" onclick="sample6_execDaumPostcode()" class="btn btn-primary btn-sm" value="우편번호검색" />
 			</div>
 			<div class="form-group input-group">
-				<input type="text" path="address1" id="address1" class="form-control" placeholder="주소" readonly/>
+				<input type="text" path="address1" id="address1" name="address1" class="form-control" placeholder="주소" readonly/>
 			</div>
 
 			<div class="form-group input-group" style="margin-bottom: 5px">
-				<input type="text" path="address2" id="address2" style="width: 300px; border: 1px; border-bottom: 1px solid #4ABECA;" placeholder="상세주소" />
+				<input type="text" path="address2" id="address2" name="address2" style="width: 300px; border: 1px; border-bottom: 1px solid #4ABECA;" placeholder="상세주소" />
 			</div>
 			<div align="right">
 				<span id="addressMsg" ></span>	
