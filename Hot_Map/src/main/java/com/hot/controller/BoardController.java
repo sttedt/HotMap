@@ -18,6 +18,7 @@ public class BoardController {
 	@Autowired
 	BoardService boardService;
 
+	// 글쓰기 페이지
 	// 주소를 불러서 그쪽으로 출력 value값에 치고들어가는 주소를 적음
 	// board이란 페이지를 불러오기위한 코드
 	@RequestMapping(value="boardw", method = RequestMethod.GET)
@@ -25,7 +26,9 @@ public class BoardController {
 	public String board(Model model) {
 		return "boardw";
 	}
-	// join이란 페이지에서 데이터를 보내기 위한 코드
+	
+	// 글쓰기페이지에서 글을 보내는 코드
+	// boardw란 페이지에서 데이터를 보내기 위한 코드
 	@RequestMapping(value="boardw", method = RequestMethod.POST)
 	public String board(@RequestParam Map<String, Object> map) {
 		boardService.boardInsert(map);
@@ -33,6 +36,7 @@ public class BoardController {
 		return "boardw";
 	}
 	
+	// 게시글 목록 페이지
 	// board이란 페이지에서 데이터를 보내기 위한 코드
 	@RequestMapping(value="board", method = RequestMethod.GET)
 	public String list(Model model) {
@@ -40,31 +44,31 @@ public class BoardController {
 		
 		return "board";
 	}
+	
+	// 게시글 상세페이지
 	@RequestMapping(value="boardr")
 	public String show(Model model, @RequestParam("Brd_NO") int Brd_NO) {
 		model.addAttribute("detail", boardService.boardOne(Brd_NO));
 		return "boardr";
 	}
 	
+	// 게시글 수정 하기위한 코드
 	@RequestMapping(value="upd" , method = RequestMethod.GET)
 	public String up(Model model, @RequestParam("Brd_NO") int Brd_NO) {
 		model.addAttribute("upd", boardService.upd(Brd_NO));
 		return "boardup";
 	}
+	
+	// 게시글 수정을 하고난 다음에  게시글 상세페이지에서 데이터를 땡겨온 코드
 	@RequestMapping(value="upd", method = RequestMethod.POST)
 	public String up(@RequestParam Map<String, Object> map,
 			Model model, @RequestParam("Brd_NO") int Brd_NO) {
 		boardService.boardUpdate(map);//데이터넘기기
 		model.addAttribute("upd", boardService.upd(Brd_NO));
 		
-		
 		System.out.println("map : " + map);
-		
 		return "redirect:/boardr?Brd_NO="+Brd_NO;
 		//redirect: 경로설정
-		
 	}
-	
-
 
 }
