@@ -32,4 +32,8 @@ public class BoardService {
 	public void boardUpdate(Map<String, Object> map) {
 		boardDao.boardUpdate(map);
 	}
+
+	public void boardDelete(Map<String, Object> map) {
+		boardDao.boardDelete(map);
+	}
 }

@@ -132,21 +132,21 @@
 	<!-- END header -->
 
 	<section class="home-slider owl-carousel">
-<!-- 		<div class="slider-item" -->
-<!-- 			style="background-image: url('resources/img/hero_1.jpg');"> -->
+		<div class="slider-item"
+			style="background-image: url('resources/img/hero_1.jpg');">
 
-<!-- 			<div class="container"> -->
-<!-- 				<div -->
-<!-- 					class="row slider-text align-items-center justify-content-center"> -->
-<!-- 					<div class="col-md-8 text-center col-sm-12 element-animate"> -->
-<!-- 						<h1>hotmap</h1> -->
-<!-- 						<p class="mb-5">서면의 핫플</p> -->
+			<div class="container">
+				<div
+					class="row slider-text align-items-center justify-content-center">
+					<div class="col-md-8 text-center col-sm-12 element-animate">
+						<h1>hotmap</h1>
+						<p class="mb-5">서면의 핫플</p>
 
-<!-- 					</div> -->
-<!-- 				</div> -->
-<!-- 			</div> -->
+					</div>
+				</div>
+			</div>
 
-<!-- 		</div> -->
+		</div>
 
 		<!--       <div class="slider-item" style="background-image: url('resources/img/hero_2.jpg');"> -->
 		<!--         <div class="container"> -->

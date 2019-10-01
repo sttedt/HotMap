@@ -52,23 +52,32 @@ public class BoardController {
 		return "boardr";
 	}
 	
-	// 게시글 수정 하기위한 코드
+	// 게시글 수정페이지로 가기위한 코드
 	@RequestMapping(value="upd" , method = RequestMethod.GET)
 	public String up(Model model, @RequestParam("Brd_NO") int Brd_NO) {
 		model.addAttribute("upd", boardService.upd(Brd_NO));
 		return "boardup";
 	}
 	
-	// 게시글 수정을 하고난 다음에  게시글 상세페이지에서 데이터를 땡겨온 코드
+	// 게시글 수정을 하고난 다음에  데이터베이스에 보내는 코드
 	@RequestMapping(value="upd", method = RequestMethod.POST)
 	public String up(@RequestParam Map<String, Object> map,
 			Model model, @RequestParam("Brd_NO") int Brd_NO) {
 		boardService.boardUpdate(map);//데이터넘기기
-		model.addAttribute("upd", boardService.upd(Brd_NO));
-		
-		System.out.println("map : " + map);
+		model.addAttribute("upd", boardService.upd(Brd_NO));// model객체를 이용해서, view로 데이터전달/ 넘길 데이터의 이름과 변수에 넣을 데이터값을 넣음, 그값을 뷰로 넘겨줌
+	
 		return "redirect:/boardr?Brd_NO="+Brd_NO;
 		//redirect: 경로설정
+	}
+	
+	// 게시글 삭제 하기위한 코드
+	@RequestMapping(value="boardd" , method = RequestMethod.GET)
+	public String del(@RequestParam Map<String, Object> map, 
+			Model model) {
+		boardService.boardDelete(map);//데이터넘기기
+//		model.addAttribute("b_list", boardService.boardList());
+		
+		return "redirect:/board";
 	}
 
 }
