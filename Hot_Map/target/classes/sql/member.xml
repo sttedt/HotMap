@@ -21,4 +21,8 @@
 		SELECT (COUNT(*)) CON FROM MEMBER 
 		WHERE MEM_ID=#{id}
 	</select>
+	<insert id="phoneCheck">
+		INSERT INTO PHONECHECK (PHONE, CODE)
+		VALUES (#{phone}, #{code})
+	</insert>
 </mapper>
