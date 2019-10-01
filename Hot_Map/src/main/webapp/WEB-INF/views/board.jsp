@@ -9,8 +9,10 @@
 </head>
 <body>
 	<!-- 상단바 -->
-	<jsp:include page="topbar.jsp"></jsp:include>
-	<div class="container">
+	<jsp:include page="topbar2.jsp"></jsp:include>
+	
+	<hr>
+	<div class="container" style="margin-top: 15px;" >
 		<div>
 			<h3 style="text-align: center;">Q&A 목록</h3>
 		</div>
@@ -37,7 +39,7 @@
 			</tbody>
 		</table>
 		<div>
-			<a href="boardw" class="btn btn-primary">글쓰기</a>
+			<a href="boardw" class="btn btn-dark">글쓰기</a>
 		</div>
 	</div>
 </body>

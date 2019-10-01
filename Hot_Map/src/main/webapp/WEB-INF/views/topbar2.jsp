@@ -29,26 +29,29 @@
 <!-- Theme Style -->
 <link rel="stylesheet" href="resources/css/style.css">
 </head>
-<body>
-
-	<header role="banner">
-		<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+  <div id ="bb">
+	<header class="site-navbar js-sticky-header site-navbar-target" role="banner"
+	 style="height: 150px;  background-color: #000000;">
+		<nav class="navbar navbar-expand-md"style="background-color: #ffffff; ">
 			<div class="container">
-				<a class="navbar-brand" href="home">HOP MAP</a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse"
-					data-target="#navbarsExample05" aria-controls="navbarsExample05"
-					aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
+				<a class="navbar-brand" style="color: white;" href="home">HOP MAP</a>
+<!-- 				<button class="navbar-toggler" type="button" data-toggle="collapse" -->
+<!-- 					data-target="#navbarsExample05" aria-controls="navbarsExample05" -->
+<!-- 					aria-expanded="false" aria-label="Toggle navigation"> -->
+<!-- 					<span class="navbar-toggler-icon"></span> -->
+<!-- 				</button> -->
 
 				<div class="collapse navbar-collapse" id="navbarsExample05">
 					<ul class="navbar-nav ml-auto pl-lg-5 pl-0">
-						<li class="nav-item"><a class="nav-link active"
-							href="index.html">Home</a></li>
-						<li class="nav-item"><a class="nav-link" href="recipes.html">Recipes</a>
+						<li class="nav-item">
+							<a class="nav-link active" href="index.html">Home</a>
 						</li>
-						<li class="nav-item dropdown"><a
-							class="nav-link dropdown-toggle" href="services.html"
+						<li class="nav-item">
+							<a class="nav-link" href="recipes.html">Recipes</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="services.html"
 							id="dropdown04" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false">주류</a>
 							<div class="dropdown-menu" aria-labelledby="dropdown04">
@@ -58,7 +61,8 @@
 									class="dropdown-item" href="services.html">와인</a> <a
 									class="dropdown-item" href="services.html">샴페인</a> <a
 									class="dropdown-item" href="services.html">사케</a>
-							</div></li>
+							</div>
+						</li>
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" href="services.html"
 							id="dropdown04" data-toggle="dropdown" aria-haspopup="true"
@@ -68,7 +72,8 @@
 									class="dropdown-item" href="services.html">중식</a> <a
 									class="dropdown-item" href="services.html">일식</a> <a
 									class="dropdown-item" href="services.html">양식</a>
-							</div></li>
+							</div>
+						</li>
 						<li class="nav-item"><a class="nav-link" href="news.html">News</a>
 						</li>
 					</ul>
@@ -90,7 +95,7 @@
 
 							<c:if test="${sessionScope.SID ne null}">
 								<li class="list-inline-item"><a class="list-inline-item"
-									style="color: #fff; text-decoration: none; margin-top: 15px;">
+									style="color: #66ff66; text-decoration: none; margin-top: 15px;">
 										${sessionScope.SID} 님</a> &nbsp;</li>
 								<li class="list-inline-item"><a class="list-inline-item"
 									href="logout" style="color: #fff; text-decoration: none;">
@@ -112,12 +117,6 @@
 							</c:if>
 						</ul>
 					</form>
-
-
-
-
-				
-
 					<div style="">
 						<input type="text" class="nav-item"
 							style="max-width: 200px; display: inline-block;"
@@ -129,24 +128,24 @@
 			</div>
 		</nav>
 	</header>
+</div>
 	<!-- END header -->
 
-	<section class="home-slider owl-carousel">
-		<div class="slider-item"
-			style="background-image: url('resources/img/hero_1.jpg');">
+	<section class="home-slider owl-carousel" style="position: relative;">
+<!-- 		<div class="slider-item" style="background-image: url('resources/img/hero_1.jpg'); position: relative;"> -->
 
-			<div class="container">
-				<div
-					class="row slider-text align-items-center justify-content-center">
-					<div class="col-md-8 text-center col-sm-12 element-animate">
-						<h1>hotmap</h1>
-						<p class="mb-5">서면의 핫플</p>
+<!-- 			<div class="container"> -->
+<!-- 				<div -->
+<!-- 					class="row slider-text align-items-center justify-content-center"> -->
+<!-- 					<div class="col-md-8 text-center col-sm-12 element-animate"> -->
+<!-- 						<h1>hotmap</h1> -->
+<!-- 						<p class="mb-5">서면의 핫플</p> -->
 
-					</div>
-				</div>
-			</div>
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
 
-		</div>
+<!-- 		</div> -->
 
 		<!--       <div class="slider-item" style="background-image: url('resources/img/hero_2.jpg');"> -->
 		<!--         <div class="container"> -->
@@ -213,7 +212,6 @@
 
 	<!-- </nav> -->
 
-
 </body>
 <script type="text/javascript" src='resources/js/jquery-3.3.1.min.js'></script>
 
@@ -223,7 +221,33 @@
 <script src="resources/js/jquery.waypoints.min.js"></script>
 
 <script src="resources/js/jquery.magnific-popup.min.js"></script>
+  <script src="resources/js/jquery.sticky.js"></script>
+
 <script src="resources/js/magnific-popup-options.js"></script>
 
 
 <script src="resources/js/main.js"></script>
+<script>
+var siteSticky = function() {
+	$(".js-sticky-header").sticky({topSpacing:0});
+};
+siteSticky();
+
+var siteScroll = function() {
+
+  	$(window).scroll(function() {
+
+  		var st = $(this).scrollTop();
+
+  		if (st > 100) {
+  			$('.js-sticky-header').addClass('shrink');
+  		} else {
+  			$('.js-sticky-header').removeClass('shrink');
+  		}
+  	}) 
+  };
+  siteScroll();
+  
+</script>
+
+
