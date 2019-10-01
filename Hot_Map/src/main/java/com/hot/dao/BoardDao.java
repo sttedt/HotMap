@@ -31,4 +31,7 @@ public class BoardDao {
 		return sessionTemplate.update("board.boardUpdate", map);
 		
 	}
+	public int boardDelete(Map<String, Object> map){
+		return sessionTemplate.delete("board.boardDelete", map);
+	}
 }
