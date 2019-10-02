@@ -18,7 +18,9 @@ public class StoreService {
 	public void storeInsert(Map<String, Object> map) {
 		storeDao.storeInsert(map);
 	}
-
+	public void insertTest(Map<String, Object> map) {
+		storeDao.insertTest(map);
+	}
 	public void saveFile(MultipartFile mFile) {
 		String savePath = "C:/upload";
 		File saveDir = new File(savePath);

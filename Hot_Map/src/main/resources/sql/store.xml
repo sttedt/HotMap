@@ -2,9 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- mapper할때 써야됨 -->
 <mapper namespace="store">
+	<insert id="insertTest" parameterType="java.util.Map">
+		insert into test (file) values(#{file, jdbcType=BLOB})
+	</insert>
 	<insert id="storeInsert">
-		INSERT INTO store (name, menu, price, address, phone, opening_time, closing_time, date, mem_id)
-		VALUES (#{name},#{menu},#{price},#{address},#{phone},#{opening_time},#{closing_time},now(),#{mem_id})
+		INSERT INTO store (name, menu, price, address, phone, opening_time, closing_time, date, mem_id, img1)
+		VALUES (#{name},#{menu},#{price},#{address},#{phone},#{opening_time},#{closing_time},now(),#{mem_id}, #{file})
 	</insert>
 
 

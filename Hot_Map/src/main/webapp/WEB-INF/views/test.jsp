@@ -12,7 +12,7 @@
 		<input type='text' name='test1' value='test1'>
 		<input type='text' name='test2' value='test2'>
 		<input type='text' name='test3' value='test3'>
-		<input type='file' name='file' multiple>
+		<input type='file' name='file'>
 		<input type='submit' value='test'>
 	</form>
 
