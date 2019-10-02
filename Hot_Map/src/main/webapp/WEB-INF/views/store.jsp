@@ -14,7 +14,7 @@
 
 <body>
 	<!-- 상단바 -->
-	<jsp:include page="topbar.jsp"></jsp:include>
+	<jsp:include page="topbar2.jsp"></jsp:include>
 
 	<div class="container" style="width: 500px">
 		<form action="store" method="post" enctype='multipart/form-data'>
@@ -53,7 +53,6 @@
 	</div>
 </body>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script src='resources/js/jquery-3.3.1.min.js'></script>
 <script>
 	$('input[name=address]').on('click',function(){
 		new daum.Postcode({

@@ -35,7 +35,7 @@
 	 style="height: 150px;  background-color: #000000;">
 		<nav class="navbar navbar-expand-md"style="background-color: #ffffff; ">
 			<div class="container">
-				<a class="navbar-brand" style="color: white;" href="home">HOP MAP</a>
+				<a class="navbar-brand" style="color: white; font-size: 40px;" href="home"; ">HOP MAP</a>
 <!-- 				<button class="navbar-toggler" type="button" data-toggle="collapse" -->
 <!-- 					data-target="#navbarsExample05" aria-controls="navbarsExample05" -->
 <!-- 					aria-expanded="false" aria-label="Toggle navigation"> -->
@@ -55,12 +55,14 @@
 							id="dropdown04" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false">주류</a>
 							<div class="dropdown-menu" aria-labelledby="dropdown04">
-								<a class="dropdown-item" href="services.html">소주</a> <a
-									class="dropdown-item" href="services.html">맥주</a> <a
-									class="dropdown-item" href="services.html">칵테일</a> <a
-									class="dropdown-item" href="services.html">와인</a> <a
-									class="dropdown-item" href="services.html">샴페인</a> <a
-									class="dropdown-item" href="services.html">사케</a>
+								<a class="dropdown-item" href="services.html">소주</a> 
+								<a class="dropdown-item" href="services.html">맥주</a> 
+								<a class="dropdown-item" href="services.html">칵테일</a> 
+								<a class="dropdown-item" href="services.html">와인</a> 
+								<a class="dropdown-item" href="services.html">샴페인</a> 
+								<a class="dropdown-item" href="services.html">사케</a>
+								<a class="dropdown-item" href="services.html">막걸리</a>
+									
 							</div>
 						</li>
 						<li class="nav-item dropdown"><a
@@ -77,7 +79,7 @@
 						<li class="nav-item"><a class="nav-link" href="news.html">News</a>
 						</li>
 					</ul>
-				<div style="margin-left: 93px">
+				<div style="margin-left: 136px">
 					<form>
 						<ul class="list-inline">
 							<c:if test="${sessionScope.SID eq null}">

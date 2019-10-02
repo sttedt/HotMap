@@ -66,9 +66,13 @@
 		</form>
 	</div>
 	
+<<<<<<< HEAD
 	
 	<script src="resources/js/jquery-3.3.1.min.js"></script>
 	<script src="resources/js/bootstrap.min.js"></script>
+=======
+	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+>>>>>>> branch 'master' of https://github.com/sttedt/HotMap.git
 	
 <script>
 		$(function(){

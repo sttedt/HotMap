@@ -1,5 +1,6 @@
 package com.hot.dao;
 
+import java.util.List;
 import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -14,4 +15,12 @@ public class StoreDao {
 	public int storeInsert(Map<String, Object> map) {
 		return sessionTemplate.insert("store.storeInsert",map);
 	}
+	public List<Map<String, Object>> storeList() {
+		return sessionTemplate.selectList("store.storeList");
+	}
+	
+	public Map<String, Object> storeOne(int St_NO) {
+		return sessionTemplate.selectOne("store.storeOne", St_NO);
+	}
+	
 }
