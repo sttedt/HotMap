@@ -48,4 +48,11 @@ public class StoreController {
 			Model model) {
 		return "redirect:/test";
 	}
+	
+	@RequestMapping(value="storel", method = RequestMethod.GET)
+	public String list(Model model) {
+		model.addAttribute("s_list", storeService.storeList());
+		
+		return "redirect:/home";
+	}
 }
