@@ -39,5 +39,10 @@ public class StoreService {
 	public List<Map<String, Object>> storeList() {
 		return storeDao.storeList();
 	}
+	
+	public Map<String, Object> storeOne(int St_NO) {
+//		boardDao.update(id); // 조회수 증가
+		return storeDao.storeOne(St_NO);
+	}
 
 }

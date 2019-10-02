@@ -12,5 +12,9 @@
 		ORDER BY St_NO DESC Limit 6;
 	</select>
 	
+	<select id="storeOne" resultType="map" parameterType="_int">
+		SELECT * FROM STORE
+		 WHERE St_NO = #{St_NO}
+	</select>
 
 </mapper>

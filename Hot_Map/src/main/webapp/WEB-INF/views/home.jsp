@@ -42,9 +42,12 @@
 	<div style="margin-top: 50px; margin-left: 150px" id="div_left">
 
 			<c:forEach items="${s_list}" var="map">
-				<div>${map.NAME}</div>
-				<a>${map.NAME}</a>
-				<p>${map.NAME}</p>
+				
+				<a href="storer?St_NO=${map.St_NO}">${map.name}</a>
+				<a>가격: ${map.price}</a>
+<%-- 				<div>가격: ${map.price}</div> --%>
+				
+				
 			</c:forEach>
 	</div>
 

@@ -55,4 +55,10 @@ public class StoreController {
 		
 		return "redirect:/home";
 	}
+	@RequestMapping(value="storer")
+	public String show(Model model, @RequestParam("St_NO") int St_NO) {
+		System.out.println(storeService.storeOne(St_NO));
+		model.addAttribute("detail", storeService.storeOne(St_NO));
+		return "storer";
+	}
 }
