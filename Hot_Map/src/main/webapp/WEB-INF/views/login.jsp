@@ -10,15 +10,9 @@
 
 <body>
 	<!-- 상단바 -->
-<<<<<<< HEAD
 	<jsp:include page="topbar.jsp"></jsp:include>
-	
-=======
 	<jsp:include page="topbar2.jsp"></jsp:include>
->>>>>>> branch 'master' of https://github.com/sttedt/HotMap.git
 	<hr>
-<<<<<<< HEAD
-=======
 	<div class="container" style="margin-top: 150px; max-width: 540px;">
 	<div>
 			<h3 style="text-align: center; ">로그인</h3>
@@ -43,8 +37,7 @@
 	<br><br><br><br><br><br><br><br><br><br><br><br><br>
 	<br><br><br><br><br><br><br><br><br><br><br><br><br>
 	
-	
->>>>>>> branch 'master' of https://github.com/sttedt/HotMap.git
+
 </body>
 
 <script>

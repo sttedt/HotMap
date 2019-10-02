@@ -4,7 +4,6 @@
 <%@ page session="true"%>
 
 <body>
-<<<<<<< HEAD
 
 	<header role="banner">
 		<nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -88,11 +87,6 @@
 							</ul>
 						</form>
 
-
-
-
-
-
 						<div style="">
 							<input type="text" class="nav-item"
 								style="max-width: 200px; display: inline-block;"
@@ -104,10 +98,8 @@
 			</div>
 		</nav>
 	</header>
-=======
 	<jsp:include page="topbar2.jsp"></jsp:include>
->>>>>>> branch 'master' of https://github.com/sttedt/HotMap.git
-	<!-- END header -->
+
 	<section class="home-slider owl-carousel">
 		<div class="slider-item"
 			style="background-image: url('resources/img/hero_1.jpg');">
@@ -116,12 +108,8 @@
 				<div
 					class="row slider-text align-items-center justify-content-center">
 					<div class="col-md-8 text-center col-sm-12 element-animate">
-						<!-- <h1>hotmap</h1>
-						<p class="mb-5">서면의 핫플</p> -->
-						<div id='asd'>
-							<input type='text' value='ggggggggggggggggg'>
-						</div>
-						<button type='button' onclick='func1()'>t</button>
+ 						<h1>hotmap</h1>
+						<p class="mb-5">서면의 핫플</p>
 					</div>
 				</div>
 			</div>
@@ -201,27 +189,14 @@
 <script src="resources/js/popper.min.js"></script>
 <script src="resources/js/bootstrap.min.js"></script>
 <script src="resources/js/owl.carousel.min.js"></script>
-<<<<<<< HEAD
-=======
+
 <script src="resources/js/jquery.waypoints.min.js"></script>
 
 <script src="resources/js/jquery.magnific-popup.min.js"></script>
 
 
 
->>>>>>> branch 'master' of https://github.com/sttedt/HotMap.git
 <script src="resources/js/magnific-popup-options.js"></script>
 <script src="resources/js/main.js"></script>
-
-<<<<<<< HEAD
-<script>
-function func1(){
-	$('#asd input').val('')
-	console.log($('#asd').html())
-}
-</script>
-=======
-
 <script src="resources/js/main.js"></script>
 
->>>>>>> branch 'master' of https://github.com/sttedt/HotMap.git
