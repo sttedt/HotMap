@@ -28,4 +28,8 @@ public class MemberDao {
 	public int joinIdCheck(String id) {
 		return sessionTemplate.selectOne("member.joinIdCheck", id);
 	}
+	
+	public int phoneCheck(int phone) {
+		return sessionTemplate.insert("member.phoneCheck", phone);
+	}
 }

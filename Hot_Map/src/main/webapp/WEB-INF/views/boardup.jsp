@@ -27,7 +27,7 @@
 			<br /> 
 			작성자 :<input type="text" name="mem_id" value="${sessionScope.SID}" class="form-control" readonly="readonly"/>
 			<br />
-			<input type="submit" value="수정하기" class="btn btn-primary"/>
+			<input type="submit" value="수정하기" class="btn btn-dark"/>
 		</form>
 	</div>
 </body>

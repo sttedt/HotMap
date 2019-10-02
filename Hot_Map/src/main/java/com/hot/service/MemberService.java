@@ -26,5 +26,8 @@ public class MemberService {
 
 		return memberDao.joinIdCheck(id);
 	}
+	public int phoneCheck(int phone) {
+		return memberDao.phoneCheck(phone);
+	}
 	
 }

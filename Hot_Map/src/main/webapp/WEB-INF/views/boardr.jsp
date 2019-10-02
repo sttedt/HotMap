@@ -40,9 +40,9 @@
 			</tbody>
 		</table>
 		<div>
-			<a href="board" class="btn btn-primary" >목록</a>
-			<a href="upd?Brd_NO=${detail.Brd_NO}" class="btn btn-primary" >수정</a>
-			<a href="board" class="btn btn-primary" >삭제</a>
+			<a href="board" class="btn btn-dark" >목록</a>
+			<a href="upd?Brd_NO=${detail.Brd_NO}" class="btn btn-dark" >수정</a>
+			<a href="boardd?Brd_NO=${detail.Brd_NO}" class="btn btn-dark" >삭제</a>
 		</div>
 	</div>
 </body>

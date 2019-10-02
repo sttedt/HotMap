@@ -11,10 +11,13 @@
 
 <body>
 	<!-- 상단바 -->
-	<jsp:include page="topbar.jsp"></jsp:include>
+	<jsp:include page="topbar2.jsp"></jsp:include>
 
 	<hr>
 	<div class="container" style="max-width: 540px">
+	<div>
+			<h3 style="text-align: center; ">회원가입</h3>
+		</div>
 		<form method="post">
 			<input type="text"     name ="id"      id="id"  placeholder="아이디"  class="form-control"><br>
 			<div align="right">	
@@ -28,14 +31,18 @@
 			<div align="right">	
 				<span id="pwMsg"></span>	
 			</div>
-			<input type="email"    name ="email"   id="email"  placeholder="이메일"   class="form-control"><br>
+			<div class="form-group input-group">	
+				<input type="email"    name ="email"   id="email"  placeholder="이메일"   class="form-control">
+				<label>&nbsp;</label>
+				<input type="button" class="btn btn-primary" value="메일인증">
+			</div>
 			<div align="right">	
 				<span id="emailMsg"></span>	
 			</div>
 			<div class="form-group input-group">
 				<input type="text" id="postcode" path="address" name="address" class="form-control" placeholder="우편번호" readonly/>
 				<label>&nbsp;</label> 
-				<input type="button" onclick="sample6_execDaumPostcode()" class="btn btn-primary btn-sm" value="우편번호검색" />
+				<input type="button" onclick="sample6_execDaumPostcode()" class="btn btn-dark btn-sm" value="우편번호검색" />
 			</div>
 			<div class="form-group input-group">
 				<input type="text" path="address1" id="address1" name="address1" class="form-control" placeholder="주소" readonly/>
@@ -47,11 +54,18 @@
 			<div align="right">
 				<span id="addressMsg" ></span>	
 			</div>
-			<input type="number"   name ="phone"   id="phone" placeholder="폰번호"   class="form-control"><br>
+			<div  class="form-group input-group">
+				<input type="tel"   name ="phone"   id="phone" placeholder="폰번호" class="form-control">
+				<label>&nbsp;</label> 
+				<input type="button" id="btn_phone" class="btn btn-primary" value="인증하기">
+			</div>
+			<div align="right">	
+				<input type="text" id="###" placeholder="인증번호입력">	
+			</div>
 			<div align="right">	
 				<span id="phoneMsg"></span>	
 			</div>	
-			<input type="submit" class="btn btn-primary" id="btn_join" value="회원가입">
+			<input type="submit" class="btn btn-dark" id="btn_join" value="회원가입">
 		</form>
 	</div>
 	

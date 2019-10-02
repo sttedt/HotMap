@@ -27,5 +27,10 @@
 		where Brd_NO=#{Brd_NO}
 	
 	</update>
+	<delete id="boardDelete" parameterType="map" >
+		DELETE FROM BOARD 
+		where Brd_NO=#{Brd_NO}
+	
+	</delete>
 
 </mapper>
