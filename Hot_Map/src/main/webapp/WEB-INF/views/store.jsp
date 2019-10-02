@@ -53,7 +53,6 @@
 	</div>
 </body>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script src='resources/js/jquery-3.3.1.min.js'></script>
 <script>
 	$('input[name=address]').on('click',function(){
 		new daum.Postcode({

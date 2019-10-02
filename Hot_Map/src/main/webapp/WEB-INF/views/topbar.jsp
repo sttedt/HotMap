@@ -72,65 +72,64 @@
 						<li class="nav-item"><a class="nav-link" href="news.html">News</a>
 						</li>
 					</ul>
-				<div style="margin-left: 93px">
-					<form>
-						<ul class="list-inline">
-							<c:if test="${sessionScope.SID eq null}">
-								<li class="list-inline-item"><a class="list-inline-item"
-									href="login"
-									style="color: #fff; text-decoration: none; margin-top: 15px;">
-										LOGIN </a> &nbsp;</li>
-								<li class="list-inline-item"><a class="list-inline-item"
-									href="join" style="color: #fff; text-decoration: none;">
-										JOIN </a>&nbsp;</li>
-								<li class="list-inline-item"><a class="list-inline-item"
-									href="board" style="color: #fff; text-decoration: none;"> Q
-										& A</a> &nbsp;</li>
-							</c:if>
-
-							<c:if test="${sessionScope.SID ne null}">
-								<li class="list-inline-item"><a class="list-inline-item"
-									style="color: #fff; text-decoration: none; margin-top: 15px;">
-										${sessionScope.SID} 님</a> &nbsp;</li>
-								<li class="list-inline-item"><a class="list-inline-item"
-									href="logout" style="color: #fff; text-decoration: none;">
-										LOGOUT</a> &nbsp;</li>
-								<li class="list-inline-item"><a class="list-inline-item"
-									href="profile" style="color: #fff; text-decoration: none;">
-										MY PAGE </a> &nbsp;</li>
-								<li class="list-inline-item"><a class="list-inline-item"
-									href="store" style="color: #fff; text-decoration: none;">
-										STORE</a> &nbsp;</li>
-								<c:if test="${sessionScope.SLEV eq 'ADMIN'}">
+					<div style="margin-left: 93px">
+						<form>
+							<ul class="list-inline">
+								<c:if test="${sessionScope.SID eq null}">
 									<li class="list-inline-item"><a class="list-inline-item"
-										href="admin" style="color: #fff; text-decoration: none;">
-											ADMIN </a>&nbsp;</li>
+										href="login"
+										style="color: #fff; text-decoration: none; margin-top: 15px;">
+											LOGIN </a> &nbsp;</li>
+									<li class="list-inline-item"><a class="list-inline-item"
+										href="join" style="color: #fff; text-decoration: none;">
+											JOIN </a>&nbsp;</li>
+									<li class="list-inline-item"><a class="list-inline-item"
+										href="board" style="color: #fff; text-decoration: none;">
+											Q & A</a> &nbsp;</li>
 								</c:if>
-								<li class="list-inline-item"><a class="list-inline-item"
-									href="board" style="color: #fff; text-decoration: none;"> Q
-										& A</a> &nbsp;</li>
-							</c:if>
-						</ul>
-					</form>
+
+								<c:if test="${sessionScope.SID ne null}">
+									<li class="list-inline-item"><a class="list-inline-item"
+										style="color: #fff; text-decoration: none; margin-top: 15px;">
+											${sessionScope.SID} 님</a> &nbsp;</li>
+									<li class="list-inline-item"><a class="list-inline-item"
+										href="logout" style="color: #fff; text-decoration: none;">
+											LOGOUT</a> &nbsp;</li>
+									<li class="list-inline-item"><a class="list-inline-item"
+										href="profile" style="color: #fff; text-decoration: none;">
+											MY PAGE </a> &nbsp;</li>
+									<li class="list-inline-item"><a class="list-inline-item"
+										href="store" style="color: #fff; text-decoration: none;">
+											STORE</a> &nbsp;</li>
+									<c:if test="${sessionScope.SLEV eq 'ADMIN'}">
+										<li class="list-inline-item"><a class="list-inline-item"
+											href="admin" style="color: #fff; text-decoration: none;">
+												ADMIN </a>&nbsp;</li>
+									</c:if>
+									<li class="list-inline-item"><a class="list-inline-item"
+										href="board" style="color: #fff; text-decoration: none;">
+											Q & A</a> &nbsp;</li>
+								</c:if>
+							</ul>
+						</form>
 
 
 
 
-				
 
-					<div style="">
-						<input type="text" class="nav-item"
-							style="max-width: 200px; display: inline-block;"
-							placeholder="want를 검색하세요"> <input type="submit"
-							class="btn btn-white btn-outline-white" value="search">
+
+						<div style="">
+							<input type="text" class="nav-item"
+								style="max-width: 200px; display: inline-block;"
+								placeholder="want를 검색하세요"> <input type="submit"
+								class="btn btn-white btn-outline-white" value="search">
+						</div>
 					</div>
-				 </div>
 				</div>
 			</div>
 		</nav>
 	</header>
 	<!-- END header -->
-
 	<section class="home-slider owl-carousel">
 		<div class="slider-item"
 			style="background-image: url('resources/img/hero_1.jpg');">
@@ -139,9 +138,12 @@
 				<div
 					class="row slider-text align-items-center justify-content-center">
 					<div class="col-md-8 text-center col-sm-12 element-animate">
-						<h1>hotmap</h1>
-						<p class="mb-5">서면의 핫플</p>
-
+						<!-- <h1>hotmap</h1>
+						<p class="mb-5">서면의 핫플</p> -->
+						<div id='asd'>
+							<input type='text' value='ggggggggggggggggg'>
+						</div>
+						<button type='button' onclick='func1()'>t</button>
 					</div>
 				</div>
 			</div>
@@ -215,15 +217,18 @@
 
 
 </body>
-<script type="text/javascript" src='resources/js/jquery-3.3.1.min.js'></script>
-
+<script src='resources/js/jquery-3.3.1.min.js'></script>
+<script src="resources/js/jquery.waypoints.min.js"></script>
+<script src="resources/js/jquery.magnific-popup.min.js"></script>
 <script src="resources/js/popper.min.js"></script>
 <script src="resources/js/bootstrap.min.js"></script>
 <script src="resources/js/owl.carousel.min.js"></script>
-<script src="resources/js/jquery.waypoints.min.js"></script>
-
-<script src="resources/js/jquery.magnific-popup.min.js"></script>
 <script src="resources/js/magnific-popup-options.js"></script>
-
-
 <script src="resources/js/main.js"></script>
+
+<script>
+function func1(){
+	$('#asd input').val('')
+	console.log($('#asd').html())
+}
+</script>

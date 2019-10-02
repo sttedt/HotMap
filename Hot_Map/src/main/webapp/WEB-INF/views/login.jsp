@@ -11,16 +11,21 @@
 <body>
 	<!-- 상단바 -->
 	<jsp:include page="topbar.jsp"></jsp:include>
+	
 	<hr>
-	<div class="container" style="max-width: 540px;">
-		<form method="post">
-			<div class="form-group">
-				<input type="text" class="form-control" name="id" id="id" aria-describedby="emailHelp" placeholder="id">
-			</div>
-			<div class="form-group">
-				<input type="password" class="form-control" name="pw" id="pw" placeholder="Password">
-			</div>
-		<button type="submit" class="btn btn-primary">로그인</button>
-		</form>
-	</div>
 </body>
+
+<script>
+
+	/* var html = `<div class="container" style="max-width: 540px;">
+		<form method="post">
+	<div class="form-group">
+		<input type="text" class="form-control" name="id" id="id" aria-describedby="emailHelp" placeholder="id">
+	</div>
+	<div class="form-group">
+		<input type="password" class="form-control" name="pw" id="pw" placeholder="Password">
+	</div>
+<button type="submit" class="btn btn-primary">로그인</button>
+</form>
+</div>` */
+</script>
