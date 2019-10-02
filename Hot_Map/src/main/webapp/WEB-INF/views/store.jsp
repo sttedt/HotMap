@@ -14,7 +14,7 @@
 
 <body>
 	<!-- 상단바 -->
-	<jsp:include page="topbar.jsp"></jsp:include>
+	<jsp:include page="topbar2.jsp"></jsp:include>
 
 	<div class="container" style="width: 500px">
 		<form action="store" method="post" enctype='multipart/form-data'>

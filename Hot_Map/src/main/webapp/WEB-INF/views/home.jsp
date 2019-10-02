@@ -33,7 +33,7 @@
 </head>
 <body> 
 	<jsp:include page="topbar.jsp"></jsp:include>
-	
+	<jsp:include page="topbar2.jsp"></jsp:include>
 	<div style="text-align: center; margin-top: 10px;">
 		<h2>신상 맛집 </h2>
 	</div>
