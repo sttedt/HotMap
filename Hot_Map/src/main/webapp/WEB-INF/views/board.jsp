@@ -42,6 +42,7 @@
 			<a href="boardw" class="btn btn-dark">글쓰기</a>
 		</div>
 	</div>
+	
 </body>
 <script src='resources/js/jquery-3.3.1.min.js'></script>
 <script src='resources/js/bootstrap.min.js'></script>
