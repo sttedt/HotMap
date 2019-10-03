@@ -31,7 +31,7 @@ public class MemberController {
 	@RequestMapping(value="join", method = RequestMethod.POST)
 	public String join(@RequestParam Map<String, Object> map) {
 		memberService.joinInsert(map);
-		
+		memberService.phoneCheckDelete(map);
 		return "home";
 	}
 	

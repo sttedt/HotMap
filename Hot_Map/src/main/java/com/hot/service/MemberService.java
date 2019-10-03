@@ -26,12 +26,15 @@ public class MemberService {
 
 		return memberDao.joinIdCheck(id);
 	}
-	public int phoneCheckNumber(int phone) {
-		return memberDao.phoneCheckNumber(phone);
+	public int phoneCheckNumber(Map<String, Object> map) {
+		return memberDao.phoneCheckNumber(map);
 	}
 	
-	public int phoneCheck(int ren) {
-		return memberDao.phoneCheck(ren);
+	public int phoneCheck(Map<String, Object> map ) {
+		return memberDao.phoneCheck(map);
+	}
+	public int phoneCheckDelete(Map<String, Object> map) {
+		return memberDao.phoneCheckDelete(map);
 	}
 	
 }

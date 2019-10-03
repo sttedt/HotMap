@@ -21,13 +21,18 @@
 		SELECT (COUNT(*)) CON FROM MEMBER 
 		WHERE MEM_ID=#{id}
 	</select>
-	<insert id="phoneCheckNumber">
-		INSERT INTO PHONECHECK (PHONE, CODE)
+	<insert id="phoneCheckNumber" parameterType="map">
+		INSERT INTO PHONECHECK (PHONE, MSGCODE)
 		VALUES (#{phone}, #{code})
 	</insert>
 	
-	<select id="phoneCheck">
-		SELCET * FROM PHONECHECK WHERE CODE = #{ren}
+	<select id="phoneCheck" parameterType="map" resultType="int">
+		SELECT (COUNT(*)) CON FROM PHONECHECK 
+		WHERE msgcode = #{code} and phone = #{phone}
 		
 	</select>
+	<delete id="phoneCheckDelete" parameterType="map">
+		DELETE FROM PHONECHECK
+		WHERE phone = #{phone}
+	</delete>
 </mapper>

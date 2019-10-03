@@ -7,8 +7,6 @@
 <head>
 	<title>회원가입</title>
 </head>
-
-
 <body>
 	<!-- 상단바 -->
 	<jsp:include page="topbar2.jsp"></jsp:include>
@@ -44,36 +42,18 @@
 			
 			
 			<div  class="form-group input-group">
-				<input type="number"   name ="phone"   id="phone" placeholder="폰번호" class="form-control">
+				<input type="text"   name ="phone"  id="phone" placeholder="폰번호" class="form-control">
 				<label>&nbsp;</label> 
 				<input type="button" id="btn_phone" class="btn btn-dark" value="인증번호받기">
 			</div>
 			<div class="form-group input-group" style="display: none;" id="checkOn">	
-				<input type="text" class="form-control" id="###" placeholder="인증번호입력">
+				<input type="text" class="form-control" id="phoneCheckEnd" name="phoneCheckEnd" placeholder="인증번호입력">
 				<label>&nbsp;</label> 	
-				<input type="button" class="btn btn-dark" name = "phoneCheck1" value="인증하기">
+				<input type="button" class="btn btn-dark" id="phoneCheckEndButton" name = "phoneCheckEndButton" value="인증하기">
 			</div>
-			<div align="right">	
-				<span id="phoneMsg"></span>	
-			</div>
-			
-			
-			
-			
-			
-				
 			<input type="submit" class="btn btn-dark" id="btn_join" value="회원가입">
 		</form>
 	</div>
-	
-<<<<<<< HEAD
-	
-	<script src="resources/js/jquery-3.3.1.min.js"></script>
-	<script src="resources/js/bootstrap.min.js"></script>
-=======
-	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
->>>>>>> branch 'master' of https://github.com/sttedt/HotMap.git
-	
 <script>
 		$(function(){
 			$('#btn_join').click(function() {
@@ -100,11 +80,17 @@
  			$('#email').keyup(function(){
  				checkEmail();
  			});
- 			$('#btn_phone').click(function(){
- 				phoneCheck();
- 			});
  		});
 		
+		function ErrorMsg(obj, msg) {
+			obj.attr("class", "red");
+			obj.html(msg);
+		}
+		
+		function SuccessMsg(obj, msg) {
+			obj.attr("class", "success");
+			obj.html(msg);
+		}
 		
  		function a() {
  			if(checkId() && checkPw() &&
@@ -226,26 +212,60 @@
 			}
 			return true;
 		}
-		function phoneCheck(){
+
+// 		$('#phone').keyup(function(){
+// 			var phone = $('#phone').val();
+// 			var Msg = $('#PhoneNumberCheck');
+// 			if(phone.length>1 && phone.length<11){
+//  				ErrorMsg(Msg, "휴대폰번호를 정확히 입력해주세요.");
+//  				$("#PhoneNumberCheck").css("color", "red");
+//  				return false;
+//  			}else(
+//  				SuccessMas(Msg,"ㅏ")	
+//  			)
+// 		})
+		
+		
+		$('#btn_phone').click(function(){	
+			var phone = $('#phone').val();
 			$('#checkOn').attr('style', 'display:show');
-			alert("인증번호가 전송되었습니다.")
-			
 			$.ajax({
- 					url : 'msgsend?phone=' + phone,
- 					type : 'get',
- 					data : {'phone' : 'phone'},
-					success : function(data){
-						alert("전송됬다!")
-//  						if(data == 1 ){
-//  							alert("인증 완료되었습니다.");
-//  							$('#checkOn').attr('style', 'display:none');
-//  							return true;
-//  						}else{
-//  							alert("인증번호가 틀렸습니다.");
-//  							return false;
-//  						}
+ 					url : 'msgsend',
+ 					type : 'post',
+ 					data : {'phone' : phone},
+					success : function(d){
+						console.log(d)
+						alert("문자메세지를 확인해주세요")
  					}
  				})
-		}
+		})
+		
+		$('#phoneCheckEndButton').click(function(){	
+			var phone = $('#phone').val();
+			var phoneCheckEnd = $('#phoneCheckEnd').val();
+			$.ajax({
+ 					url : 'msgCheck',
+ 					type : 'post',
+ 					data : {
+ 						'phone' : phone,
+ 						'phoneCheckEnd' : phoneCheckEnd
+ 						},
+					success : function(data){
+						if(data == 1 ){
+ 							alert("인증되었습니다.")
+ 							$('#phone').attr('readonly',true);
+ 							$('#phoneCheckEnd').attr('readonly',true);
+ 							return true;
+ 						}else{
+ 							alert("인증번호가 틀렸습니다.")
+ 							return false;
+ 						}
+ 					}
+ 				})
+		})
+		
+		
+		
+	
 		</script>
 </body>
