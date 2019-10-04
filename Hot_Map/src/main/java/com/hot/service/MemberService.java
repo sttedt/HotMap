@@ -29,5 +29,10 @@ public class MemberService {
 	public int phoneCheck(int phone) {
 		return memberDao.phoneCheck(phone);
 	}
-	
+	public Map<String, Object> profileup(int mem_id) {
+		return memberDao.profileup(mem_id);
+	}
+	public void memberUpdate(Map<String, Object> map) {
+		memberDao.memberUpdate(map);
+	}
 }

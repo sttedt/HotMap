@@ -32,4 +32,11 @@ public class MemberDao {
 	public int phoneCheck(int phone) {
 		return sessionTemplate.insert("member.phoneCheck", phone);
 	}
+	public Map<String, Object> profileup(int mem_id) {
+		return sessionTemplate.selectOne("member.profileup", mem_id);
+	}
+	public int memberUpdate(Map<String, Object> map) {
+		return sessionTemplate.update("member.memberUpdate", map);
+		
+	}
 }

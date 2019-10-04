@@ -35,13 +35,13 @@
 	 style="height: 150px;  background-color: #000000;">
 		<nav class="navbar navbar-expand-md"style="background-color: #ffffff; ">
 			<div class="container">
-				<a class="navbar-brand" style="color: white; font-size: 40px;" href="home"; ">HOP MAP</a>
-<!-- 				<button class="navbar-toggler" type="button" data-toggle="collapse" -->
-<!-- 					data-target="#navbarsExample05" aria-controls="navbarsExample05" -->
-<!-- 					aria-expanded="false" aria-label="Toggle navigation"> -->
-<!-- 					<span class="navbar-toggler-icon"></span> -->
-<!-- 				</button> -->
-
+				<a class="navbar-brand" style="color: white; font-size: 40px;" href="home";">HOP MAP</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbarsExample05" aria-controls="navbarsExample05"
+					aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+			
 				<div class="collapse navbar-collapse" id="navbarsExample05">
 					<ul class="navbar-nav ml-auto pl-lg-5 pl-0">
 						<li class="nav-item">
@@ -79,6 +79,9 @@
 						<li class="nav-item"><a class="nav-link" href="news.html">News</a>
 						</li>
 					</ul>
+
+
+
 				<div style="margin-left: 136px">
 					<form>
 						<ul class="list-inline">
@@ -96,26 +99,41 @@
 							</c:if>
 
 							<c:if test="${sessionScope.SID ne null}">
-								<li class="list-inline-item"><a class="list-inline-item"
-									style="color: #66ff66; text-decoration: none; margin-top: 15px;">
-										${sessionScope.SID} 님</a> &nbsp;</li>
-								<li class="list-inline-item"><a class="list-inline-item"
-									href="logout" style="color: #fff; text-decoration: none;">
-										LOGOUT</a> &nbsp;</li>
-								<li class="list-inline-item"><a class="list-inline-item"
-									href="profile" style="color: #fff; text-decoration: none;">
-										MY PAGE </a> &nbsp;</li>
-								<li class="list-inline-item"><a class="list-inline-item"
-									href="store" style="color: #fff; text-decoration: none;">
-										STORE</a> &nbsp;</li>
-								<c:if test="${sessionScope.SLEV eq 'ADMIN'}">
-									<li class="list-inline-item"><a class="list-inline-item"
-										href="admin" style="color: #fff; text-decoration: none;">
-											ADMIN </a>&nbsp;</li>
-								</c:if>
-								<li class="list-inline-item"><a class="list-inline-item"
-									href="board" style="color: #fff; text-decoration: none;"> Q
-										& A</a> &nbsp;</li>
+<!-- 								<li class="list-inline-item"><a class="list-inline-item" -->
+<!-- 									style="color: #66ff66; text-decoration: none; margin-top: 15px;"> -->
+<%-- 										${sessionScope.SID} 님</a> &nbsp;</li> --%>
+								
+								<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="profile"
+							id="dropdown04" data-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false" style="color: #66ff66; text-decoration: none; margin-top: 0; padding-bottom: 0;">${sessionScope.SID} 님</a>
+							<div class="dropdown-menu" aria-labelledby="dropdown04">
+								<a class="dropdown-item" href="profile">MY PAGE</a> 
+								<a class="dropdown-item" href="logout">LOG OUT</a> 
+								<a class="dropdown-item" href="store">STORE</a> 
+								<a class="dropdown-item" href="board">Q&A</a> 
+							
+									
+							</div>
+						</li>		
+										
+<!-- 								<li class="list-inline-item"><a class="list-inline-item" -->
+<!-- 									href="logout" style="color: #fff; text-decoration: none;"> -->
+<!-- 										LOGOUT</a> &nbsp;</li> -->
+<!-- 								<li class="list-inline-item"><a class="list-inline-item" -->
+<!-- 									href="profile" style="color: #fff; text-decoration: none;"> -->
+<!-- 										MY PAGE </a> &nbsp;</li> -->
+<!-- 								<li class="list-inline-item"><a class="list-inline-item" -->
+<!-- 									href="store" style="color: #fff; text-decoration: none;"> -->
+<!-- 										STORE</a> &nbsp;</li> -->
+<%-- 								<c:if test="${sessionScope.SLEV eq 'ADMIN'}"> --%>
+<!-- 									<li class="list-inline-item"><a class="list-inline-item" -->
+<!-- 										href="admin" style="color: #fff; text-decoration: none;"> -->
+<!-- 											ADMIN </a>&nbsp;</li> -->
+<%-- 								</c:if> --%>
+<!-- 								<li class="list-inline-item"><a class="list-inline-item" -->
+<!-- 									href="board" style="color: #fff; text-decoration: none;">  -->
+<!-- 											Q& A</a> &nbsp;</li> -->
 							</c:if>
 						</ul>
 					</form>
