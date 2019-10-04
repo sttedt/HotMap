@@ -37,12 +37,14 @@ public class StoreController {
 	}
 
 	@RequestMapping(value = "store", method = RequestMethod.POST)
-	public String storeUp(@RequestParam("img1") MultipartFile file, @RequestParam Map<String, Object> map, Model model) throws IOException {
+	public String storeUp(@RequestParam("img1") MultipartFile img1, @RequestParam("img2") MultipartFile img2, @RequestParam("img3") MultipartFile img3, @RequestParam Map<String, Object> map, Model model) throws Exception {
 		
-		//List<Object> temp = new ArrayList<Object>();
+		List<MultipartFile> fileList = new ArrayList<MultipartFile>();
+		if(img1.getSize() > 0) fileList.add(img1);
+		if(img2.getSize() > 0) fileList.add(img2);
+		if(img3.getSize() > 0) fileList.add(img3);
 		
-		map.put("file", file.getBytes());
-		storeService.storeInsert(map);
+		storeService.storeInsert(map, fileList);
 		return "redirect:/home";
 	}
 
@@ -53,9 +55,9 @@ public class StoreController {
 
 	@RequestMapping(value = "test", method = RequestMethod.POST)
 	public String test_post(@RequestParam("file") MultipartFile file, @RequestParam Map<String, Object> map,
-			Model model) {
+			Model model) throws Exception {
 		Map<String, Object> tmp = new HashMap<String, Object>();
-		storeService.insertTest(tmp);
+		storeService.storeFile(file);
 		return "redirect:/test";
 	}
 	

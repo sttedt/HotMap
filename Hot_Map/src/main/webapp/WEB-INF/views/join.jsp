@@ -123,6 +123,8 @@
 					if(result === code) {
 						isEmailAuth = true
 						alert('이메일 인증 완료!')
+						$('#btn_email').prop('disabled',true)
+						$('#btn_emailAuth').prop('disabled',true)
 						$("#email").attr('readonly', true)
 						$('#txt_emailAuth').attr('readonly', true)
 					}else {

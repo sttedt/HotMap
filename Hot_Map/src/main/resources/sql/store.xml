@@ -6,8 +6,8 @@
 		insert into test (file) values(#{file, jdbcType=BLOB})
 	</insert>
 	<insert id="storeInsert">
-		INSERT INTO store (name, menu, price, address, phone, opening_time, closing_time, date, mem_id, img1)
-		VALUES (#{name},#{menu},#{price},#{address},#{phone},#{opening_time},#{closing_time},now(),#{mem_id}, #{file})
+		INSERT INTO store (name, menu, price, address, phone, opening_time, closing_time, date, mem_id, img1, img2, img3)
+		VALUES (#{name},#{menu},#{price},#{address},#{phone},#{opening_time},#{closing_time},now(),#{mem_id}, #{img1}, #{img2}, #{img3})
 	</insert>
 
 	<select id="storeList" resultType="map">

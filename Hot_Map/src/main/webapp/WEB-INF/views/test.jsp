@@ -15,4 +15,11 @@
 		<input type='file' name='file'>
 		<input type='submit' value='test'>
 	</form>
+	<img src ='http://dndnp4.dothome.co.kr/test.jpg'>
 </body>
+<script src='resources/js/jquery-3.3.1.min.js'></script>
+<script>
+	$('input[type=file]').on('change',function(){
+		console.log($(this).val())
+	})
+</script>

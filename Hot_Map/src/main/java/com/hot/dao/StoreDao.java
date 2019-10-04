@@ -13,7 +13,6 @@ public class StoreDao {
 	SqlSessionTemplate sessionTemplate;
 	
 	public int insertTest(Map<String, Object> map) {
-		System.out.println(map.get("file").toString());
 		return sessionTemplate.insert("store.insertTest",map);
 	}
 	public int storeInsert(Map<String, Object> map) {

@@ -50,21 +50,15 @@ public class MemberService {
 	
 	@Transactional
 	public void createAuth(Map<String, Object> map) throws MessagingException, UnsupportedEncodingException {
-		char[] chars = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'};
+		RandomString rand = new RandomString();
+		String code = rand.run(10);
 		
-		StringBuffer sb = new StringBuffer();
-		Random rand = new Random();
-		
-		for(int i = 0 ; i < 10; i++) {
-			int idx = rand.nextInt(chars.length);
-			sb.append(chars[idx]);
-		}
-		map.put("code", sb.toString());
+		map.put("code", code);
 		memberDao.createAuth(map);
 		
 		MailHandler sendMail = new MailHandler(mailSender);
 		sendMail.setSubject("test");
-		sendMail.setText("<h1>test Test..." + sb.toString() + "</h1>");
+		sendMail.setText("<h1>test Test..." + code + "</h1>");
 		sendMail.setFrom("devforthebest@gmail.com", "Admin");
 		sendMail.setTo(map.get("email").toString());
 		sendMail.send();
