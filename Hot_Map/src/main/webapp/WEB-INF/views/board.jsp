@@ -30,8 +30,9 @@
 				<c:forEach items="${b_list}" var="map">
 					<tr>
 						<td>${map.Brd_NO}</td>
-						<td><a class="title" href="boardr?Brd_NO=${map.Brd_NO}"
-							name="title">${map.title}</a></td>
+						<td>
+							<a class="title" href="boardr?Brd_NO=${map.Brd_NO}"	name="title">${map.title}</a>
+						</td>
 						<td>${map.mem_id}</td>
 						<td>${map.date}</td>
 					</tr>
@@ -42,6 +43,7 @@
 			<a href="boardw" class="btn btn-dark">글쓰기</a>
 		</div>
 	</div>
+	
 </body>
 <script src='resources/js/jquery-3.3.1.min.js'></script>
 <script src='resources/js/bootstrap.min.js'></script>

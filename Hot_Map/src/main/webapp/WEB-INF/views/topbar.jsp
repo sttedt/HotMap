@@ -2,13 +2,12 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="true"%>
-
+<link href="https://fonts.googleapis.com/css?family=Arvo|Kaushan+Script|Lobster|Yeon+Sung&display=swap&subset=latin-ext" rel="stylesheet">
 <body>
-
 	<header role="banner">
 		<nav class="navbar navbar-expand-md navbar-dark bg-dark">
 			<div class="container">
-				<a class="navbar-brand" href="home">HOP MAP</a>
+				<a class="navbar-brand" href="home" >HOP MAP</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
 					data-target="#navbarsExample05" aria-controls="navbarsExample05"
 					aria-expanded="false" aria-label="Toggle navigation">
@@ -98,24 +97,17 @@
 			</div>
 		</nav>
 	</header>
-	<jsp:include page="topbar2.jsp"></jsp:include>
-
-	<section class="home-slider owl-carousel">
-		<div class="slider-item"
-			style="background-image: url('resources/img/hero_1.jpg');">
-
+		<div style="background-image: url('resources/img/123123.jpg'); background-repeat:no-repeat; height: 760px" >
+		
 			<div class="container">
-				<div
-					class="row slider-text align-items-center justify-content-center">
+				<div class="row slider-text align-items-center justify-content-center">
 					<div class="col-md-8 text-center col-sm-12 element-animate">
- 						<h1>hotmap</h1>
-						<p class="mb-5">서면의 핫플</p>
+ 						<h1 style="margin-top: 300; color: #fff; font-family: 'Kaushan Script', cursive;">HOP MAP</h1>
+						<p class="mb-5" style="color: #fff;">서면의 핫플</p>
 					</div>
 				</div>
 			</div>
-
 		</div>
-
 		<!--       <div class="slider-item" style="background-image: url('resources/img/hero_2.jpg');"> -->
 		<!--         <div class="container"> -->
 		<!--           <div class="row slider-text align-items-center justify-content-center"> -->
@@ -128,9 +120,6 @@
 		<!--         </div> -->
 
 		<!--       </div> -->
-
-	</section>
-
 	<!-- Navigation -->
 	<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top" > -->
 	<!-- 	<div> -->

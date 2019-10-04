@@ -75,4 +75,10 @@ public class MemberController {
 		return "alert";
 		
 	}
+	@RequestMapping(value="emailAuth", method = RequestMethod.POST)
+	public String emailAuth(@RequestParam Map<String, Object> map) {
+		memberService.createAuth(map);
+		
+		return "home";
+	}
 }

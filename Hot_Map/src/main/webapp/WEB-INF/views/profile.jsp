@@ -7,7 +7,7 @@
 </head>
 <body>
 <!-- 상단바 -->
-<jsp:include page="topbar.jsp"></jsp:include>
+<jsp:include page="topbar2.jsp"></jsp:include>
 	<div class="container">
 		<div>
 			<h3 style="text-align: left;">

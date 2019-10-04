@@ -37,7 +37,7 @@ public class BoardController {
 	}
 	
 	// 게시글 목록 페이지
-	// board이란 페이지에서 데이터를 보내기 위한 코드
+	// board이란 페이지에 데이터를 보내기 위한 코드
 	@RequestMapping(value="board", method = RequestMethod.GET)
 	public String list(Model model) {
 		model.addAttribute("b_list", boardService.boardList());

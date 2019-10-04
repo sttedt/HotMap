@@ -21,8 +21,20 @@
 		SELECT (COUNT(*)) CON FROM MEMBER 
 		WHERE MEM_ID=#{id}
 	</select>
-	<insert id="phoneCheck">
+	<insert id="phoneCheckNumber">
 		INSERT INTO PHONECHECK (PHONE, CODE)
 		VALUES (#{phone}, #{code})
+	</insert>
+	
+	<select id="phoneCheck">
+		SELCET * FROM PHONECHECK WHERE CODE = #{ren}
+	</select>
+	
+	<select id='emailAuth'>
+		select * from emailauth where email = #{email}
+	</select>
+	<insert id='createAuth'>
+		insert into emailauth (email, code)
+		values (#{email}, #{code})
 	</insert>
 </mapper>

@@ -15,5 +15,4 @@
 		<input type='file' name='file'>
 		<input type='submit' value='test'>
 	</form>
-
 </body>

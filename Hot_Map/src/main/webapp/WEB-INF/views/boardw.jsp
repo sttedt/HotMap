@@ -7,7 +7,7 @@
 </head>
 <body>
 <!-- 상단바 -->
-<jsp:include page="topbar.jsp"></jsp:include>
+<jsp:include page="topbar2.jsp"></jsp:include>
 
 	<div class="container">
 		<form action="boardw" method = "post">

@@ -10,5 +10,14 @@
 		VALUES (#{name},#{menu},#{price},#{address},#{phone},#{opening_time},#{closing_time},now(),#{mem_id}, #{file})
 	</insert>
 
+	<select id="storeList" resultType="map">
+		SELECT * FROM STORE 
+		ORDER BY St_NO DESC Limit 6;
+	</select>
+	
+	<select id="storeOne" resultType="map" parameterType="_int">
+		SELECT * FROM STORE
+		 WHERE St_NO = #{St_NO}
+	</select>
 
 </mapper>
