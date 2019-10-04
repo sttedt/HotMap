@@ -29,17 +29,24 @@ public class MemberDao {
 		return sessionTemplate.selectOne("member.joinIdCheck", id);
 	}
 	
-	public int phoneCheckNumber(int phone) {
-		return sessionTemplate.insert("member.phoneCheckNumber", phone);
+	public int phoneCheckNumber(Map<String, Object> map) {
+		return sessionTemplate.insert("member.phoneCheckNumber", map);
 	}
 	
-	public int phoneCheck(int ren) {
-		return sessionTemplate.selectOne("member.phoneCheck", ren);
+	public int phoneCheck(Map<String, Object> map) {
+		return sessionTemplate.selectOne("member.phoneCheck", map);
 	}
-	public int emailAuth(Map<String, Object> map) {
+	
+	public int phoneCheckDelete(Map<String, Object> map) {
+		return sessionTemplate.delete("member.phoneCheckDelete",map);
+	}
+	public String emailAuth(Map<String, Object> map) {
 		return sessionTemplate.selectOne("member.emailAuth", map);
 	}
 	public int createAuth(Map<String, Object> map) {
 		return sessionTemplate.insert("member.createAuth", map);
+	}
+	public int deleteAuth(Map<String, Object> map) {
+		return sessionTemplate.delete("member.deleteAuth", map);
 	}
 }

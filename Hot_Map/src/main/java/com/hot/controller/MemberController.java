@@ -1,7 +1,9 @@
 package com.hot.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Map;
 
+import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -11,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hot.service.MemberService;
 
@@ -31,7 +34,8 @@ public class MemberController {
 	@RequestMapping(value="join", method = RequestMethod.POST)
 	public String join(@RequestParam Map<String, Object> map) {
 		memberService.joinInsert(map);
-		
+		memberService.phoneCheckDelete(map);
+		memberService.deleteAuth(map);
 		return "home";
 	}
 	
@@ -75,10 +79,16 @@ public class MemberController {
 		return "alert";
 		
 	}
-	@RequestMapping(value="emailAuth", method = RequestMethod.POST)
-	public String emailAuth(@RequestParam Map<String, Object> map) {
+	@RequestMapping(value="createAuth", method = RequestMethod.POST)
+	public String createAuth(@RequestParam Map<String, Object> map) throws UnsupportedEncodingException, MessagingException {
 		memberService.createAuth(map);
 		
 		return "home";
+	}
+	@RequestMapping(value="emailAuth", method = RequestMethod.POST)
+	@ResponseBody
+	public String emailAuth(@RequestParam Map<String, Object> map, Model model) {
+		String tmp = memberService.emailAuth(map);
+		return tmp;
 	}
 }
