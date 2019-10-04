@@ -1,10 +1,12 @@
-package com.hot.test;
+package com.hot.controller;
 
+import java.util.Map;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -14,34 +16,48 @@ import com.hot.service.MemberService;
 
 
 @Controller
-public class ExampleSend {
+public class sandController {
 	@Autowired
 	MemberService ms;
 	
-	@RequestMapping(value = "msgsend")
+	@RequestMapping(value = "msgsend" ,method = RequestMethod.POST)
 	@ResponseBody
-	public int msgsend(@RequestParam("phone") int phone) {
+	public int msgsend(@RequestParam("phone") String phone, Map<String, Object> map) {
 		System.out.println("phone : " + phone);
-		String ren = numberGen();
-		System.out.println(" numStr : " + ren);
-		return ms.phoneCheck(phone);
+		int code = numberGen();
+		System.out.println(" numStr : " + code);
+		map.put("phone" , phone);
+		map.put("code", code);
+		System.out.println("map  : " + map);
+		
+		
+		return ms.phoneCheckNumber(map);
 	}
 	
-    public static String numberGen() {
+    public static int numberGen() {
         
         Random rand = new Random();
-        String numStr = ""; //난수가 저장될 변수
+        int numStr = 0; //난수가 저장될 변수
         
         for(int i=0;i<6;i++) {
             //0~9 까지 난수 생성
-            String ran = Integer.toString(rand.nextInt(10));
+            int ran = rand.nextInt(10);
             numStr += ran;
         }
         return numStr;
-    }
+    }	
 
 	
-	
+	@RequestMapping(value = "msgCheck" , method = RequestMethod.POST)
+	@ResponseBody
+	public int msgCheck(@RequestParam("phone") int phone, @RequestParam("phoneCheckEnd") int check, Map<String , Object> map) {
+		System.out.println("check : " + check);
+		System.out.println( "phone : " + phone);
+		map.put("phone" , phone);
+		map.put("code" , check);
+		
+		return ms.phoneCheck(map);
+	}
 	
 	
 	

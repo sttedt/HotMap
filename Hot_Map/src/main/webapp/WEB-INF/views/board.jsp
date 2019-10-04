@@ -30,8 +30,9 @@
 				<c:forEach items="${b_list}" var="map">
 					<tr>
 						<td>${map.Brd_NO}</td>
-						<td><a class="title" href="boardr?Brd_NO=${map.Brd_NO}"
-							name="title">${map.title}</a></td>
+						<td>
+							<a class="title" href="boardr?Brd_NO=${map.Brd_NO}"	name="title">${map.title}</a>
+						</td>
 						<td>${map.mem_id}</td>
 						<td>${map.date}</td>
 					</tr>

@@ -1,9 +1,16 @@
 package com.hot.controller;
 
 import java.io.File;
+import java.io.IOException;
+import java.sql.Blob;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.sql.rowset.serial.SerialBlob;
+import javax.sql.rowset.serial.SerialException;
 
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,11 +37,14 @@ public class StoreController {
 	}
 
 	@RequestMapping(value = "store", method = RequestMethod.POST)
-	public String storeUp(@RequestParam("file") List<MultipartFile> list, @RequestParam Map<String, Object> map, Model model) {
-		storeService.storeInsert(map);
-		for (int i = 0; i < list.size(); i++) {
-			storeService.saveFile(list.get(i));
-		}
+	public String storeUp(@RequestParam("img1") MultipartFile img1, @RequestParam("img2") MultipartFile img2, @RequestParam("img3") MultipartFile img3, @RequestParam Map<String, Object> map, Model model) throws Exception {
+		
+		List<MultipartFile> fileList = new ArrayList<MultipartFile>();
+		if(img1.getSize() > 0) fileList.add(img1);
+		if(img2.getSize() > 0) fileList.add(img2);
+		if(img3.getSize() > 0) fileList.add(img3);
+		
+		storeService.storeInsert(map, fileList);
 		return "redirect:/home";
 	}
 
@@ -44,8 +54,10 @@ public class StoreController {
 	}
 
 	@RequestMapping(value = "test", method = RequestMethod.POST)
-	public String test_post(@RequestParam("file") List<MultipartFile> list, @RequestParam Map<String, Object> map,
-			Model model) {
+	public String test_post(@RequestParam("file") MultipartFile file, @RequestParam Map<String, Object> map,
+			Model model) throws Exception {
+		Map<String, Object> tmp = new HashMap<String, Object>();
+		storeService.storeFile(file);
 		return "redirect:/test";
 	}
 	
