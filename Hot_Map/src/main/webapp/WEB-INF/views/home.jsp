@@ -35,7 +35,7 @@
 	<jsp:include page="topbar.jsp"></jsp:include>
 	<jsp:include page="topbar2.jsp"></jsp:include>
 	<div style="text-align: center; margin-top: 10px;">
-		<h2>신상 맛집</h2>
+		<h2>신상 핫플레이스</h2>
 	</div>
 
 
@@ -43,8 +43,8 @@
 
 			<c:forEach items="${s_list}" var="map">
 				
-				<a href="storer?St_NO=${map.St_NO}">${map.name}</a>
-				<a>가격: ${map.price}</a>
+				<a href="storer?St_NO=${map.St_NO}">${map.NAME}</a>
+				<a>가격: ${map.PRICE}</a>
 <%-- 				<div>가격: ${map.price}</div> --%>
 				
 				
@@ -56,78 +56,7 @@
 
 		<div class="table"></div>
 	</div>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
+
 
 </body>
 

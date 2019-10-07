@@ -40,4 +40,20 @@ public class MemberDao {
 	public int phoneCheckDelete(Map<String, Object> map) {
 		return sessionTemplate.delete("member.phoneCheckDelete",map);
 	}
+	public String emailAuth(Map<String, Object> map) {
+		return sessionTemplate.selectOne("member.emailAuth", map);
+	}
+	public int createAuth(Map<String, Object> map) {
+		return sessionTemplate.insert("member.createAuth", map);
+	}
+	public int deleteAuth(Map<String, Object> map) {
+		return sessionTemplate.delete("member.deleteAuth", map);
+	}
+	public Map<String, Object> profileup(int mem_id) {
+		return sessionTemplate.selectOne("member.profileup", mem_id);
+	}
+	public int memberUpdate(Map<String, Object> map) {
+		return sessionTemplate.update("member.memberUpdate", map);
+		
+	}
 }

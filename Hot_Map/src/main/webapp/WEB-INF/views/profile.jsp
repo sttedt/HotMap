@@ -21,6 +21,10 @@
 					<td>${pro.mem_id}</td>
 				</tr>
 				<tr>
+					<th>비밀번호</th>
+					<td>${pro.Pw}</td>
+				</tr>
+				<tr>
 					<th>이름</th>
 					<td>${pro.Name}</td>
 				</tr>
@@ -47,7 +51,7 @@
 			</tbody>
 		</table>
 		<div>
-			<a href="" class="btn btn-primary" >수정</a>
+			<a href="profileup?mem_id=${pro.mem_id}" class="btn btn-primary" >수정</a>
 		</div>
 	</div>
 </body>

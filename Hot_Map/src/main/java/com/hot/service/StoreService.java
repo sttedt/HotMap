@@ -2,6 +2,7 @@ package com.hot.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -15,27 +16,58 @@ import com.hot.dao.StoreDao;
 public class StoreService {
 	@Autowired
 	StoreDao storeDao;
-
-	public void storeInsert(Map<String, Object> map) {
+	
+	public void storeInsert(Map<String, Object> map, List<MultipartFile> list) throws Exception {
+		
+		for(int i = 0 ; i < list.size() ; i++) {
+			MultipartFile temp = list.get(i);
+			String key = "img" + (i + 1);
+			String fileName = storeFile(temp);
+			
+			map.put(key, fileName);
+		}
 		storeDao.storeInsert(map);
 	}
-
-	public void saveFile(MultipartFile mFile) {
-		String savePath = "C:/upload";
+	public void insertTest(Map<String, Object> map) {
+		storeDao.insertTest(map);
+	}
+	public File saveFile(MultipartFile mFile) {
+		String savePath = "C:/Temp";
 		File saveDir = new File(savePath);
+		
+		
 		if (!saveDir.isDirectory()) {
 			saveDir.mkdirs();
 		}
 		String fileName = mFile.getOriginalFilename();
+		File temp = new File(savePath + "/" + fileName);
 		try {
-			mFile.transferTo(new File(savePath + "/" + fileName));
+			
+			mFile.transferTo(temp);
 		} catch (IllegalStateException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		return temp;
 	}
-	
+	public String storeFile(MultipartFile mFile) throws Exception {
+		// 임시파일 생성 후 전송한다. 웹브라우저 상에서 절대경로는 파악이 불가함.. 그래서 내가 경로를 정해줄거
+		File temp = saveFile(mFile);
+		RandomString rand = new RandomString();
+		// 확장자 추출
+		String ext = mFile.getOriginalFilename().substring(mFile.getOriginalFilename().lastIndexOf(".") + 1, mFile.getOriginalFilename().length());
+		String fileName = rand.run(30) +"." + ext;
+		FTPUploader ftpUploader = new FTPUploader("dndnp4.dothome.co.kr", "dndnp4", "dothome11!");
+		System.out.println("Store " + temp.toString());
+        ftpUploader.uploadFile(temp.toString(), fileName, "/image/");
+        ftpUploader.disconnect();
+
+        // 임시파일삭제
+        temp.delete();
+        
+        return fileName;
+	}
 	public List<Map<String, Object>> storeList() {
 		return storeDao.storeList();
 	}

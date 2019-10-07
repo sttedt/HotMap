@@ -25,12 +25,34 @@
 		INSERT INTO PHONECHECK (PHONE, MSGCODE)
 		VALUES (#{phone}, #{code})
 	</insert>
+
 	
-	<select id="phoneCheck" parameterType="map" resultType="int">
-		SELECT (COUNT(*)) CON FROM PHONECHECK 
-		WHERE msgcode = #{code} and phone = #{phone}
-		
+	<select id="profileup" resultType="map" parameterType="_int">
+		SELECT * FROM MEMBER
+		 WHERE MEM_ID = #{id}
 	</select>
+	
+	<update id="memberUpdate" parameterType="map">
+		UPDATE MEMBER 
+		SET Name=#{Name}, PW=#{pw}
+		WHERE MEM_ID=#{id}
+	</update>
+
+	
+	<select id="phoneCheck">
+		SELCET * FROM PHONECHECK WHERE CODE = #{ren}
+	</select>
+
+	<select id='emailAuth' resultType="String">
+		select code from emailauth where email = #{email}
+	</select>
+	<insert id='createAuth'>
+		insert into emailauth (email, code)
+		values (#{email}, #{code})
+	</insert>
+	<delete id='deleteAuth'>
+		delete from emailauth where email = #{email}
+	</delete>
 	<delete id="phoneCheckDelete" parameterType="map">
 		DELETE FROM PHONECHECK
 		WHERE phone = #{phone}

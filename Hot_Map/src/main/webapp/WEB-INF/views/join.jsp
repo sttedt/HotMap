@@ -32,15 +32,17 @@
 			<div class="form-group input-group">	
 				<input type="email"    name ="email"   id="email"  placeholder="이메일"   class="form-control">
 				<label>&nbsp;</label>
-				<input type="button" class="btn btn-primary" value="메일인증">
+				<input type="button" id='btn_email' class="btn btn-primary" value="메일인증">
+			</div>
+			<div class="form-group input-group" style='display:none;' id='emailAuthArea' >	
+				<input type="text"    name ="emailAuth"   id="txt_emailAuth"  placeholder="인증번호입력"   class="form-control">
+				<label>&nbsp;</label>
+				<input type="button" id='btn_emailAuth' class="btn btn-primary" value="인증하기">
 			</div>
 			<div align="right">	
 				<span id="emailMsg"></span>	
 			</div>
-			
-			
-			
-			
+
 			<div  class="form-group input-group">
 				<input type="text"   name ="phone"  id="phone" placeholder="폰번호" class="form-control">
 				<label>&nbsp;</label> 
@@ -51,10 +53,22 @@
 				<label>&nbsp;</label> 	
 				<input type="button" class="btn btn-dark" id="phoneCheckEndButton" name = "phoneCheckEndButton" value="인증하기">
 			</div>
+			<div align="right">	
+				<span id="phoneMsg"></span>	
+			</div>
+			
 			<input type="submit" class="btn btn-dark" id="btn_join" value="회원가입">
 		</form>
 	</div>
+
+	
+	<script src="resources/js/jquery-3.3.1.min.js"></script>
+	<script src="resources/js/bootstrap.min.js"></script>
+	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+
+	
 <script>
+	var isEmailAuth = false
 		$(function(){
 			$('#btn_join').click(function() {
  				if(a()) {
@@ -81,7 +95,44 @@
  				checkEmail();
  			});
  		});
-		
+		$('#btn_email').on('click',function(){
+			var email = $('#email').val()
+			SuccessMsg($('#emailMsg'),"메일 전송 중입니다..")
+			$(this).prop('disabled',true)
+			$.ajax({
+				url : 'createAuth',
+				type : 'post',
+				data : {'email' : email},
+				success : function(){
+					SuccessMsg($('#emailMsg'),"인증 코드를 입력하세요.")
+					$('#btn_email').removeAttr('disabled')
+					alert('인증 코드가 전송되었습니다.')
+					$('#emailAuthArea').show()
+				}
+			})
+			
+		})
+		$('#btn_emailAuth').on('click', function(){
+			var email = $('#email').val()
+			var code = $('#txt_emailAuth').val()
+			$.ajax({
+				url : 'emailAuth',
+				type : 'post',
+				data : {email : email},
+				success : function(result){
+					if(result === code) {
+						isEmailAuth = true
+						alert('이메일 인증 완료!')
+						$('#btn_email').prop('disabled',true)
+						$('#btn_emailAuth').prop('disabled',true)
+						$("#email").attr('readonly', true)
+						$('#txt_emailAuth').attr('readonly', true)
+					}else {
+						alert('인증 코드를 확인하십시오.')
+					}
+				}
+			})
+		})
 		function ErrorMsg(obj, msg) {
 			obj.attr("class", "red");
 			obj.html(msg);
@@ -209,6 +260,11 @@
 				SuccessMsg(Msg, "OK!");
 				$("#emailMsg").css("color", "green");
 				return true;
+			}
+			if(!isEmailAuth) {
+				ErrorMasg(Msg,"메일 인증을 완료하십시오")
+				$("#emailMsg").css("color", "red");
+				return false;
 			}
 			return true;
 		}

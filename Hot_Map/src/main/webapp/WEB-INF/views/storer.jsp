@@ -23,7 +23,7 @@
 				</tr>
 				<tr>
 					<th>가게이름</th>
-					<td>${detail.name}</td>
+					<td>${detail.NAME}</td>
 				</tr>
 				<tr>
 					<th>메뉴</th>
@@ -31,7 +31,7 @@
 				</tr>
 				<tr>	
 					<th>주소</th>
-					<td>${detail.address}</td>
+					<td>${detail.ADDRESS}</td>
 				</tr>
 				<tr>	
 					<th>날짜</th>
@@ -39,7 +39,7 @@
 				</tr>
 				<tr>	
 					<th>전화번호</th>
-					<td>${detail.phone}</td>
+					<td>${detail.Phone}</td>
 				</tr>
 				<tr>	
 					<th>오픈시간</th>
