@@ -111,6 +111,7 @@ public class MemberController {
 	@ResponseBody
 	public String emailAuth(@RequestParam Map<String, Object> map, Model model) {
 		String tmp = memberService.emailAuth(map);
+		if(tmp.length() > 1) memberService.deleteAuth(map);
 		return tmp;
 	}
 }

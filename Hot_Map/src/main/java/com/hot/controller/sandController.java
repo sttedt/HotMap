@@ -55,10 +55,9 @@ public class sandController {
 		System.out.println( "phone : " + phone);
 		map.put("phone" , phone);
 		map.put("code" , check);
-		
+
 		return ms.phoneCheck(map);
 	}
-	
 	
 	
 	
