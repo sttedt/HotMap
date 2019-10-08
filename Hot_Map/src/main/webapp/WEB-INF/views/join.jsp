@@ -46,7 +46,7 @@
 			<div  class="form-group input-group">
 				<input type="text"   name ="phone"  id="phone" placeholder="폰번호" class="form-control">
 				<label>&nbsp;</label> 
-				<input type="button" id="btn_phone" class="btn btn-dark" value="인증번호받기">
+				<input type="button" id="btn_phone"  class="btn btn-dark" value="인증번호받기">
 			</div>
 			<div class="form-group input-group" style="display: none;" id="checkOn">	
 				<input type="text" class="form-control" id="phoneCheckEnd" name="phoneCheckEnd" placeholder="인증번호입력">
@@ -60,13 +60,6 @@
 			<input type="submit" class="btn btn-dark" id="btn_join" value="회원가입">
 		</form>
 	</div>
-
-	
-	<script src="resources/js/jquery-3.3.1.min.js"></script>
-	<script src="resources/js/bootstrap.min.js"></script>
-	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-
-	
 <script>
 	var isEmailAuth = false
 		$(function(){
@@ -311,6 +304,7 @@
  							alert("인증되었습니다.")
  							$('#phone').attr('readonly',true);
  							$('#phoneCheckEnd').attr('readonly',true);
+ 							$('#btn_phone').attr('style','display:none');
  							return true;
  						}else{
  							alert("인증번호가 틀렸습니다.")
@@ -319,9 +313,6 @@
  					}
  				})
 		})
-		
-		
-		
 	
 		</script>
 </body>

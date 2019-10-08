@@ -47,7 +47,6 @@ public class MemberService {
 	public void memberUpdate(Map<String, Object> map) {
 		memberDao.memberUpdate(map);
 	}
-
 	
 	public int phoneCheck(Map<String, Object> map ) {
 		return memberDao.phoneCheck(map);
@@ -55,6 +54,7 @@ public class MemberService {
 	public int phoneCheckDelete(Map<String, Object> map) {
 		return memberDao.phoneCheckDelete(map);
 	}
+	
 	
 	@Transactional
 	public void createAuth(Map<String, Object> map) throws MessagingException, UnsupportedEncodingException {
