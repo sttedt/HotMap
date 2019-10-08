@@ -49,7 +49,7 @@ public class MemberDao {
 	public int deleteAuth(Map<String, Object> map) {
 		return sessionTemplate.delete("member.deleteAuth", map);
 	}
-	public Map<String, Object> profileup(int mem_id) {
+	public Map<String, Object> profileup(String mem_id) {
 		return sessionTemplate.selectOne("member.profileup", mem_id);
 	}
 	public int memberUpdate(Map<String, Object> map) {

@@ -83,7 +83,8 @@ public class MemberController {
 	
 	// 해당 아이디 비번 등이 적힌 수정하는 페이지로 가는 코드
 	@RequestMapping(value="profileup" , method = RequestMethod.GET)
-	public String up(Model model, @RequestParam("mem_id") int mem_id) {
+	public String up(Model model, @RequestParam("mem_id") String mem_id) {
+		System.out.println(memberService.profileup(mem_id));
 		model.addAttribute("profileup", memberService.profileup(mem_id));
 		return "profileup";
 	}
@@ -91,7 +92,7 @@ public class MemberController {
 	// 게시글 수정을 하고난 다음에  데이터베이스에 보내는 코드
 	@RequestMapping(value="profileup", method = RequestMethod.POST)
 	public String up(@RequestParam Map<String, Object> map,
-			Model model, @RequestParam("mem_id") int mem_id) {
+			Model model, @RequestParam("mem_id") String mem_id) {
 		memberService.memberUpdate(map);//데이터넘기기
 		model.addAttribute("profileup", memberService.profileup(mem_id));// model객체를 이용해서, view로 데이터전달/ 넘길 데이터의 이름과 변수에 넣을 데이터값을 넣음, 그값을 뷰로 넘겨줌
 	
