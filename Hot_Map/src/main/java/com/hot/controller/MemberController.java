@@ -49,7 +49,6 @@ public class MemberController {
 	@RequestMapping(value="login", method = RequestMethod.POST)
 	public String login(Model model,@RequestParam Map<String, Object> map , HttpSession httpSession, HttpServletRequest request) {
 		Map<String, Object> map2 = memberService.loginSelect(map);
-		System.out.println("map2 : " + map2);
 		try {
 			if(map2 !=null) {
 				httpSession.setAttribute("SID", map.get("id"));
@@ -84,7 +83,6 @@ public class MemberController {
 	// 해당 아이디 비번 등이 적힌 수정하는 페이지로 가는 코드
 	@RequestMapping(value="profileup" , method = RequestMethod.GET)
 	public String up(Model model, @RequestParam("mem_id") String mem_id) {
-		System.out.println(memberService.profileup(mem_id));
 		model.addAttribute("profileup", memberService.profileup(mem_id));
 		return "profileup";
 	}
