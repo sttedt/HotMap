@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.hot.md5.EncryptionClass;
 import com.hot.service.MemberService;
 import com.hot.service.ProfileService;
 
@@ -30,7 +31,11 @@ public class ProfileController {
 	}
 
 	@RequestMapping(value = "profile_check", method = RequestMethod.POST)
-	public String profile_check_post(Model model, @RequestParam Map<String, Object> map) {
+	public String profile_check_post(Model model, @RequestParam Map<String, Object> map,
+			@RequestParam("pw") String pw) {
+		String MD_PW = EncryptionClass.convertiMD5(pw);
+		map.put("pw", MD_PW);
+		
 		Map<String, Object> data = ms.loginSelect(map);
 		if (data == null) {
 			return "redirect:/profile_check";

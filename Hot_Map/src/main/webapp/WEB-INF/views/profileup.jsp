@@ -23,7 +23,10 @@
 			아이디 :<input type="text" name="id" value="${sessionScope.SID}" class="form-control" readonly="readonly"/>
 			<br />
 			비밀번호 :<br /> 
-			<input type="text" name="pw" class="form-control" value="${profileup.Pw}"/>
+			<input type="password" name="pw" class="form-control" />
+			<br />
+			비밀번호 확인 :<br /> 
+			<input type="password" name="pw_check" class="form-control" />
 			<br />
 			이름 :<br /> 
 			<input type="text" name="Name" class="form-control" value="${profileup.Name}"/>

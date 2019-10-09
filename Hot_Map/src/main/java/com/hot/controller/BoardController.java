@@ -2,6 +2,8 @@ package com.hot.controller;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,7 +25,8 @@ public class BoardController {
 	// board이란 페이지를 불러오기위한 코드
 	@RequestMapping(value="boardw", method = RequestMethod.GET)
 	// param은 map을 받는다
-	public String board(Model model) {
+	public String board(Model model,HttpSession httpSession) {
+		
 		return "boardw";
 	}
 	
