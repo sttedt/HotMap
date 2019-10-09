@@ -10,9 +10,11 @@
 <jsp:include page="topbar2.jsp"></jsp:include>
 	<div class="container">
 		<div>
+			<br>
 			<h3 style="text-align: left;">
-				store
+				${detail.name}
 			</h3>
+			<br>
 		</div>	
 		
 		<table class="table">
@@ -22,16 +24,25 @@
 					<td>${detail.St_NO}</td>
 				</tr>
 				<tr>
-					<th>가게이름</th>
-					<td>${detail.NAME}</td>
+					<th>음식사진</th>
+					<td><img class="card-img-top" src="http://dndnp4.dothome.co.kr/image/${detail.Img1}"style= "height: 280px; width: 350px;"/></td>
 				</tr>
+				<tr>
+					<th>매장사진</th>
+					<td><img class="card-img-top" src="http://dndnp4.dothome.co.kr/image/${detail.Img2}"style= "height: 280px; width: 350px;"/></td>
+				</tr>
+				<tr>
+					<th>기타사진</th>
+					<td><img class="card-img-top" src="http://dndnp4.dothome.co.kr/image/${detail.Img3}"style= "height: 280px; width: 350px;"/></td>
+				</tr>
+				
 				<tr>
 					<th>메뉴</th>
 					<td>${detail.menu}</td>
 				</tr>
 				<tr>	
 					<th>주소</th>
-					<td>${detail.ADDRESS}</td>
+					<td>${detail.address}</td>
 				</tr>
 				<tr>	
 					<th>날짜</th>
@@ -39,7 +50,7 @@
 				</tr>
 				<tr>	
 					<th>전화번호</th>
-					<td>${detail.Phone}</td>
+					<td>${detail.phone}</td>
 				</tr>
 				<tr>	
 					<th>오픈시간</th>
