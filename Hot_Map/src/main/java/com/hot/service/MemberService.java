@@ -41,7 +41,7 @@ public class MemberService {
 		return memberDao.phoneCheckNumber(map);
 	}
 
-	public Map<String, Object> profileup(int mem_id) {
+	public Map<String, Object> profileup(String mem_id) {
 		return memberDao.profileup(mem_id);
 	}
 	public void memberUpdate(Map<String, Object> map) {

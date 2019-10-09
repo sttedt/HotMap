@@ -27,7 +27,7 @@
 	</insert>
 
 	
-	<select id="profileup" resultType="map" parameterType="_int">
+	<select id="profileup" resultType="map" parameterType="String">
 		SELECT * FROM MEMBER
 		 WHERE MEM_ID = #{id}
 	</select>
