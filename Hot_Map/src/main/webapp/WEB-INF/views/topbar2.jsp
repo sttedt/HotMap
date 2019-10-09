@@ -89,7 +89,7 @@
 								id="dropdown04" data-toggle="dropdown" aria-haspopup="true"
 								aria-expanded="false" style="color: #66ff66; text-decoration: none; margin-top: 0; padding-bottom: 0;">${sessionScope.SID} 님</a>
 							<div class="dropdown-menu" aria-labelledby="dropdown04">
-								<a class="dropdown-item" href="profile">MY PAGE</a> 
+								<a class="dropdown-item" href="profile_check">MY PAGE</a> 
 								<a class="dropdown-item" href="logout">LOG OUT</a> 
 								<a class="dropdown-item" href="store">STORE</a> 
 								<a class="dropdown-item" href="board">Q & A</a> 
