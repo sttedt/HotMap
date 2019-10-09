@@ -45,6 +45,7 @@
 						placeholder='마감시간' class="form-control col-mb-6" />
 				</div>
 			</div>
+			해시 태그 : <input type="text" name="hash" id="hash" class="form-control">
 			매장 사진 : <input type="file" name="img1" class="form-control"/>
 			<input type="file" name="img2" class="form-control"/>
 			<input type="file" name="img3" class="form-control"/><br>
@@ -64,3 +65,33 @@
 	    }).open();
 	})
 </script>
+<script>
+	$('#hash').kyeup(function(){
+		checkHash(event);
+	});
+	function checkHash(){
+		var hs = $('hash').val();
+		
+		
+	}
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

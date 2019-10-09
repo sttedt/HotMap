@@ -263,19 +263,6 @@
 			return true;
 		}
 
-// 		$('#phone').keyup(function(){
-// 			var phone = $('#phone').val();
-// 			var Msg = $('#PhoneNumberCheck');
-// 			if(phone.length>1 && phone.length<11){
-//  				ErrorMsg(Msg, "휴대폰번호를 정확히 입력해주세요.");
-//  				$("#PhoneNumberCheck").css("color", "red");
-//  				return false;
-//  			}else(
-//  				SuccessMas(Msg,"ㅏ")	
-//  			)
-// 		})
-		
-		
 		$('#btn_phone').click(function(){	
 			var phone = $('#phone').val();
 			$('#checkOn').attr('style', 'display:show');

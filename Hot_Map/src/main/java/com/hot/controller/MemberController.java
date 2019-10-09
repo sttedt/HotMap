@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.hot.md5.EncryptionClass;
 import com.hot.service.MemberService;
 
 @Controller // 컨트롤러니까 어노테이션을 써야댐
@@ -32,7 +33,11 @@ public class MemberController {
 	}
 	// join이란 페이지에서 데이터를 보내기 위한 코드
 	@RequestMapping(value="join", method = RequestMethod.POST)
-	public String join(@RequestParam Map<String, Object> map) {
+	public String join(@RequestParam Map<String, Object> map,@RequestParam("pw") String pw) {
+		System.out.println("map : " + map);
+		System.out.println("pw : " + pw);
+		String MD_PW = EncryptionClass.convertiMD5(pw);
+		map.put("pw",  MD_PW);
 		memberService.joinInsert(map);
 		memberService.phoneCheckDelete(map);
 		memberService.deleteAuth(map);
@@ -47,7 +52,11 @@ public class MemberController {
 	
 	// login이란 페이지에서 데이터를 보내기 위한 코드
 	@RequestMapping(value="login", method = RequestMethod.POST)
-	public String login(Model model,@RequestParam Map<String, Object> map , HttpSession httpSession, HttpServletRequest request) {
+	public String login(Model model,@RequestParam Map<String, Object> map , 
+			HttpSession httpSession, HttpServletRequest request, @RequestParam("pw") String pw) {
+		String MD_PW = EncryptionClass.convertiMD5(pw);
+		map.put("pw",MD_PW);
+		
 		Map<String, Object> map2 = memberService.loginSelect(map);
 		try {
 			if(map2 !=null) {
