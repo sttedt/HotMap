@@ -21,10 +21,6 @@
 					<td>${pro.mem_id}</td>
 				</tr>
 				<tr>
-					<th>비밀번호</th>
-					<td>${pro.Pw}</td>
-				</tr>
-				<tr>
 					<th>이름</th>
 					<td>${pro.Name}</td>
 				</tr>

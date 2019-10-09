@@ -66,7 +66,14 @@
 						</li>
 					</ul>
 
-				<div style="margin-left: 136px">
+
+					<div style="">
+						<input type="text" class="nav-item" id="search" name="search" style="max-width: 200px; display: inline-block;" placeholder="want를 검색하세요"> 
+						<input type="submit" class="btn btn-white btn-outline-white" value="search">
+					</div>
+				</div>
+			</div>
+				<div style="float: right; margin-top:-70px; margin-right: 100;">						
 					<form>
 						<ul class="list-inline">
 							<c:if test="${sessionScope.SID eq null}">
@@ -82,29 +89,22 @@
 									 &nbsp;
 								</li>
 							</c:if>
-
+	
 							<c:if test="${sessionScope.SID ne null}">
-								<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="profile"
-								id="dropdown04" data-toggle="dropdown" aria-haspopup="true"
-								aria-expanded="false" style="color: #66ff66; text-decoration: none; margin-top: 0; padding-bottom: 0;">${sessionScope.SID} 님</a>
-							<div class="dropdown-menu" aria-labelledby="dropdown04">
-								<a class="dropdown-item" href="profile_check">MY PAGE</a> 
-								<a class="dropdown-item" href="logout">LOG OUT</a> 
-								<a class="dropdown-item" href="store">STORE</a> 
-								<a class="dropdown-item" href="board">Q & A</a> 
-							</div>
-						</li>		
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="profile" id="dropdown04" data-toggle="dropdown" aria-haspopup="true"
+									aria-expanded="false" style="text-decoration: none; ">${sessionScope.SID} 님</a>
+								<div class="dropdown-menu" aria-labelledby="dropdown04">
+									<a class="dropdown-item" href="profile_check">MY PAGE</a> 
+									<a class="dropdown-item" href="logout">LOG OUT</a> 
+									<a class="dropdown-item" href="store">STORE</a> 
+									<a class="dropdown-item" href="board">Q & A</a> 
+								</div>
+							</li>		
 							</c:if>
 						</ul>
 					</form>
-					<div style="">
-						<input type="text" class="nav-item" id="search" name="search" style="max-width: 200px; display: inline-block;" placeholder="want를 검색하세요"> 
-						<input type="submit" class="btn btn-white btn-outline-white" value="search">
-					</div>
-				 </div>
-				</div>
-			</div>
+				</div>	
 		</nav>
 	</header>
 </div>
