@@ -66,13 +66,14 @@
 	})
 </script>
 <script>
-	$('#hash').kyeup(function(){
+	$('#hash').keyup(function(){
 		checkHash(event);
 	});
 	function checkHash(){
 		var hs = $('hash').val();
+		var hh = hs.split('#').length;
 		
-		
+		console.lgo(hh);
 	}
 
 </script>
