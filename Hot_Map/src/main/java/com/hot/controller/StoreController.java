@@ -62,9 +62,9 @@ public class StoreController {
 	}
 	
 	@RequestMapping(value="storel", method = RequestMethod.GET)
-	public String list(Model model) {
+	public String list(Model model, Map<String, Object> map) {
 		model.addAttribute("s_list", storeService.storeList());
-		
+		System.out.println("map : " + map);
 		return "redirect:/home";
 	}
 	@RequestMapping(value="storer")

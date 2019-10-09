@@ -5,55 +5,50 @@
 
 <link rel="stylesheet" href="resources/css/bootstrap.min.css">
 <head>
-<title>Home</title>
-<style>
-.imgs {
-	max-width: 100%;
-	height: 230px;
-}
-
-#div_left {
-	width: 60%;
-	hight: 300px;
-	float: left;
-	background-color: pink;
-	text-align: center;
-}
-
-#div_right {
-	width: 20%;
-	height: 568px;
-	float: left;
-	margin-top: 50px;
-	margin-left: 30px;
-	background-color: purple;
-	text-align: center;
-}
-</style>
+<title>HotMap</title>
+	<style>
+	#div_left {
+		width: 60%;
+		height: 300px;
+		float: left;
+		text-align: center;
+		margin-left: 130px;
+	}
+	
+	#div_right {
+		width: 20%;
+		height: 568px;
+		float: left;
+		margin-left: 50px;
+		background-color: purple;
+		text-align: center;
+	}
+	</style>
 </head>
-<body>
+
+<body style="background-color: #F2F2F2; ">
 	<jsp:include page="topbar.jsp"></jsp:include>
 	<jsp:include page="topbar2.jsp"></jsp:include>
-	<div style="text-align: center; margin-top: 10px;">
+	
+	<div style="text-align: center; margin-bottom: 100px;" >
 		<h2>신상 핫플레이스</h2>
 	</div>
 
-
-	<div style="margin-top: 50px; margin-left: 150px" id="div_left">
-
-			<c:forEach items="${s_list}" var="map">
-				
-				<a href="storer?St_NO=${map.St_NO}">${map.NAME}</a>
-				<a>가격: ${map.PRICE}</a>
-<%-- 				<div>가격: ${map.price}</div> --%>
-				
-				
-			</c:forEach>
+	<div class="card-deck mb-3 " id="div_left" >
+		<c:forEach items="${s_list}" var="map">
+			<a href="storer?St_NO=${map.St_NO}" style="margin-left: 10px;">
+				<div class="card mb-4" style=" z-index: -9999;">
+						<img class="card-img-top" src="http://dndnp4.dothome.co.kr/image/${map.Img1 }" 
+							style= "height: 280px; width: 350px;"/>
+						<p class="card-header" style= "width: 350px; text-align: center; background:white;">
+							<span style="color:black; text-decoration: none;">${map.name}</span><br/>
+							<span style="color:black; text-decoration: none;">${map.name}</span>
+						</p>
+				</div>		
+			</a>
+		</c:forEach>
 	</div>
-
-
 	<div id="div_right">
-
 		<div class="table"></div>
 	</div>
 

@@ -18,12 +18,12 @@
 <!-- Theme Style -->
 <link rel="stylesheet" href="resources/css/style.css">
 </head>
-<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-  <div id ="bb">
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300" >
+  <div id ="bb" style="z-index: 9999;">
 	<header class="site-navbar js-sticky-header site-navbar-target" role="banner" style="height: 150px;  background-color: #000000;">
-		<nav class="navbar navbar-expand-md"style="background-color: #ffffff; ">
+		<nav class="navbar navbar-expand-md" style="background-color: #ffffff; ">
 			<div class="container">
-				<a class="navbar-brand" style="color: white; font-size: 40px;" href="home";">HOP MAP</a>
+				<a class="navbar-brand" style="color: white; font-size: 40px;" href="home">HOP MAP</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse"	
 					data-target="#navbarsExample05" aria-controls="navbarsExample05"
 					aria-expanded="false" aria-label="Toggle navigation">
