@@ -33,10 +33,6 @@
 		VALUES (#{phone}, #{code})
 	</insert>
 
-<<<<<<< HEAD
-	
-	<select id="profileup" resultType="map" parameterType="String">
-=======
 	<select id="phoneCheck" parameterType="map" resultType="int">
 		SELECT (COUNT(*)) CON FROM PHONECHECK 
 		WHERE msgcode = #{code} and phone = #{phone}
@@ -53,7 +49,6 @@
 
 
 	<select id="profileup" resultType="map" parameterType="String">
->>>>>>> branch 'master' of https://github.com/sttedt/HotMap.git
 		SELECT * FROM MEMBER
 		 WHERE MEM_ID = #{id}
 	</select>
