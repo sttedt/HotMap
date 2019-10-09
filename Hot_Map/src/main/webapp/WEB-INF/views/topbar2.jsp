@@ -14,23 +14,24 @@
 <link rel="stylesheet" href="resources/fonts/ionicons/css/ionicons.min.css">
 <link rel="stylesheet" href="resources/fonts/fontawesome/css/font-awesome.min.css">
 <link rel="stylesheet" href="resources/fonts/flaticons/font/flaticon.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 <!-- Theme Style -->
 <link rel="stylesheet" href="resources/css/style.css">
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300" >
   <div id ="bb" style="z-index: 9999;">
-	<header class="site-navbar js-sticky-header site-navbar-target" role="banner" style="height: 150px;  background-color: #000000;">
+	<header class="site-navbar js-sticky-header site-navbar-target" role="banner" style="height: 130px;  background-color: #000000; z-index: 9999;">
 		<nav class="navbar navbar-expand-md" style="background-color: #ffffff; ">
 			<div class="container">
-				<a class="navbar-brand" style="color: white; font-size: 40px;" href="home">HOP MAP</a>
+				<a class="navbar-brand" style="color: white; font-size: 40px;" href="home">HOT MAP</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse"	
 					data-target="#navbarsExample05" aria-controls="navbarsExample05"
 					aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 			
-				<div class="collapse navbar-collapse" id="navbarsExample05">
+				<div class="collapse navbar-collapse" id="navbarsExample05" style="margin-left: 190px">
 					<ul class="navbar-nav ml-auto pl-lg-5 pl-0">
 						<li class="nav-item">
 							<a class="nav-link active" href="index.html">Home</a>
@@ -39,9 +40,7 @@
 							<a class="nav-link" href="recipes.html">Recipes</a>
 						</li>
 						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="services.html"
-							id="dropdown04" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false">주류</a>
+							<a class="nav-link dropdown-toggle" href="services.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">주류</a>
 							<div class="dropdown-menu" aria-labelledby="dropdown04">
 								<a class="dropdown-item" href="services.html">소주</a> 
 								<a class="dropdown-item" href="services.html">맥주</a> 
@@ -50,7 +49,6 @@
 								<a class="dropdown-item" href="services.html">샴페인</a> 
 								<a class="dropdown-item" href="services.html">사케</a>
 								<a class="dropdown-item" href="services.html">막걸리</a>
-									
 							</div>
 						</li>
 						<li class="nav-item dropdown">
@@ -67,9 +65,12 @@
 					</ul>
 
 
-					<div style="">
+					<div style="float: right; margin-top: 8px">
 						<input type="text" class="nav-item" id="search" name="search" style="max-width: 200px; display: inline-block;" placeholder="want를 검색하세요"> 
-						<input type="submit" class="btn btn-white btn-outline-white" value="search">
+<!-- 						<input type="submit" class="btn btn-white btn-outline-white" value="search" style="margin-left: 5px"> -->
+						<button type="submit" class="btn btn-white btn-outline-white" style="height: 33px; margin-top: -3px">
+							<span class="glyphicon glyphicon-search"></span>
+						</button>
 					</div>
 				</div>
 			</div>

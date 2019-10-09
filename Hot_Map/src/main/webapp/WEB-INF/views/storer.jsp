@@ -40,6 +40,10 @@
 					<th>메뉴</th>
 					<td>${detail.menu}</td>
 				</tr>
+				<tr>
+					<th>태그</th>
+					<td>#소주 #맥주 #중식 #일식 #튀김 </td>
+				</tr>
 				<tr>	
 					<th>주소</th>
 					<td>${detail.address}</td>

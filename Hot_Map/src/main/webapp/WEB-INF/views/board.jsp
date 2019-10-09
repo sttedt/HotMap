@@ -12,12 +12,12 @@
 	<jsp:include page="topbar2.jsp"></jsp:include>
 	
 	<hr>
-	<div class="container" style="margin-top: 15px;" >
+	<div class="container" style="margin-top: 15px; z-index: -9999;" >
 		<div>
 			<h3 style="text-align: center;">Q&A 목록</h3>
 		</div>
 
-		<table class="table" id='target'>
+		<table class="table" id='target' style="z-index: -9999;">
 			<thead>
 				<tr>
 					<th>글번호</th>

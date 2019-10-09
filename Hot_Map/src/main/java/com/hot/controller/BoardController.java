@@ -2,12 +2,12 @@ package com.hot.controller;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,8 +25,15 @@ public class BoardController {
 	// board이란 페이지를 불러오기위한 코드
 	@RequestMapping(value="boardw", method = RequestMethod.GET)
 	// param은 map을 받는다
-	public String board(Model model,HttpSession httpSession) {
-		
+	public String board(Model model,HttpSession httpSession, HttpServletRequest request) {
+		String no = (String) httpSession.getAttribute("SID");
+		System.out.println("no : " + no);
+		if(no==null) {
+			request.setAttribute("type", "error");
+			request.setAttribute("msg", "로그인이 필요합니다");
+			request.setAttribute("url", "login");
+			return "alert";
+		}
 		return "boardw";
 	}
 	

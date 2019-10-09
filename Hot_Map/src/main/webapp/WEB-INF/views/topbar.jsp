@@ -8,7 +8,7 @@
 		<div class="container">
 			<div class="row slider-text align-items-center justify-content-center">
 				<div class="col-md-8 text-center col-sm-12 element-animate">
-						<h1 style="margin-top: 300; color: #fff; font-family: 'Nanum Pen Script', cursive;font-size: 100pt">HOP MAP</h1>
+						<h1 style="margin-top: 300; color: #fff; font-family: 'Nanum Pen Script', cursive;font-size: 100pt">HOT MAP</h1>
 					<p class="mb-5" style="color: #fff; font-size: 25pt">서면의 핫플</p>
 				</div>
 			</div>
