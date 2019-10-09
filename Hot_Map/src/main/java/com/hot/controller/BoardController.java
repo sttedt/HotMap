@@ -33,7 +33,7 @@ public class BoardController {
 	public String board(@RequestParam Map<String, Object> map) {
 		boardService.boardInsert(map);
 		
-		return "boardw";
+		return "redirect:board";
 	}
 	
 	// 게시글 목록 페이지
