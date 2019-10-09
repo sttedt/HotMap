@@ -8,7 +8,7 @@
 <title>HotMap</title>
 	<style>
 	#div_left {
-		width: 60%;
+		width: 70%;
 		height: 300px;
 		float: left;
 		text-align: center;
@@ -16,7 +16,7 @@
 	}
 	
 	#div_right {
-		width: 20%;
+		width: 15%;
 		height: 568px;
 		float: left;
 		margin-left: 50px;
@@ -25,6 +25,14 @@
 	}
 	</style>
 </head>
+
+
+
+
+
+
+
+
 
 <body style="background-color: #F2F2F2; ">
 	<jsp:include page="topbar.jsp"></jsp:include>
@@ -42,7 +50,8 @@
 							style= "height: 280px; width: 350px;"/>
 						<p class="card-header" style= "width: 350px; text-align: center; background:white;">
 							<span style="color:black; text-decoration: none;">${map.name}</span><br/>
-							<span style="color:black; text-decoration: none;">${map.name}</span>
+							<span style="color:black; text-decoration: none;">${map.menu}</span><br/>
+							<span style="color:black; text-decoration: none;">${map.menu}</span>
 						</p>
 				</div>		
 			</a>
