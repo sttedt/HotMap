@@ -34,15 +34,7 @@
 				</tr>
 				<tr>	
 					<th>주소</th>
-					<td>${pro.Address}</td>
-				</tr>
-				<tr>	
-					<th>주소</th>
 					<td>${pro.Address1}</td>
-				</tr>
-				<tr>	
-					<th>주소</th>
-					<td>${pro.Address2}</td>
 				</tr>
 				<tr>	
 					<th>전화번호</th>

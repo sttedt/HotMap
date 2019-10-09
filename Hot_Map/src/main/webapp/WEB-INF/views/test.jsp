@@ -15,7 +15,7 @@
 		<input type='file' name='file'>
 		<input type='submit' value='test'>
 	</form>
-	<img src ='http://dndnp4.dothome.co.kr/test.jpg'>
+	<img src ='http://dndnp4.dothome.co.kr/image/prT1moeJcIcajRObfjZrPz7rnVed3r.png'>
 </body>
 <script src='resources/js/jquery-3.3.1.min.js'></script>
 <script>

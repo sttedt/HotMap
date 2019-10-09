@@ -49,7 +49,6 @@ public class MemberController {
 	@RequestMapping(value="login", method = RequestMethod.POST)
 	public String login(Model model,@RequestParam Map<String, Object> map , HttpSession httpSession, HttpServletRequest request) {
 		Map<String, Object> map2 = memberService.loginSelect(map);
-		System.out.println("map2 : " + map2);
 		try {
 			if(map2 !=null) {
 				httpSession.setAttribute("SID", map.get("id"));
@@ -110,6 +109,7 @@ public class MemberController {
 	@ResponseBody
 	public String emailAuth(@RequestParam Map<String, Object> map, Model model) {
 		String tmp = memberService.emailAuth(map);
+		if(tmp.length() > 1) memberService.deleteAuth(map);
 		return tmp;
 	}
 }

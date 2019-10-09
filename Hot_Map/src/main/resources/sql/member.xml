@@ -2,6 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- mapper할때 써야됨 -->
 <mapper namespace="member">
+
+
 	<insert id="joinInsert">
 		INSERT INTO MEMBER (MEM_ID, NAME, PW, EMAIL, ADDRESS, ADDRESS1, ADDRESS2, PHONE)
 		VALUES (#{id}, #{name}, #{pw}, #{email}, #{address},#{address1},#{address2}, #{phone} )
@@ -21,13 +23,37 @@
 		SELECT (COUNT(*)) CON FROM MEMBER 
 		WHERE MEM_ID=#{id}
 	</select>
+
+
+
+
+	<!-- 휴대폰 인증 쿼리 -->
 	<insert id="phoneCheckNumber" parameterType="map">
 		INSERT INTO PHONECHECK (PHONE, MSGCODE)
 		VALUES (#{phone}, #{code})
 	</insert>
 
+<<<<<<< HEAD
 	
 	<select id="profileup" resultType="map" parameterType="String">
+=======
+	<select id="phoneCheck" parameterType="map" resultType="int">
+		SELECT (COUNT(*)) CON FROM PHONECHECK 
+		WHERE msgcode = #{code} and phone = #{phone}
+
+	</select>
+
+	<delete id="phoneCheckDelete" parameterType="map">
+		DELETE FROM PHONECHECK
+		WHERE phone = #{phone}
+	</delete>
+
+
+
+
+
+	<select id="profileup" resultType="map" parameterType="String">
+>>>>>>> branch 'master' of https://github.com/sttedt/HotMap.git
 		SELECT * FROM MEMBER
 		 WHERE MEM_ID = #{id}
 	</select>
@@ -39,9 +65,6 @@
 	</update>
 
 	
-	<select id="phoneCheck">
-		SELCET * FROM PHONECHECK WHERE CODE = #{ren}
-	</select>
 
 	<select id='emailAuth' resultType="String">
 		select code from emailauth where email = #{email}
@@ -53,8 +76,5 @@
 	<delete id='deleteAuth'>
 		delete from emailauth where email = #{email}
 	</delete>
-	<delete id="phoneCheckDelete" parameterType="map">
-		DELETE FROM PHONECHECK
-		WHERE phone = #{phone}
-	</delete>
+
 </mapper>

@@ -59,8 +59,7 @@ public class StoreService {
 		String ext = mFile.getOriginalFilename().substring(mFile.getOriginalFilename().lastIndexOf(".") + 1, mFile.getOriginalFilename().length());
 		String fileName = rand.run(30) +"." + ext;
 		FTPUploader ftpUploader = new FTPUploader("dndnp4.dothome.co.kr", "dndnp4", "dothome11!");
-		System.out.println("Store " + temp.toString());
-        ftpUploader.uploadFile(temp.toString(), fileName, "/image/");
+        ftpUploader.uploadFile(temp.toString(), fileName, "/html/image/");
         ftpUploader.disconnect();
 
         // 임시파일삭제
