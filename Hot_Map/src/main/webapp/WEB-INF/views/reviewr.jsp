@@ -1,15 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<link rel="stylesheet" href="resources/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
-<head>
-<title>Q&A 목록</title>
-</head>
+
 <body>
 	<!-- 상단바 -->
-	<jsp:include page="topbar2.jsp"></jsp:include>
 	
 	<hr>
 	<div class="container" style="margin-top: 15px; z-index: -9999;" >
@@ -29,10 +23,10 @@
 			<tbody>
 				<c:forEach items="${r_list}" var="map">
 					<tr>
-						<td>${map.St_NO}</td>
-						<td>${map.CONTENT}</td>
-						<td>${map.MEM_ID}</td>
-						<td>${map.DATE}</td>
+						<td>${map.Re_NO}</td>
+						<td>${map.Content}</td>
+						<td>${map.mem_id}</td>
+						<td>${map.Date}</td>
 					</tr>
 				</c:forEach>
 			</tbody>

@@ -19,14 +19,10 @@
 		SELECT * FROM STORE
 		 WHERE St_NO = #{St_NO}
 	</select>
-<<<<<<< HEAD
-
-=======
 	<update id="hitUpdate" parameterType="map">
 		UPDATE store 
 		SET hit=hit+1
 		WHERE St_NO=#{St_NO}
 	</update>
->>>>>>> branch 'master' of https://github.com/sttedt/HotMap.git
 	
 </mapper>

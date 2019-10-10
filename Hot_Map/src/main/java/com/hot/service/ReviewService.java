@@ -22,8 +22,8 @@ public class ReviewService {
 		reviewDao.reviewInsert(map);
 	}
 
-	public List<Map<String, Object>> reviewList() {
-		return reviewDao.reviewList();
+	public List<Map<String, Object>> reviewList(int St_NO) {
+		return reviewDao.reviewList(St_NO);
 	}
 
 
