@@ -54,10 +54,11 @@ public class StoreController {
 	}
 
 	@RequestMapping(value = "test", method = RequestMethod.POST)
-	public String test_post(@RequestParam("file") MultipartFile file, @RequestParam Map<String, Object> map,
+	public String test_post(@RequestParam("file") MultipartFile file, @RequestParam("test1") List<Object> list, @RequestParam Map<String, Object> map,
 			Model model) throws Exception {
 		Map<String, Object> tmp = new HashMap<String, Object>();
-		storeService.storeFile(file);
+		System.out.println(list);
+		System.out.println(map);
 		return "redirect:/test";
 	}
 	
