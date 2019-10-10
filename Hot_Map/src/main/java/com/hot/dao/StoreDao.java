@@ -26,4 +26,5 @@ public class StoreDao {
 		return sessionTemplate.selectOne("store.storeOne", St_NO);
 	}
 	
+	
 }

@@ -26,19 +26,11 @@
 	</style>
 </head>
 
-
-
-
-
-
-
-
-
 <body style="background-color: #F2F2F2; ">
 	<jsp:include page="topbar.jsp"></jsp:include>
 	<jsp:include page="topbar2.jsp"></jsp:include>
 	
-	<div style="text-align: center; margin-bottom: 100px;" >
+	<div style="text-align: center; margin-bottom: 100px; " >
 		<h2>신상 핫플레이스</h2>
 	</div>
 
@@ -57,7 +49,10 @@
 			</a>
 		</c:forEach>
 	</div>
+
+ <h1>이번주 핫플랭킹</h1>
 	<div id="div_right">
+	 
 		<div class="table"></div>
 	</div>
 

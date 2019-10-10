@@ -75,5 +75,5 @@ public class StoreService {
 //		boardDao.update(id); // 조회수 증가
 		return storeDao.storeOne(St_NO);
 	}
-
+	
 }
