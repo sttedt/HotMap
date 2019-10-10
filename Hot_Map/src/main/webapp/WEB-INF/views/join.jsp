@@ -29,6 +29,10 @@
 			<div align="right">	
 				<span id="pwMsg"></span>	
 			</div>
+			<input type="password" name ="pw"      id="pw_confirm"  placeholder="비밀번호 확인" class="form-control"><br>
+			<div align="right">	
+				<span id="pw_confirmMsg"></span>	
+			</div>
 			<div class="form-group input-group">	
 				<input type="email"    name ="email"   id="email"  placeholder="이메일"   class="form-control">
 				<label>&nbsp;</label>
@@ -77,6 +81,9 @@
  			});
  		 	$('#pw').keyup(function(){
  		 		checkPw();
+ 		 	});
+ 		 	$('#pw_confirm').keyup(function(){
+ 		 		confirm_pw();
  		 	});
  			$("#name").keyup(function(){
  				checkName(event);
@@ -203,6 +210,32 @@
  			else {
  				SuccessMsg(Msg, "사용가능한 비밀번호 입니다");
  				$("#pwMsg").css("color", "green");
+ 				return true;
+ 			}
+ 			return true;
+ 		}
+ 		function confirm_pw(){
+ 			var Msg = $('#pw_confirmMsg');
+ 			var pw = $('#pw').val();
+ 			var confirm = $('#pw_confirm').val();
+ 			if(pw == ""){
+ 				ErrorMsg(Msg, "필수입니다");
+ 				Msg.css("color", "red");
+ 				return false;
+  			}
+ 			else if(pw.length < 8){
+ 				ErrorMsg(Msg, "비밀번호는 8자리 이상입니다");
+ 				Msg.css("color", "red");
+ 				return false;
+ 			}
+ 			else if(pw !== confirm){
+ 				ErrorMsg(Msg, "비밀번호가 일치하지 않습니다.");
+ 				Msg.css("color", "red");
+ 				return false;
+ 			}
+ 			else {
+ 				SuccessMsg(Msg, "사용가능한 비밀번호 입니다");
+ 				Msg.css("color", "green");
  				return true;
  			}
  			return true;

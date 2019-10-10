@@ -69,7 +69,9 @@ public class StoreController {
 	}
 	@RequestMapping(value="storer")
 	public String show(Model model, @RequestParam("St_NO") int St_NO) {
-		System.out.println(storeService.storeOne(St_NO));
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("St_NO",St_NO);
+		storeService.hitUpdate(map);
 		model.addAttribute("detail", storeService.storeOne(St_NO));
 		return "storer";
 	}
