@@ -9,6 +9,48 @@
 .row {
 	margin-left: 0;
 }
+
+
+</style>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    ul {
+        padding: 16px 0;
+    }
+
+    ul li {
+        display: inline-block;
+        margin: 0 5px;
+        font-size: 14px;
+        letter-spacing: -.5px;
+    }
+    
+    form {
+        padding-top: 16px;
+    }
+
+    ul li.tag-item {
+        padding: 4px 8px;
+        background-color: #708aff;
+        color: #FFF;
+    }
+
+    .tag-item:hover {
+        background-color: #8d91fc;
+        color: #FFF;
+    }
+
+    .del-btn {
+        font-size: 12px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-left: 8px;
+    }
 </style>
 </head>
 
@@ -45,8 +87,12 @@
 						placeholder='마감시간' class="form-control col-mb-6" />
 				</div>
 			</div>
-			해시 태그 : <input type="text" name="hash" id="hash" class="form-control">
+			 <ul id="hash3" style="padding: 0;">해시 태그 :</ul>
+			<input type="text" name="hash" id="hash" class="form-control" value="">
+			<div id="tag_end" name="tag_end" style="display: none"></div>
+			
 			매장 사진 : <input type="file" name="img1" class="form-control"/>
+		
 			<input type="file" name="img2" class="form-control"/>
 			<input type="file" name="img3" class="form-control"/><br>
 			작성자 :<input type="text" name="mem_id" value="${sessionScope.SID}"
@@ -65,18 +111,66 @@
 	    }).open();
 	})
 </script>
-<script>
-	$('#hash').keyup(function(){
-		checkHash(event);
-	});
-	function checkHash(){
-		var hs = $('hash').val();
-		var hh = hs.split('#').length;
-		
-		console.lgo(hh);
-	}
 
+<script>
+    $(document).ready(function () {
+
+        var tag = {};
+        var counter = 0;
+
+        // 태그를 추가한다.
+        function addTag (value) {
+            tag[counter] = value; // 태그를 Object 안에 추가
+            counter++; // counter 증가 삭제를 위한 del-btn 의 고유 id 가 된다.
+        }
+
+        // 최종적으로 서버에 넘길때 tag 안에 있는 값을 array type 으로 만들어서 넘긴다.
+        function marginTag () {
+            return Object.values(tag).filter(function (word) {
+                return word !== "";
+            });
+        }
+
+        $("#hash").on("keypress", function (e) {
+            var self = $(this);
+
+            // input 에 focus 되있을 때 엔터 및 스페이스바 입력시 구동
+            if (e.key === "Enter" || e.keyCode == 32) {
+
+                var tagValue = self.val(); // 값 가져오기
+
+                // 값이 없으면 동작 ㄴㄴ
+                if (tagValue !== "") {
+
+                    // 같은 태그가 있는지 검사한다. 있다면 해당값이 array 로 return 된다.
+                    var result = Object.values(tag).filter(function (word) {
+                        return word === tagValue;
+                    })
+                
+                    // 태그 중복 검사
+                    if (result.length == 0) { 
+                        $("#hash3").append("<li class='tag-item'>"+tagValue+"<span class='del-btn' idx='"+counter+"'>x</span></li>");
+                        $("#tag_end").append(tagValue);
+                        addTag(tagValue);
+                        self.val("");
+                    } else {
+                        alert("태그값이 중복됩니다.");
+                    }
+                }
+                e.preventDefault(); // SpaceBar 시 빈공간이 생기지 않도록 방지
+            }
+        });
+
+        // 삭제 버튼 
+        // 삭제 버튼은 비동기적 생성이므로 document 최초 생성시가 아닌 검색을 통해 이벤트를 구현시킨다.
+        $(document).on("click", ".del-btn", function (e) {
+            var index = $(this).attr("idx");
+            tag[index] = "";
+            $(this).parent().remove();
+        });
+})
 </script>
+
 
 
 
