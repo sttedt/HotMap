@@ -6,10 +6,10 @@
 		insert into test (file) values(#{file, jdbcType=BLOB})
 	</insert>
 	<insert id="storeInsert">
-		INSERT INTO store (name, menu, price, address, phone, opening_time, closing_time, date, mem_id, img1, img2, img3)
-		VALUES (#{name},#{menu},#{price},#{address},#{phone},#{opening_time},#{closing_time},now(),#{mem_id}, #{img1}, #{img2}, #{img3})
+		INSERT INTO store (name, menu, price, address, phone, opening_time, closing_time, date, mem_id, img1, img2, img3 , tag)
+		VALUES (#{name},#{menu},#{price},#{address},#{phone},#{opening_time},#{closing_time},now(),#{mem_id}, #{img1}, #{img2}, #{img3}, #{hash})
 	</insert>
-
+	
 	<select id="storeList" resultType="map">
 		SELECT * FROM STORE 
 		ORDER BY St_NO DESC Limit 6;
@@ -19,6 +19,14 @@
 		SELECT * FROM STORE
 		 WHERE St_NO = #{St_NO}
 	</select>
+<<<<<<< HEAD
 
+=======
+	<update id="hitUpdate" parameterType="map">
+		UPDATE store 
+		SET hit=hit+1
+		WHERE St_NO=#{St_NO}
+	</update>
+>>>>>>> branch 'master' of https://github.com/sttedt/HotMap.git
 	
 </mapper>

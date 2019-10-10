@@ -75,5 +75,12 @@ public class StoreService {
 //		boardDao.update(id); // 조회수 증가
 		return storeDao.storeOne(St_NO);
 	}
+<<<<<<< HEAD
 	
+=======
+	public void hitUpdate(Map<String, Object> map) {
+		storeDao.hitUpdate(map);
+	}
+
+>>>>>>> branch 'master' of https://github.com/sttedt/HotMap.git
 }
