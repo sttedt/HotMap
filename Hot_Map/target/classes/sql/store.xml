@@ -19,6 +19,7 @@
 		SELECT * FROM STORE
 		 WHERE St_NO = #{St_NO}
 	</select>
+
 	<update id="hitUpdate" parameterType="map">
 		UPDATE store 
 		SET hit=hit+1

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- mapper할때 써야됨 -->
+<mapper namespace="review">
+
+	<insert id="reviewInsert">
+		INSERT INTO REVIEW (MEM_ID, CONTENT, DATE, STAR )
+		VALUES ( #{mem_id} , #{content}, NOW(),#{star} )
+	</insert>
+	
+	<select id="reviewOne" resultType="map" parameterType="_int">
+		SELECT * FROM STORE
+		 WHERE St_NO = #{St_NO}
+	</select>
+		
+	<select id="reviewlist" resultType="map">
+		SELECT * FROM REVIEW 
+		ORDER BY Re_NO DESC
+	</select>
+	
+	
+</mapper>

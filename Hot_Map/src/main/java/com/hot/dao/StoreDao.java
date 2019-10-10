@@ -25,7 +25,9 @@ public class StoreDao {
 	public Map<String, Object> storeOne(int St_NO) {
 		return sessionTemplate.selectOne("store.storeOne", St_NO);
 	}
+
 	public void hitUpdate(Map<String, Object> map) {
 		sessionTemplate.update("store.hitUpdate", map);
 	}
+
 }
