@@ -87,17 +87,17 @@
 						placeholder='마감시간' class="form-control col-mb-6" />
 				</div>
 			</div>
-			 <ul id="hash3" style="padding: 0;">해시 태그 :</ul>
+			<ul id="hash3" style="padding: 0;">해시 태그 :</ul>
 			<input type="text" name="hash" id="hash" class="form-control" value="">
-			<div id="tag_end" name="tag_end" style="display: none"></div>
+			<div id="tag2" style="display: none"></div>
 			
-			매장 사진 : <input type="file" name="img1" class="form-control"/>
-		
+			매장 사진 : 
+			<input type="file" name="img1" class="form-control"/>
 			<input type="file" name="img2" class="form-control"/>
 			<input type="file" name="img3" class="form-control"/><br>
-			작성자 :<input type="text" name="mem_id" value="${sessionScope.SID}"
-				class="form-control" readonly="readonly" /> <br /> <input
-				type="submit" value="글쓰기" class="btn btn-primary" />
+			작성자 :
+			<input type="text" name="mem_id" value="${sessionScope.SID}" class="form-control" readonly="readonly" /> <br /> 
+			<input type="submit" value="글쓰기" class="btn btn-primary" />
 		</form>
 	</div>
 </body>
@@ -150,7 +150,7 @@
                     // 태그 중복 검사
                     if (result.length == 0) { 
                         $("#hash3").append("<li class='tag-item'>"+tagValue+"<span class='del-btn' idx='"+counter+"'>x</span></li>");
-                        $("#tag_end").append(tagValue);
+                        $("#tag2").append("<input type='hidden' class='tag-item' name='tag_end' value='"+tagValue+"'>");
                         addTag(tagValue);
                         self.val("");
                     } else {
