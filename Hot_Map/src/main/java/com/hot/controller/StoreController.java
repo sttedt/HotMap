@@ -1,20 +1,10 @@
 package com.hot.controller;
 
-import java.io.File;
-import java.io.IOException;
-import java.sql.Blob;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-import javax.sql.rowset.serial.SerialBlob;
-import javax.sql.rowset.serial.SerialException;
-
-import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,9 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import com.hot.service.BoardService;
+import com.hot.service.ReviewService;
 import com.hot.service.StoreService;
 
 @Controller
@@ -32,6 +21,9 @@ public class StoreController {
 
 	@Autowired
 	StoreService storeService;
+	
+	@Autowired
+	ReviewService reviewService;
 
 	@RequestMapping(value = "store", method = RequestMethod.GET)
 	public String store(Model model) {
@@ -78,6 +70,9 @@ public class StoreController {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("St_NO",St_NO);
 		storeService.hitUpdate(map);
+		List<Map<String, Object>> rList = reviewService.reviewList(St_NO);
+		System.out.println(rList);
+		model.addAttribute("r_list", rList);
 		model.addAttribute("detail", storeService.storeOne(St_NO));
 		return "storer";
 	}

@@ -73,7 +73,9 @@
 		
 		
 			<a href="home" class="btn btn-dark" >목록</a>
+			
 		</div>
 	</div>
-	<jsp:include page="reviewList.jsp"></jsp:include>
+	
+	<jsp:include page="reviewr.jsp"></jsp:include>
 </body>

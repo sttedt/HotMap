@@ -19,7 +19,7 @@ public class ReviewDao {
 	public int reviewInsert(Map<String, Object> map) {
 		return sessionTemplate.insert("review.reviewInsert", map);
 	}
-	public List<Map<String, Object>> reviewList() {
-		return sessionTemplate.selectList("review.reviewList");
+	public List<Map<String, Object>> reviewList(int St_NO) {
+		return sessionTemplate.selectList("review.reviewList", St_NO);
 	}
 }

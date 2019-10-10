@@ -24,6 +24,7 @@
 <!-- 			<input type="text" name="title" class="form-control"/> -->
 			작성자 :<input type="text" name="mem_id" value="${sessionScope.SID}" class="form-control" readonly="readonly"/>
 			<br />
+			<input type="hidden" name="St_NO" value="${detail.St_NO}">
 			내용 : <textarea rows="6" name="content" class="form-control" placeholder="주문하신 메뉴는 어떠셨나요? 식당의 분위기와 서비스도 궁금해요!"></textarea>
 			<br /> 
 			별점 :<br /> 
