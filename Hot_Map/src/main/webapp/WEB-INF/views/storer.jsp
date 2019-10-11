@@ -20,17 +20,26 @@
 		</table>
 		<div>
 			<br>
-			<h3 style="text-align: left;">
+			<span style="text-align: left; color: #000000; font-size: 24px;" >
 				${detail.name}
+			</span>
+			<div style="text-align: right;">
 				<a href="review?St_NO=${detail.St_NO}" class="btn btn-dark">리뷰쓰기</a>
-			</h3>
-			
+			</div>
 			<br>
 		</div>	
 		
 		<table class="table">
 			<tbody>
 		
+				<tr>	
+					<th>주소</th>
+					<td>${detail.address}</td>
+				</tr>
+				<tr>	
+					<th>가게번호</th>
+					<td>${detail.phone}</td>
+				</tr>
 				<tr>
 					<th>음식종류</th>
 					<td>${detail.menu}</td>
@@ -44,18 +53,6 @@
 					<td>#소주 #맥주 #중식 #일식 #튀김 </td>
 				</tr>
 				<tr>	
-					<th>주소</th>
-					<td>${detail.address}</td>
-				</tr>
-				<tr>	
-					<th>날짜</th>
-					<td>${detail.date}</td>
-				</tr>
-				<tr>	
-					<th>전화번호</th>
-					<td>${detail.phone}</td>
-				</tr>
-				<tr>	
 					<th>오픈시간</th>
 					<td>${detail.opening_time}</td>
 				</tr>
@@ -63,13 +60,15 @@
 					<th>마감시간</th>
 					<td>${detail.closing_time}</td>
 				</tr>
+				<tr>	
+					<th>최근업데이트</th>
+					<td>${detail.date}</td>
+				</tr>
 				
 			</tbody>
 		</table>
-		<div>
-		
-			<a href="home" class="btn btn-dark" style="text-align: center;">목록</a>
-			
+		<div  style="text-align: center;">
+			<a href="home" class="btn btn-dark">목록</a>
 		</div>
 	</div>
 	

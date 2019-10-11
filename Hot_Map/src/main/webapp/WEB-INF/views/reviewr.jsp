@@ -8,26 +8,23 @@
 	<hr>
 	<div class="container" style="margin-top: 15px; z-index: -9999;" >
 		<div>
-			<h3 style="text-align: left;">리뷰</h3>
+			<h3 style="text-align: left;">리뷰 (0) </h3>
 			<br>
 		</div>
 
 		<table class="table" id='target' style="z-index: -9999;">
-			<thead>
-				<tr>
-<!-- 					<th>글번호</th> -->
-<!-- 					<th>작성자</th> -->
-<!-- 					<th>글내용</th> -->
-<!-- 					<th>날짜</th> -->
-				</tr>
-			</thead>
+		
 			<tbody>
 				<c:forEach items="${r_list}" var="map">
 					<tr>
 <%-- 						<td>${map.Re_NO}</td> --%>
-						<td>${map.mem_id}</td>
-						<td>${map.Content}</td>
+						<td rowspan="2">${map.mem_id}</td>
 						<td style="font-size: 12px;">${map.Date}</td>
+						
+					</tr>
+					<tr>
+<!-- 					<td></td> -->
+						<td>${map.Content}</td>
 					</tr>
 				</c:forEach>
 			</tbody>
