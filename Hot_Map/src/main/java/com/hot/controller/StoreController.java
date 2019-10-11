@@ -62,6 +62,8 @@ public class StoreController {
 		System.out.println("map : " + map);
 		return "redirect:/home";
 	}
+	
+	// 스토어 상세페이지
 	@RequestMapping(value="storer")
 	public String show(Model model, @RequestParam("St_NO") int St_NO) {
 		Map<String, Object> map = new HashMap<String, Object>();

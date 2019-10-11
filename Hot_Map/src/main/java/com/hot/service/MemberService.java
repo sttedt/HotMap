@@ -22,6 +22,7 @@ public class MemberService {
 	@Inject
 	JavaMailSender mailSender;
 	
+	// 회원가입 쓰기
 	public void joinInsert(Map<String, Object> map) {
 		memberDao.joinInsert(map);
 	}
@@ -29,6 +30,7 @@ public class MemberService {
 	public void joinSelect(Map<String, Object> map) {
 		memberDao.joinSelect(map);
 	}
+	
 	public Map<String, Object> loginSelect(Map<String, Object> map) {
 		return memberDao.loginSelect(map);
 	}

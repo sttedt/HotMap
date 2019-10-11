@@ -19,20 +19,20 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.hot.md5.EncryptionClass;
 import com.hot.service.MemberService;
 
-@Controller // 컨트롤러니까 어노테이션을 써야댐
+@Controller 
 public class MemberController {
-//memberservice라는것을 쓸거기때문에 
+	
 	@Autowired
 	MemberService memberService;
 
-	// 주소를 불러서 그쪽으로 출력 value값에 치고들어가는 주소를 적음
-	// join이란 페이지를 불러오기위한 코드
+	// 회원가입 페이지
 	@RequestMapping(value="join", method = RequestMethod.GET)
 	// param은 map을 받는다
 	public String join(Model model) {
 		return "join";
 	}
-	// join이란 페이지에서 데이터를 보내기 위한 코드
+	
+	// 회원가입 데이터 보내기
 	@RequestMapping(value="join", method = RequestMethod.POST)
 	public String join(@RequestParam Map<String, Object> map,@RequestParam("pw") String pw) {
 		System.out.println("map : " + map);
@@ -45,13 +45,13 @@ public class MemberController {
 		return "home";
 	}
 	
+	// 로그인 페이지 불러오기
 	@RequestMapping(value="login", method = RequestMethod.GET)
-	// param은 map을 받는다
 	public String login(Model model) {
 		return "login";
 	}
 	
-	// login이란 페이지에서 데이터를 보내기 위한 코드
+	// 로그인 데이터 디비 넣기
 	@RequestMapping(value="login", method = RequestMethod.POST)
 	public String login(Model model,@RequestParam Map<String, Object> map , 
 			HttpSession httpSession, HttpServletRequest request, @RequestParam("pw") String pw) {
@@ -79,6 +79,8 @@ public class MemberController {
 		request.setAttribute("url", "login");
 		return "alert";
 	}
+	
+	// 로그아웃
 	@RequestMapping(value = "logout", method = {RequestMethod.GET, RequestMethod.POST})
 	public String logout(HttpServletRequest request, HttpSession httpsession) {
 		httpsession.invalidate(); //세션삭제
@@ -90,7 +92,7 @@ public class MemberController {
 		
 	}
 	
-	// 해당 아이디 비번 등이 적힌 수정하는 페이지로 가는 코드
+	// 회원정보 수정페이지로 가기
 	@RequestMapping(value="profileup" , method = RequestMethod.GET)
 	public String up(Model model, @RequestParam("mem_id") String mem_id) {
 		
@@ -99,7 +101,7 @@ public class MemberController {
 		return "profileup";
 	}
 	
-	// 게시글 수정을 하고난 다음에  데이터베이스에 보내는 코드
+	// 회원정보 수정 데이터를 디비로 보내기
 	@RequestMapping(value="profileup", method = RequestMethod.POST)
 	public String up(@RequestParam Map<String, Object> map,
 			Model model, @RequestParam("mem_id") String mem_id,
@@ -114,13 +116,13 @@ public class MemberController {
 		//redirect: 경로설정
 	}
 
-	
 	@RequestMapping(value="createAuth", method = RequestMethod.POST)
 	public String createAuth(@RequestParam Map<String, Object> map) throws UnsupportedEncodingException, MessagingException {
 		memberService.createAuth(map);
 		
 		return "home";
 	}
+	
 	@RequestMapping(value="emailAuth", method = RequestMethod.POST)
 	@ResponseBody
 	public String emailAuth(@RequestParam Map<String, Object> map, Model model) {

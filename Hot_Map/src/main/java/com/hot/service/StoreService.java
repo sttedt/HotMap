@@ -77,6 +77,7 @@ public class StoreService {
 	}
 	public List<String> get_imgList(String tmp){
 		List<String> img = new ArrayList<String>();
+		if(tmp == null) return null;
 		String[] a = tmp.split(",");
 		for(String b : a) {
 			img.add(b);
