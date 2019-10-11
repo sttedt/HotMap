@@ -9,29 +9,36 @@
 <!-- 상단바 -->
 <jsp:include page="topbar2.jsp"></jsp:include>
 	<div class="container">
+ 	<table class="table">
+			<tbody>
+				<tr>
+					<td><img class="card-img-top" src="http://dndnp4.dothome.co.kr/image/${detail.Img1}"style= "height: 280px; width: 350px;"/></td>
+					<td><img class="card-img-top" src="http://dndnp4.dothome.co.kr/image/${detail.Img2}"style= "height: 280px; width: 350px;"/></td>
+					<td><img class="card-img-top" src="http://dndnp4.dothome.co.kr/image/${detail.Img3}"style= "height: 280px; width: 350px;"/></td>
+				</tr>
+			</tbody>
+		</table>
 		<div>
 			<br>
-			<h3 style="text-align: left;">
+			<span style="text-align: left; color: #000000; font-size: 24px;" >
 				${detail.name}
+			</span>
+			<div style="text-align: right;">
 				<a href="review?St_NO=${detail.St_NO}" class="btn btn-dark">리뷰쓰기</a>
-			</h3>
-			
+			</div>
 			<br>
 		</div>	
 		
 		<table class="table">
 			<tbody>
-				<tr>
-					<th>음식사진</th>
-					<td><img class="card-img-top" src="http://dndnp4.dothome.co.kr/image/${detail.Img1}"style= "height: 280px; width: 350px;"/></td>
+		
+				<tr>	
+					<th>주소</th>
+					<td>${detail.address}</td>
 				</tr>
-				<tr>
-					<th>매장사진</th>
-					<td><img class="card-img-top" src="http://dndnp4.dothome.co.kr/image/${detail.Img2}"style= "height: 280px; width: 350px;"/></td>
-				</tr>
-				<tr>
-					<th>기타사진</th>
-					<td><img class="card-img-top" src="http://dndnp4.dothome.co.kr/image/${detail.Img3}"style= "height: 280px; width: 350px;"/></td>
+				<tr>	
+					<th>가게번호</th>
+					<td>${detail.phone}</td>
 				</tr>
 				<tr>
 					<th>음식종류</th>
@@ -60,18 +67,6 @@
 					</td>
 				</tr>
 				<tr>	
-					<th>주소</th>
-					<td>${detail.address}</td>
-				</tr>
-				<tr>	
-					<th>날짜</th>
-					<td>${detail.date}</td>
-				</tr>
-				<tr>	
-					<th>전화번호</th>
-					<td>${detail.phone}</td>
-				</tr>
-				<tr>	
 					<th>오픈시간</th>
 					<td>${detail.opening_time}</td>
 				</tr>
@@ -79,15 +74,15 @@
 					<th>마감시간</th>
 					<td>${detail.closing_time}</td>
 				</tr>
+				<tr>	
+					<th>최근업데이트</th>
+					<td>${detail.date}</td>
+				</tr>
 				
 			</tbody>
 		</table>
-		<div>
-		
-		
-		
-			<a href="home" class="btn btn-dark" >목록</a>
-			
+		<div  style="text-align: center;">
+			<a href="home" class="btn btn-dark">목록</a>
 		</div>
 	</div>
 	

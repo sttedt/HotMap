@@ -20,9 +20,8 @@ public class ReviewController {
 	@Autowired
 	ReviewService reviewService;
 	
-	// review이란 페이지를 불러오기위한 코드
+	// 리뷰 쓰기 페이지 불러오기
 	@RequestMapping(value="review", method = RequestMethod.GET)
-	// param은 map을 받는다
 	public String rev(Model model,HttpSession httpSession, HttpServletRequest request, 
 			 @RequestParam("St_NO") int St_NO ) {
 		
@@ -38,8 +37,8 @@ public class ReviewController {
 		}
 		return "review";
 	}
-	// 리뷰페이지에서 리뷰글을 보내는 코드
-	// review란 페이지에서 데이터를 보내기 위한 코드
+	
+	// 리뷰 데이터를 디비에 보내기
 	@RequestMapping(value="review", method = RequestMethod.POST)
 	public String re(@RequestParam Map<String, Object> map,
 			@RequestParam("St_NO") int St_NO) {
@@ -48,15 +47,5 @@ public class ReviewController {
 		System.out.println(map);
 		return "redirect:/storer?St_NO="+St_NO;
 	}
-	
-		//	 게시글 목록 페이지
-		// board이란 페이지에 데이터를 보내기 위한 코드
-//		@RequestMapping(value="reviewr", method = RequestMethod.GET)
-//		public String list(Model model, @RequestParam Map<String, Object> map) {
-//			model.addAttribute("r_list", reviewService.reviewList());
-//			System.out.println("map : " + map);
-//
-//			
-//			return "reviewr";
-//		}
+
 }

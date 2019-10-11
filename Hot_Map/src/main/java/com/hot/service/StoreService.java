@@ -18,14 +18,19 @@ public class StoreService {
 	StoreDao storeDao;
 	
 	public void storeInsert(Map<String, Object> map, List<MultipartFile> list) throws Exception {
-		
+		String img = "";
 		for(int i = 0 ; i < list.size() ; i++) {
 			MultipartFile temp = list.get(i);
-			String key = "img" + (i + 1);
 			String fileName = storeFile(temp);
 			
-			map.put(key, fileName);
+			if(i == 0) {
+				img += fileName;
+			}else {
+				img += "," + fileName;
+			}
 		}
+		map.put("img", img);
+//		System.out.println("StoreService[storeInsert] : "+img);
 		storeDao.storeInsert(map);
 	}
 	public void insertTest(Map<String, Object> map) {
@@ -70,7 +75,16 @@ public class StoreService {
 	public List<Map<String, Object>> storeList() {
 		return storeDao.storeList();
 	}
-	
+	public List<String> get_imgList(String tmp){
+		List<String> img = new ArrayList<String>();
+		if(tmp == null) return null;
+		String[] a = tmp.split(",");
+		for(String b : a) {
+			img.add(b);
+		}
+		System.out.println("StoreService[get_imgList] : " + img);
+		return img;
+	}
 	public Map<String, Object> storeOne(int St_NO) {
 //		boardDao.update(id); // 조회수 증가
 		return storeDao.storeOne(St_NO);
