@@ -90,6 +90,7 @@ public class BoardController {
 			Model model,HttpServletRequest request, HttpSession httpSession) {
 		boardService.boardDelete(map);//데이터넘기기
 //		model.addAttribute("b_list", boardService.boardList()); 위에 보드에서 board.jsp 화면에서 데이터까지 나오게 되는 값
+
 		String no = (String) httpSession.getAttribute("SID");
 		System.out.println("no : " + no);
 		if(no==null) {
