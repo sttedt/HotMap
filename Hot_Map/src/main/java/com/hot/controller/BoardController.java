@@ -64,8 +64,16 @@ public class BoardController {
 	
 	// 게시글 수정페이지로 가기위한 코드
 	@RequestMapping(value="upd" , method = RequestMethod.GET)
-	public String up(Model model, @RequestParam("Brd_NO") int Brd_NO) {
+	public String up(Model model, @RequestParam("Brd_NO") int Brd_NO, HttpSession httpSession, HttpServletRequest request) {
 		model.addAttribute("upd", boardService.upd(Brd_NO));
+		String no = (String) httpSession.getAttribute("SID");
+		System.out.println("no : " + no);
+		if(no==null) {
+			request.setAttribute("type", "error");
+			request.setAttribute("msg", "로그인이 필요합니다");
+			request.setAttribute("url", "login");
+			return "alert";
+		}
 		return "boardup";
 	}
 	
@@ -83,10 +91,17 @@ public class BoardController {
 	// 게시글 삭제 
 	@RequestMapping(value="boardd" , method = RequestMethod.GET)
 	public String del(@RequestParam Map<String, Object> map, 
-			Model model) {
+			Model model,HttpServletRequest request, HttpSession httpSession) {
 		boardService.boardDelete(map);//데이터넘기기
 //		model.addAttribute("b_list", boardService.boardList()); 위에 보드에서 board.jsp 화면에서 데이터까지 나오게 되는 값
-		
+		String no = (String) httpSession.getAttribute("SID");
+		System.out.println("no : " + no);
+		if(no==null) {
+			request.setAttribute("type", "error");
+			request.setAttribute("msg", "로그인이 필요합니다");
+			request.setAttribute("url", "login");
+			return "alert";
+		}
 		return "redirect:/board";
 		// 주소가 boardd?Brd_NO=815 에서 결과값이 board의 주소창으로 된다
 	}

@@ -64,14 +64,16 @@
 						</li>
 					</ul>
 
-
-					<div style="float: right; margin-top: 8px">
-						<input type="text" class="nav-item" id="search" name="search" style="max-width: 200px; display: inline-block;" placeholder="want를 검색하세요"> 
-<!-- 						<input type="submit" class="btn btn-white btn-outline-white" value="search" style="margin-left: 5px"> -->
-						<button type="submit" class="btn btn-white btn-outline-white" style="height: 33px; margin-top: -3px">
-							<span class="glyphicon glyphicon-search"></span>
-						</button>
-					</div>
+					<form action ="search">
+						<div style="float: right; margin-top: 8px">
+							<input type="text" class="nav-item" id="search" name="search" style="max-width: 200px; display: inline-block;" placeholder="want를 검색하세요"> 
+							<button type="submit" class="btn btn-white btn-outline-white" style="height: 33px; margin-top: -3px">
+								<span class="glyphicon glyphicon-search">
+									<a href="search?search=${'#search'}"></a>							
+								</span>
+							</button>
+						</div>
+					</form>
 				</div>
 			</div>
 				<div style="float: right; margin-top:-70px; margin-right: 100;">						

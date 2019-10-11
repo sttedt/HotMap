@@ -41,8 +41,10 @@
 		</table>
 		<div>
 			<a href="board" class="btn btn-dark" >목록</a>
-			<a href="upd?Brd_NO=${detail.Brd_NO}" class="btn btn-dark" >수정</a>
-			<a href="boardd?Brd_NO=${detail.Brd_NO}" class="btn btn-dark" >삭제</a>
+			<c:if test="${sessionScope.SID eq detail.mem_id }">
+				<a href="upd?Brd_NO=${detail.Brd_NO}" class="btn btn-dark" >수정</a>
+				<a href="boardd?Brd_NO=${detail.Brd_NO}" class="btn btn-dark" >삭제</a>
+			</c:if>
 		</div>
 	</div>
 </body>
