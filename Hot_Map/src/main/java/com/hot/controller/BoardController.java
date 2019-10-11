@@ -90,7 +90,6 @@ public class BoardController {
 			Model model,HttpServletRequest request, HttpSession httpSession) {
 		boardService.boardDelete(map);//데이터넘기기
 //		model.addAttribute("b_list", boardService.boardList()); 위에 보드에서 board.jsp 화면에서 데이터까지 나오게 되는 값
-<<<<<<< HEAD
 		String no = (String) httpSession.getAttribute("SID");
 		System.out.println("no : " + no);
 		if(no==null) {
@@ -99,8 +98,6 @@ public class BoardController {
 			request.setAttribute("url", "login");
 			return "alert";
 		}
-=======
->>>>>>> branch 'master' of https://github.com/sttedt/HotMap.git
 		return "redirect:/board";
 		// 주소가 boardd?Brd_NO=815 에서 결과값이 board의 주소창으로 된다
 	}
