@@ -50,7 +50,21 @@
 				</tr>
 				<tr>
 					<th>태그</th>
-					<td>#소주 #맥주 #중식 #일식 #튀김 </td>
+					<td id="tag">
+					
+						<script>
+						 	var taglist = '${detail.tag}'	
+							var tagOne = taglist.split(',');
+						 	console.log("tagOne : " + tagOne)
+						 	$("#tag2").append(tagOne);
+						 	 for ( var i in tagOne ) {
+						         document.write( '<a href="search?search=" +' + tagOne [i] + '>' + tagOne [i]+ ', ' + '</a>' );
+						       }
+						</script>
+					
+					
+					
+					</td>
 				</tr>
 				<tr>	
 					<th>오픈시간</th>
@@ -74,3 +88,5 @@
 	
 	<jsp:include page="reviewr.jsp"></jsp:include>
 </body>
+
+

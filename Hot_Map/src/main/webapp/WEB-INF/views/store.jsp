@@ -62,13 +62,16 @@ ul li.tag-item {
 				<h3 style="text-align: center; margin-top: 20px;">매장 등록</h3>
 				<hr>
 			</div>
-			이름 :<br /> <input type="text" name="name" class="form-control"
-				required /> <br /> 메뉴 : <input type="text" name="menu"
-				class="form-control" /> <br /> 가격 : <input type="text"
-				name="price" class="form-control" /> <br /> 주소 : <input
-				type="text" name="address" class="form-control" /> <br /> 전화번호 : <input
-				type='tel' name="phone" pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}"
-				placeholder='000-0000-0000' class="form-control" /> <br />
+			이름 :<br /> 
+			<input type="text" name="name" class="form-control"	required /> <br /> 
+			메뉴 : 
+			<input type="text" name="menu"	class="form-control" /> <br /> 
+			가격 : 
+			<input type="text"	name="price" class="form-control" /> <br /> 
+			주소 : 
+			<input	type="text" name="address" class="form-control" /> <br /> 
+			전화번호 : 
+			<input type='tel' name="phone" pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}"	placeholder='000-0000-0000' class="form-control" /> <br />
 
 			<div class='row' style="margin-left:0;">
 				<div class='form-group col-mb-6'>
