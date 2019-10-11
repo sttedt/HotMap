@@ -12,9 +12,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hot.service.MemberService;
 
-
-
-
 @Controller
 public class sandController {
 	@Autowired

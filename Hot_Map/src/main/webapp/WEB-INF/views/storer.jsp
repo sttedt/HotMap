@@ -9,6 +9,15 @@
 <!-- 상단바 -->
 <jsp:include page="topbar2.jsp"></jsp:include>
 	<div class="container">
+ 	<table class="table">
+			<tbody>
+				<tr>
+					<td><img class="card-img-top" src="http://dndnp4.dothome.co.kr/image/${detail.Img1}"style= "height: 280px; width: 350px;"/></td>
+					<td><img class="card-img-top" src="http://dndnp4.dothome.co.kr/image/${detail.Img2}"style= "height: 280px; width: 350px;"/></td>
+					<td><img class="card-img-top" src="http://dndnp4.dothome.co.kr/image/${detail.Img3}"style= "height: 280px; width: 350px;"/></td>
+				</tr>
+			</tbody>
+		</table>
 		<div>
 			<br>
 			<h3 style="text-align: left;">
@@ -21,18 +30,7 @@
 		
 		<table class="table">
 			<tbody>
-				<tr>
-					<th>음식사진</th>
-					<td><img class="card-img-top" src="http://dndnp4.dothome.co.kr/image/${detail.Img1}"style= "height: 280px; width: 350px;"/></td>
-				</tr>
-				<tr>
-					<th>매장사진</th>
-					<td><img class="card-img-top" src="http://dndnp4.dothome.co.kr/image/${detail.Img2}"style= "height: 280px; width: 350px;"/></td>
-				</tr>
-				<tr>
-					<th>기타사진</th>
-					<td><img class="card-img-top" src="http://dndnp4.dothome.co.kr/image/${detail.Img3}"style= "height: 280px; width: 350px;"/></td>
-				</tr>
+		
 				<tr>
 					<th>음식종류</th>
 					<td>${detail.menu}</td>
@@ -70,9 +68,7 @@
 		</table>
 		<div>
 		
-		
-		
-			<a href="home" class="btn btn-dark" >목록</a>
+			<a href="home" class="btn btn-dark" style="text-align: center;">목록</a>
 			
 		</div>
 	</div>
