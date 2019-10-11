@@ -31,17 +31,12 @@ public class StoreController {
 	}
 
 	@RequestMapping(value = "store", method = RequestMethod.POST)
-	public String storeUp(@RequestParam("img1") MultipartFile img1, @RequestParam("img2") MultipartFile img2, @RequestParam("img3") MultipartFile img3, 
-			@RequestParam Map<String, Object> map, Model model, @RequestParam("tag_end") String tag_end) throws Exception {
+	public String storeUp(@RequestParam("file") List<MultipartFile> img, @RequestParam Map<String, Object> map, Model model, @RequestParam("tag_end") String tag_end) throws Exception {
 		
 		map.put("hash", tag_end);
 		
-		List<MultipartFile> fileList = new ArrayList<MultipartFile>();
-		if(img1.getSize() > 0) fileList.add(img1);
-		if(img2.getSize() > 0) fileList.add(img2);
-		if(img3.getSize() > 0) fileList.add(img3);
 		System.out.println("map : " + map);
-		storeService.storeInsert(map, fileList);
+		storeService.storeInsert(map, img);
 		return "redirect:/home";
 	}
 
@@ -51,11 +46,13 @@ public class StoreController {
 	}
 
 	@RequestMapping(value = "test", method = RequestMethod.POST)
-	public String test_post(@RequestParam("file") MultipartFile file, @RequestParam("test1") List<Object> list, @RequestParam Map<String, Object> map,
+	public String test_post(@RequestParam("file") List<MultipartFile> file, @RequestParam("test1") List<Object> list, @RequestParam Map<String, Object> map,
 			Model model) throws Exception {
 		Map<String, Object> tmp = new HashMap<String, Object>();
-		System.out.println(list);
-		System.out.println(map);
+		
+		for(MultipartFile mFile : file) {
+			storeService.storeFile(mFile);
+		}
 		return "redirect:/test";
 	}
 	
@@ -73,7 +70,10 @@ public class StoreController {
 		map.put("St_NO",St_NO);
 		storeService.hitUpdate(map);
 		List<Map<String, Object>> rList = reviewService.reviewList(St_NO);
-		System.out.println(rList);
+		
+		//return받은 store map에서 img 필드만 가지고와서 string split 하는 작업
+		List<String> imgList= storeService.get_imgList((String)storeService.storeOne(St_NO).get("img"));
+		
 		model.addAttribute("r_list", rList);
 		model.addAttribute("detail", storeService.storeOne(St_NO));
 		return "storer";
