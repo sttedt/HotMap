@@ -64,7 +64,6 @@
 						</li>
 					</ul>
 
-<<<<<<< HEAD
 					<form action ="search">
 						<div style="float: right; margin-top: 8px">
 							<input type="text" class="nav-item" id="search" name="search" style="max-width: 200px; display: inline-block;" placeholder="want를 검색하세요"> 
@@ -75,7 +74,7 @@
 							</button>
 						</div>
 					</form>
-=======
+
 					<div style="float: right; margin-top: 8px">
 						<input type="text" class="nav-item" id="search" name="search" style="max-width: 200px; display: inline-block;" placeholder="want를 검색하세요"> 
 <!-- 						<input type="submit" class="btn btn-white btn-outline-white" value="search" style="margin-left: 5px"> -->
@@ -83,7 +82,7 @@
 							<span class="glyphicon glyphicon-search"></span>
 						</button>
 					</div>
->>>>>>> branch 'master' of https://github.com/sttedt/HotMap.git
+
 				</div>
 			</div>
 				<div style="float: right; margin-top:-70px; margin-right: 100;">						
