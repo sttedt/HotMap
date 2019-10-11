@@ -25,6 +25,9 @@
 		SET hit=hit+1
 		WHERE St_NO=#{St_NO}
 	</update>
-
+	
+	<select id='getAllImage' parameterType="int" resultType='map'>
+		SELECT img FROM store where img is not null and St_NO = #{St_NO} UNION SELECT img FROM review where img is not null and St_NO = #{St_NO} 
+	</select>
 	
 </mapper>

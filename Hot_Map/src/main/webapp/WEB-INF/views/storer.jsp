@@ -2,22 +2,86 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+<style>
+.col-md-3{
+  display: inline-block;
+  margin-left:-4px;
+}
+.col-md-3 img{
+  width:100%;
+  height:auto;
+}
+body .carousel-indicators li{
+  background-color:red;
+}
+body .carousel-control-prev-icon,
+body .carousel-control-next-icon{
+  background-color:red;
+}
+body .no-padding{
+  padding-left: 0;
+  padding-right: 0;
+}
+</style>
 <head>
 	<title>store</title>
 </head>
 <body>
 <!-- 상단바 -->
 <jsp:include page="topbar2.jsp"></jsp:include>
+
 	<div class="container">
- 	<table class="table">
-			<tbody>
-				<tr>
-					<td><img class="card-img-top" src="http://dndnp4.dothome.co.kr/image/${detail.Img1}"style= "height: 280px; width: 350px;"/></td>
-					<td><img class="card-img-top" src="http://dndnp4.dothome.co.kr/image/${detail.Img2}"style= "height: 280px; width: 350px;"/></td>
-					<td><img class="card-img-top" src="http://dndnp4.dothome.co.kr/image/${detail.Img3}"style= "height: 280px; width: 350px;"/></td>
-				</tr>
-			</tbody>
-		</table>
+	<div id="demo" class="carousel slide" data-ride="carousel">
+
+  <!-- Indicators -->
+  <ul class="carousel-indicators">
+		<script>
+		var cnt = parseInt('${slide_page_cnt}');
+		
+		for(var i = 0 ; i < cnt; i++){
+			if(i == 0) document.write("<li data-target='#demo' data-slide-to='" + i + "' class='active'></li>")
+			else document.write("<li data-target='#demo' data-slide-to='" + i + "'></li>")
+		}
+		</script>
+
+  </ul>
+  
+  <!-- The slideshow -->
+  <div class="container carousel-inner no-padding">
+	<script>
+		var cnt = parseInt('${slide_page_cnt}');
+		var img_cnt = parseInt('${slide_img_cnt}');
+		var imglist = '${imglist}'
+		imglist = imglist.replace('[', '').replace(']', '');
+		imglist = imglist.split(', ');
+
+
+		for(var i = 0; i<cnt ;i++){
+			if(i == 0 ) document.write("<div class='carousel-item active'>")
+			else document.write("<div class='carousel-item'>")
+
+			for(var j = img_cnt * i ; j <= img_cnt * (i + 1) - 1; j++ ){
+				console.log(i, j)
+				if(imglist[j]) {
+					document.write("<div class='col-xs-3 col-sm-3 col-md-3'>")
+					document.write("<img src='http://dndnp4.dothome.co.kr/image/" + imglist[j] +"'>")
+					document.write("</div>")
+				}
+			}
+			document.write("</div>")
+		}
+	</script>
+  </div>
+  
+  <!-- Left and right controls -->
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+</div>
+<!--슬라이드  -->
 		<div>
 			<br>
 			<span style="text-align: left; color: #000000; font-size: 24px;" >
@@ -55,15 +119,11 @@
 						<script>
 						 	var taglist = '${detail.tag}'	
 							var tagOne = taglist.split(',');
-						 	console.log("tagOne : " + tagOne)
 						 	$("#tag2").append(tagOne);
 						 	 for ( var i in tagOne ) {
 						         document.write( '<a href="search?search="' + tagOne [i] + '>' + tagOne [i]+ ', ' + '</a>' );
 						       }
 						</script>
-					
-					
-					
 					</td>
 				</tr>
 				<tr>	

@@ -70,10 +70,19 @@ public class StoreController {
 		map.put("St_NO",St_NO);
 		storeService.hitUpdate(map);
 		List<Map<String, Object>> rList = reviewService.reviewList(St_NO);
+		List<String> imglist = storeService.getAllImage(St_NO);
+		//return받은 store map에서 img 필드만 가지고와서 string split 하는 작업... 필요하면쓰기...
+//		List<String> imgList= storeService.get_imgList((String)storeService.storeOne(St_NO).get("img"));
 		
-		//return받은 store map에서 img 필드만 가지고와서 string split 하는 작업
-		List<String> imgList= storeService.get_imgList((String)storeService.storeOne(St_NO).get("img"));
+		int slide_page_cnt = 1, slide_img_cnt = 4;
 		
+		slide_page_cnt += imglist.size() / slide_img_cnt;
+		if(imglist.size() % slide_img_cnt == 0 ) slide_page_cnt--;
+		
+		model.addAttribute("slide_page_cnt", slide_page_cnt);
+		model.addAttribute("slide_img_cnt", slide_img_cnt);
+		model.addAttribute("imglist",imglist);
+		model.addAttribute("reviewCount",rList.size());
 		model.addAttribute("r_list", rList);
 		model.addAttribute("detail", storeService.storeOne(St_NO));
 		return "storer";
