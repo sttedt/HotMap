@@ -58,7 +58,7 @@
 						 	console.log("tagOne : " + tagOne)
 						 	$("#tag2").append(tagOne);
 						 	 for ( var i in tagOne ) {
-						         document.write( '<a href="search?search=" +' + tagOne [i] + '>' + tagOne [i]+ ', ' + '</a>' );
+						         document.write( '<a href="search?search="' + tagOne [i] + '>' + tagOne [i]+ ', ' + '</a>' );
 						       }
 						</script>
 					
