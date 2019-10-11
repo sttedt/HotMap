@@ -54,8 +54,9 @@
 			</div>
 			<div class="form-group">
 				<input type="password" class="form-control" name="pw" id="pw" placeholder="Password" onkeypress="caps_lock(event)"/>
-				<p id="capslock" class="arrow_box" style="position:relative; border:2px solid #003b83; width:300px; bottom:0px; display:none"> 
-   				 &nbsp;<b>CapsLock</b> 키가 눌려 있어용&nbsp;
+				<p id="capslock" class="arrow_box" style="position:relative; border:2px solid #003b83; width:510px; bottom:-3px; display:none"> 
+   				 &nbsp;<b>[CapsLock]</b>이 켜져 있습니다. &nbsp;<br> <b>[CapsLock]</b>이 켜져 있으면 암호를 올바르게 입력하지 못할 수 있습니다. <br><br>
+   				 암호를 입력하기전에 <b>[CapsLock]</b>을 꺼야 합니다.
 				</p>
 			</div>
 		<button type="submit" class="btn btn-dark" style="width: 512px; height: 47px;">로그인</button>
