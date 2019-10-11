@@ -51,19 +51,13 @@
 				<tr>
 					<th>태그</th>
 					<td id="tag">
-					
 						<script>
-						 	var taglist = '${detail.tag}'	
+						 	var taglist = '${detail.tag}';
 							var tagOne = taglist.split(',');
-						 	console.log("tagOne : " + tagOne)
-						 	$("#tag2").append(tagOne);
 						 	 for ( var i in tagOne ) {
-						         document.write( '<a href="search?search="' + tagOne [i] + '>' + tagOne [i]+ ', ' + '</a>' );
+						         document.write( '<a href="search?search=' + encodeURIComponent(tagOne[i]) + '" name="search">' + tagOne [i]+ ', ' + '</a>' );
 						       }
 						</script>
-					
-					
-					
 					</td>
 				</tr>
 				<tr>	
