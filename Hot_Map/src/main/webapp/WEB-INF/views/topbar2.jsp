@@ -20,7 +20,7 @@
 <link rel="stylesheet" href="resources/css/style.css">
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300" >
-  <div id ="bb" style="z-index: 9999;">
+<!--   <div id ="bb" style="z-index: 9999;"> -->
 	<header class="site-navbar js-sticky-header site-navbar-target" role="banner" style="height: 130px;  background-color: #000000; z-index: 9999;">
 		<nav class="navbar navbar-expand-md" style="background-color: #ffffff; ">
 			<div class="container">

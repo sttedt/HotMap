@@ -30,11 +30,11 @@ body .no-padding{
 <!-- 상단바 -->
 <jsp:include page="topbar2.jsp"></jsp:include>
 
-	<div class="container">
-	<div id="demo" class="carousel slide" data-ride="carousel">
+	<div class="container" >
+	<div id="demo" class="carousel slide" data-ride="carousel" style="z-index: -9999">
 
   <!-- Indicators -->
-  <ul class="carousel-indicators">
+  <ul class="carousel-indicators" >
 		<script>
 		var cnt = parseInt('${slide_page_cnt}');
 		
@@ -47,7 +47,7 @@ body .no-padding{
   </ul>
   
   <!-- The slideshow -->
-  <div class="container carousel-inner no-padding">
+  <div class="container carousel-inner no-padding" >
 	<script>
 		var cnt = parseInt('${slide_page_cnt}');
 		var img_cnt = parseInt('${slide_img_cnt}');
