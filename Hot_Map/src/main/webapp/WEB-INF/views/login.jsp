@@ -60,22 +60,15 @@
 				</p>
 			</div>
 		<button type="submit" class="btn btn-dark" style="width: 512px; height: 47px;">로그인</button>
+		<a class="dropdown-item" href="find_id_form" style="text-align: center;">아이디찾기</a>
+		<a class="dropdown-item" href="find_pw_form" style="text-align: center;">비밀번호 찾기</a>
 		</form>
 	</div>
-	<br><br><br><br><br><br><br><br><br><br><br><br><br>
-	<br><br><br><br><br><br><br><br><br><br><br><br><br>
-	<br><br><br><br><br><br><br><br><br><br><br><br><br>
-	<br><br><br><br><br><br><br><br><br><br><br><br><br>
-	<br><br><br><br><br><br><br><br><br><br><br><br><br>
-	<br><br><br><br><br><br><br><br><br><br><br><br><br>
-	<br><br><br><br><br><br><br><br><br><br><br><br><br>
-	<br><br><br><br><br><br><br><br><br><br><br><br><br>
-	
 
 </body>
 
 <script>
-
+	// 캡스락
 	function caps_lock(e) {
 	    var keyCode = 0;
 	    var shiftKey = false;
@@ -102,15 +95,3 @@
 
 
 </script>
-
-	/* var html = `<div class="container" style="max-width: 540px;">
-		<form method="post">
-	<div class="form-group">
-		<input type="text" class="form-control" name="id" id="id" aria-describedby="emailHelp" placeholder="id">
-	</div>
-	<div class="form-group">
-		<input type="password" class="form-control" name="pw" id="pw" placeholder="Password">
-	</div>
-<button type="submit" class="btn btn-primary">로그인</button>
-</form>
-</div>` */
