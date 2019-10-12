@@ -20,11 +20,8 @@ public class searchController {
 	
 	@RequestMapping(value="search", method = RequestMethod.GET)
 	public String search(Model model, Map<String, Object> map, @RequestParam("search") String search) {
-		System.out.println("search : " + search);
 		map.put("search" , search);
-		System.out.println("map : " + map);
 		List<Map<String, Object>> searchList = searchService.searchList(search);
-		System.out.println("searchList : " + searchList);
 		model.addAttribute("search_list", searchList);
 		return "search";
 	}

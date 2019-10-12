@@ -115,13 +115,15 @@ body .no-padding{
 				<tr>
 					<th>태그</th>
 					<td id="tag">
-					
 						<script>
-						 	var taglist = '${detail.tag}'	
+						 	var taglist = '${detail.tag}';
 							var tagOne = taglist.split(',');
+<<<<<<< HEAD
 						 	$("#tag2").append(tagOne);
+=======
+>>>>>>> branch 'master' of https://github.com/sttedt/HotMap.git
 						 	 for ( var i in tagOne ) {
-						         document.write( '<a href="search?search="' + tagOne [i] + '>' + tagOne [i]+ ', ' + '</a>' );
+						         document.write( '<a href="search?search=' + encodeURIComponent(tagOne[i]) + '" name="search">' + tagOne [i]+ ', ' + '</a>' );
 						       }
 						</script>
 					</td>
