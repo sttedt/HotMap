@@ -78,7 +78,7 @@
 	</select>
 
 	<!-- 비밀번호 변경 -->
-	<update id="update_pw" parameterType="member">
-		update member set pw = #{pw} where mem_id = #{mem_id}
-	</update>
+<!-- 	<update id="update_pw" parameterType="member"> -->
+<!-- 		update member set pw = #{pw} where mem_id = #{mem_id} -->
+<!-- 	</update> -->
 </mapper>
