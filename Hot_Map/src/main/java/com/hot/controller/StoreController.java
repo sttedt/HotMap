@@ -5,6 +5,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -65,10 +69,28 @@ public class StoreController {
 	
 	// 스토어 상세페이지
 	@RequestMapping(value="storer")
-	public String show(Model model, @RequestParam("St_NO") int St_NO) {
+	public String show(Model model, @RequestParam("St_NO") int St_NO,
+			HttpServletResponse response, HttpServletRequest request) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("St_NO",St_NO);
-		storeService.hitUpdate(map);
+		Cookie[] cookies = request.getCookies();
+		Cookie viewCookie = null;
+		
+		if(cookies != null&& cookies.length > 0 ) {
+			for(int i=0; i< cookies.length; i++) {
+				if(cookies[i].getName().equals("cookie" + St_NO)) {
+					System.out.println("쿠키 생성후 돌아옴");
+					viewCookie = cookies[i];
+				}
+			}
+		}
+		
+		if(viewCookie == null) {
+			Cookie newCookie = new Cookie("cookie"+St_NO, "|" + St_NO + "|");
+			response.addCookie(newCookie);
+			storeService.hitUpdate(map);
+			
+		}
 		List<Map<String, Object>> rList = reviewService.reviewList(St_NO);
 		List<String> imglist = storeService.getAllImage(St_NO);
 		//return받은 store map에서 img 필드만 가지고와서 string split 하는 작업... 필요하면쓰기...
@@ -84,6 +106,7 @@ public class StoreController {
 		model.addAttribute("imglist",imglist);
 		model.addAttribute("reviewCount",rList.size());
 		model.addAttribute("r_list", rList);
+		System.out.println("rlist :  " + rList);
 		model.addAttribute("detail", storeService.storeOne(St_NO));
 		return "storer";
 	}

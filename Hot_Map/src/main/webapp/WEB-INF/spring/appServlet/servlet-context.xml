@@ -36,7 +36,7 @@
 		<property name="driverClassName"
 			value="com.mysql.jdbc.Driver"></property>
 		<property name="url"
-			value="jdbc:mysql://192.168.0.10:3306/hotmap?serverTimezone=UTC&amp;characterEncoding=UTF-8"></property>
+			value="jdbc:mysql://192.168.0.43:3306/hotmap?serverTimezone=UTC&amp;characterEncoding=UTF-8"></property>
 
 		<!-- <property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property> -->
 		<!-- <property name="url" value="jdbc:log4jdbc:mysql://192.168.0.62:3306/nodedb"></property> -->

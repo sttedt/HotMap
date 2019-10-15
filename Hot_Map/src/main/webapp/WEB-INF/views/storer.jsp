@@ -113,15 +113,15 @@ body .no-padding{
 					<td>${detail.price}</td>
 				</tr>
 				<tr>
+					<th>평점</th>
+					<td>${detail.star}</td>
+				</tr>
+				<tr>
 					<th>태그</th>
 					<td id="tag">
 						<script>
 						 	var taglist = '${detail.tag}';
 							var tagOne = taglist.split(',');
-<<<<<<< HEAD
-						 	$("#tag2").append(tagOne);
-=======
->>>>>>> branch 'master' of https://github.com/sttedt/HotMap.git
 						 	 for ( var i in tagOne ) {
 						         document.write( '<a href="search?search=' + encodeURIComponent(tagOne[i]) + '" name="search">' + tagOne [i]+ ', ' + '</a>' );
 						       }
@@ -136,6 +136,11 @@ body .no-padding{
 					<th>마감시간</th>
 					<td>${detail.closing_time}</td>
 				</tr>
+				<tr>	
+					<th>조회수</th>
+					<td>${detail.hit}</td>
+				</tr>
+			
 				<tr>	
 					<th>최근업데이트</th>
 					<td>${detail.date}</td>

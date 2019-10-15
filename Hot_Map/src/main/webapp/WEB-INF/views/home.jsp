@@ -2,8 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="false"%>
-
-<link rel="stylesheet" href="resources/css/bootstrap.min.css">
 <head>
 <title>HotMap</title>
 	<style>

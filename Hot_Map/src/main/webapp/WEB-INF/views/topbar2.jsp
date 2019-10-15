@@ -4,17 +4,16 @@
 <%@ page session="true"%>
 
 <head>
-<title>Eatery Colorlib Website Template</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800" rel="stylesheet">
 <link rel="stylesheet" href="resources/css/animate.css">
-<link rel="stylesheet" href="resources/css/owl.carousel.min.css">
-<link rel="stylesheet" href="resources/css/magnific-popup.css">
-<link rel="stylesheet" href="resources/fonts/ionicons/css/ionicons.min.css">
-<link rel="stylesheet" href="resources/fonts/fontawesome/css/font-awesome.min.css">
+<!-- <link rel="stylesheet" href="resources/css/owl.carousel.min.css"> -->
+<!-- <link rel="stylesheet" href="resources/css/magnific-popup.css"> -->
+<!-- <link rel="stylesheet" href="resources/fonts/ionicons/css/ionicons.min.css"> -->
 <link rel="stylesheet" href="resources/fonts/flaticons/font/flaticon.css">
 <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+<link rel="stylesheet" href="resources/css/fontawesome.min.css">
 
 <!-- Theme Style -->
 <link rel="stylesheet" href="resources/css/style.css">
@@ -67,16 +66,12 @@
 					<form action ="search?search=${'#search'}">
 						<div style="float: right; margin-top: 8px">
 							<input type="text" class="nav-item" id="search" name="search" style="max-width: 200px; display: inline-block;" placeholder="want를 검색하세요"> 
-							<button type="submit" class="btn btn-white btn-outline-white" style="height: 33px; margin-top: -3px">
-								<span class="glyphicon glyphicon-search">
+							<button type="submit" class="btn btn-white btn-outline-white " style="height: 33px; margin-top: -3px">
+								<span class="fas fa-search-plus">
 								</span>
 							</button>
 						</div>
 					</form>
-<<<<<<< HEAD
-
-=======
->>>>>>> branch 'master' of https://github.com/sttedt/HotMap.git
 				</div>
 			</div>
 				<div style="float: right; margin-top:-70px; margin-right: 100;">						
@@ -113,7 +108,6 @@
 				</div>	
 		</nav>
 	</header>
-</div>
 </body>
 <script src='resources/js/jquery-3.3.1.min.js'></script>
 <script src="resources/js/popper.min.js"></script>
