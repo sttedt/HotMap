@@ -153,9 +153,9 @@ public class MemberController {
 		return "find_id";
 	}
 	
-	// 비밀번호 찾기 폼
-		@RequestMapping(value = "find_pw_form")
-		public String find_pw_form() throws Exception{
-			return "find_pw_form";
-		}
+//	// 비밀번호 찾기 폼
+//		@RequestMapping(value = "find_pw_form")
+//		public String find_pw_form() throws Exception{
+//			return "find_pw_form";
+//		}
 }

@@ -63,9 +63,9 @@ public class MemberDao {
 		return sessionTemplate.selectOne("member.find_id", email);
 	}
 	
-	// 비밀번호 변경
-	@Transactional
-	public int update_pw(MemberDao member) throws Exception{
-		return sessionTemplate.update("member.update_pw", member);
-	}
+//	// 비밀번호 변경
+//	@Transactional
+//	public int update_pw(MemberDao member) throws Exception{
+//		return sessionTemplate.update("member.update_pw", member);
+//	}
 }
