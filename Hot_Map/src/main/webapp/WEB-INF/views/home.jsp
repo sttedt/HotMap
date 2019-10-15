@@ -36,7 +36,7 @@
 		<c:forEach items="${s_list}" var="map">
 			<a href="storer?St_NO=${map.St_NO}" style="margin-left: 10px;">
 				<div class="card mb-4" style=" z-index: -9999;">
-						<img class="card-img-top" src="http://dndnp4.dothome.co.kr/image/${map.Img1 }" 
+						<img class="card-img-top" src="http://dndnp4.dothome.co.kr/image/${map.img}" onerror="this.src='http://dndnp4.dothome.co.kr/imgNotFound.png'"
 							style= "height: 280px; width: 350px;"/>
 						<p class="card-header" style= "width: 350px; text-align: center; background:white;">
 							<span style="color:black; text-decoration: none;">${map.name}</span><br/>

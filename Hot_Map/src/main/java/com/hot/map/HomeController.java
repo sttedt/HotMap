@@ -2,7 +2,10 @@ package com.hot.map;
 
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,9 +38,17 @@ public class HomeController {
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 		
 		String formattedDate = dateFormat.format(date);
-		
+		List<Map<String,Object>> list = storeService.storeList();
+		for(int i = 0 ; i< list.size();i++) {
+			String tmpString = (String) list.get(i).get("img");
+			List<String> imgList =  storeService.get_imgList(tmpString);
+			Map<String, Object> tmp1 = list.get(i);
+			tmp1.put("img", imgList.get(0));
+			list.set(i,tmp1);
+		}
+		System.out.println(list);
 		model.addAttribute("serverTime", formattedDate );
-		model.addAttribute("s_list", storeService.storeList());
+		model.addAttribute("s_list", list);
 		return "home";
 	}
 	
