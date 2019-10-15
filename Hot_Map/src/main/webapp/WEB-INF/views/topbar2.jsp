@@ -73,10 +73,7 @@
 							</button>
 						</div>
 					</form>
-<<<<<<< HEAD
 
-=======
->>>>>>> branch 'master' of https://github.com/sttedt/HotMap.git
 				</div>
 			</div>
 				<div style="float: right; margin-top:-70px; margin-right: 100;">						
