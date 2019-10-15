@@ -72,4 +72,13 @@
 		delete from emailauth where email = #{email}
 	</delete>
 
+	<!-- 아이디 찾기 -->
+	<select id="find_id" parameterType="String" resultType="String">
+		select * from member where email = #{email}
+	</select>
+
+	<!-- 비밀번호 변경 -->
+<!-- 	<update id="update_pw" parameterType="member"> -->
+<!-- 		update member set pw = #{pw} where mem_id = #{mem_id} -->
+<!-- 	</update> -->
 </mapper>

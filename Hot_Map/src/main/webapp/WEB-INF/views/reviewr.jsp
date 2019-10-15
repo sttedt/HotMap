@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+
 <body>
 	<!-- 상단바 -->
 	
@@ -17,9 +18,10 @@
 		
 			<tbody>
 				<c:forEach items="${r_list}" var="map" varStatus="status">
-					<tr>
+					<tr style="font-size: 12px;" >
 						<td rowspan="3">${map.mem_id}</td>
-						<td style="font-size: 12px;">${map.Date}</td>
+						<td>점수 : ${map.Star }</td>
+						<td>작성시간 : ${map.Date}</td>
 						
 					</tr>
 					<tr>

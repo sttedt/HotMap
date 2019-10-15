@@ -27,8 +27,15 @@
 			<input type="hidden" name="St_NO" value="${detail.St_NO}">
 			내용 : <textarea rows="6" name="content" class="form-control" placeholder="주문하신 메뉴는 어떠셨나요? 식당의 분위기와 서비스도 궁금해요!"></textarea>
 			<br /> 
-			별점 :<br /> 
-			<input type="text" name="star" class="form-control"/>
+			별점 : 
+			<select name="star">
+				<option value="1">1
+				<option value="2">2
+				<option value="3">3
+				<option value="4">4
+				<option value="5">5
+			</select>
+			<br />
 			사진첨부 : <br>
 			<button type='button' id='add_img'> 이미지 추가 </button>
 			<div id="file_area"></div>

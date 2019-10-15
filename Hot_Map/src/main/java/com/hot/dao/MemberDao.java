@@ -5,6 +5,7 @@ import java.util.Map;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 public class MemberDao {
@@ -55,5 +56,16 @@ public class MemberDao {
 	public int memberUpdate(Map<String, Object> map) {
 		return sessionTemplate.update("member.memberUpdate", map);
 		
+	}
+	
+	// 아이디 찾기
+	public String find_id(String email) throws Exception{
+		return sessionTemplate.selectOne("member.find_id", email);
+	}
+	
+	// 비밀번호 변경
+	@Transactional
+	public int update_pw(MemberDao member) throws Exception{
+		return sessionTemplate.update("member.update_pw", member);
 	}
 }

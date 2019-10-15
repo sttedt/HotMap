@@ -31,20 +31,21 @@ body .no-padding{
 <jsp:include page="topbar2.jsp"></jsp:include>
 
 	<div class="container" >
-	<div id="demo" class="carousel slide" data-ride="carousel" style="z-index: -9999">
+	<div id="demo" class="carousel slide" data-ride="carousel"">
 
   <!-- Indicators -->
-  <ul class="carousel-indicators" >
+  
 		<script>
 		var cnt = parseInt('${slide_page_cnt}');
-		
+		document.write('<ol class="carousel-indicators" >')
 		for(var i = 0 ; i < cnt; i++){
-			if(i == 0) document.write("<li data-target='#demo' data-slide-to='" + i + "' class='active'></li>")
+			if(i === 0) document.write("<li data-target='#demo' data-slide-to='" + i + "' class='active'></li>")
 			else document.write("<li data-target='#demo' data-slide-to='" + i + "'></li>")
 		}
+		document.write('</ol>')
 		</script>
 
-  </ul>
+  
   
   <!-- The slideshow -->
   <div class="container carousel-inner no-padding" >
@@ -57,14 +58,13 @@ body .no-padding{
 
 
 		for(var i = 0; i<cnt ;i++){
-			if(i == 0 ) document.write("<div class='carousel-item active'>")
+			if(i === 0 ) document.write("<div class='carousel-item active'>")
 			else document.write("<div class='carousel-item'>")
 
 			for(var j = img_cnt * i ; j <= img_cnt * (i + 1) - 1; j++ ){
-				console.log(i, j)
 				if(imglist[j]) {
 					document.write("<div class='col-xs-3 col-sm-3 col-md-3'>")
-					document.write("<img src='http://dndnp4.dothome.co.kr/image/" + imglist[j] +"'>")
+					document.write("<img src='http://dndnp4.dothome.co.kr/image/" + imglist[j] +"'style= 'width:300px;height:300px'>")
 					document.write("</div>")
 				}
 			}
@@ -113,15 +113,15 @@ body .no-padding{
 					<td>${detail.price}</td>
 				</tr>
 				<tr>
+					<th>평점</th>
+					<td>${detail.star}</td>
+				</tr>
+				<tr>
 					<th>태그</th>
 					<td id="tag">
 						<script>
 						 	var taglist = '${detail.tag}';
 							var tagOne = taglist.split(',');
-<<<<<<< HEAD
-						 	$("#tag2").append(tagOne);
-=======
->>>>>>> branch 'master' of https://github.com/sttedt/HotMap.git
 						 	 for ( var i in tagOne ) {
 						         document.write( '<a href="search?search=' + encodeURIComponent(tagOne[i]) + '" name="search">' + tagOne [i]+ ', ' + '</a>' );
 						       }
@@ -136,6 +136,11 @@ body .no-padding{
 					<th>마감시간</th>
 					<td>${detail.closing_time}</td>
 				</tr>
+				<tr>	
+					<th>조회수</th>
+					<td>${detail.hit}</td>
+				</tr>
+			
 				<tr>	
 					<th>최근업데이트</th>
 					<td>${detail.date}</td>
