@@ -7,24 +7,35 @@
 	
 	<hr>
 	<div class="container" style="margin-top: 15px; z-index: -9999;" >
+	
 		<div>
-			<h3 style="text-align: left;">리뷰 (0) </h3>
+			<h3 style="text-align: left;">리뷰 (${reviewCount}) </h3>
 			<br>
 		</div>
 
 		<table class="table" id='target' style="z-index: -9999;">
 		
 			<tbody>
-				<c:forEach items="${r_list}" var="map">
+				<c:forEach items="${r_list}" var="map" varStatus="status">
 					<tr>
-<%-- 						<td>${map.Re_NO}</td> --%>
-						<td rowspan="2">${map.mem_id}</td>
+						<td rowspan="3">${map.mem_id}</td>
 						<td style="font-size: 12px;">${map.Date}</td>
 						
 					</tr>
 					<tr>
-<!-- 					<td></td> -->
 						<td>${map.Content}</td>
+					</tr>
+					<tr>
+						<td id='img${status.count}'>
+							<script>
+								var imgString = '${map.img}'
+								var img = imgString.split(",")
+								for(var i = 0; i < img.length; i++){
+									var url = 'http://dndnp4.dothome.co.kr/image/' + img[i]
+									if(img[i]) $("#img${status.count}").append("<div style='background:url(" + url +");background-size:100px;height:100px;width:100px;display:inline-block;margin-right:5px;'></div>")
+								}
+							</script>
+						</td>
 					</tr>
 				</c:forEach>
 			</tbody>
@@ -34,18 +45,7 @@
 	</div>
 	
 </body>
-<script src='resources/js/jquery-3.3.1.min.js'></script>
-<script src='resources/js/bootstrap.min.js'></script>
-<script src='https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js'></script>
-<script src='https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js'></script>
-<script>
-// 	$('#target').DataTable({
-// 		order : [ [ 0, 'desc' ] ],
-// 		ordering : true,
-// 		serverSide : false
-// 	})
 
-// 	$(document).ready(function() {
-// 		$('#target').DataTable()
-// 	})
+<script>
+
 </script>

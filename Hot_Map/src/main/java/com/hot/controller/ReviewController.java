@@ -1,5 +1,6 @@
 package com.hot.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.hot.service.ReviewService;
 
@@ -40,11 +42,10 @@ public class ReviewController {
 	
 	// 리뷰 데이터를 디비에 보내기
 	@RequestMapping(value="review", method = RequestMethod.POST)
-	public String re(@RequestParam Map<String, Object> map,
-			@RequestParam("St_NO") int St_NO) {
+	public String re(@RequestParam("file") List<MultipartFile> list, @RequestParam Map<String, Object> map,
+			@RequestParam("St_NO") int St_NO) throws Exception {
 		map.put("St_NO", St_NO);
-		reviewService.reviewInsert(map);
-		System.out.println(map);
+		reviewService.reviewInsert(map, list);
 		return "redirect:/storer?St_NO="+St_NO;
 	}
 

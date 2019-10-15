@@ -82,7 +82,7 @@ public class StoreService {
 		for(String b : a) {
 			img.add(b);
 		}
-		System.out.println("StoreService[get_imgList] : " + img);
+//		System.out.println("StoreService[get_imgList] : " + img);
 		return img;
 	}
 	public Map<String, Object> storeOne(int St_NO) {
@@ -92,6 +92,16 @@ public class StoreService {
 
 	public void hitUpdate(Map<String, Object> map) {
 		storeDao.hitUpdate(map);
+	}
+	
+	public List<String> getAllImage(int St_NO) {
+		List<String> list = new ArrayList<String>();
+		List<Map<String, Object>> getlist = storeDao.getAllImage(St_NO);
+		
+		for(int i = 0; i< getlist.size(); i++) {
+			list.addAll(get_imgList((String)getlist.get(i).get("img")));
+		}
+		return list;
 	}
 
 }

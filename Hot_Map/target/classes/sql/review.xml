@@ -4,8 +4,8 @@
 <mapper namespace="review">
 
 	<insert id="reviewInsert">
-		INSERT INTO REVIEW (St_NO,  MEM_ID, CONTENT, DATE, STAR )
-		VALUES ( #{St_NO}, #{mem_id} , #{content}, NOW(),#{star} )
+		INSERT INTO REVIEW (St_NO,  MEM_ID, CONTENT, DATE, STAR, img )
+		VALUES ( #{St_NO}, #{mem_id} , #{content}, NOW(),#{star}, #{img} )
 	</insert>
 	
 	<select id="reviewOne" resultType="map" parameterType="_int">
@@ -17,6 +17,11 @@
 		SELECT * FROM REVIEW
 		 WHERE St_NO = #{St_NO}
 		 ORDER BY Re_NO DESC
+	</select>
+	
+	<select id="reviewCount" resultType="int">
+		SELECT count(*) FROM REVIEW
+		 WHERE St_NO = #{St_NO}
 	</select>
 	
 	

@@ -22,4 +22,7 @@ public class ReviewDao {
 	public List<Map<String, Object>> reviewList(int St_NO) {
 		return sessionTemplate.selectList("review.reviewList", St_NO);
 	}
+	public int reviewCount(int St_NO) {
+		return sessionTemplate.selectOne("review.reviewCount",St_NO);
+	}
 }

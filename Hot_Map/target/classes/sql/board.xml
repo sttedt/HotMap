@@ -24,12 +24,12 @@
 	<update id="boardUpdate" >
 		UPDATE BOARD 
 		SET TITLE=#{title}, CONTENT=#{content}
-		where Brd_NO=#{Brd_NO}
+		WHERE Brd_NO=#{Brd_NO}
 	
 	</update>
 	<delete id="boardDelete" parameterType="map" >
 		DELETE FROM BOARD 
-		where Brd_NO=#{Brd_NO}
+		WHERE Brd_NO=#{Brd_NO}
 	
 	</delete>
 

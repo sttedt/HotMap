@@ -29,5 +29,9 @@ public class StoreDao {
 	public void hitUpdate(Map<String, Object> map) {
 		sessionTemplate.update("store.hitUpdate", map);
 	}
+	
+	public List<Map<String, Object>> getAllImage(int St_NO) {
+		return sessionTemplate.selectList("store.getAllImage", St_NO);
+	}
 
 }
