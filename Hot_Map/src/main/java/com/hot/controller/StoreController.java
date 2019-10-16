@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.hot.md5.EncryptionClass;
 import com.hot.service.ReviewService;
 import com.hot.service.StoreService;
 
@@ -57,6 +58,11 @@ public class StoreController {
 		for(MultipartFile mFile : file) {
 			storeService.storeFile(mFile);
 		}
+		
+		String encrypttest = EncryptionClass.convertiMD5((String) map.get("test1"));
+		
+		System.out.println(encrypttest);
+		
 		return "redirect:/test";
 	}
 	

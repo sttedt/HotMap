@@ -36,8 +36,8 @@ public class MemberController {
 	@RequestMapping(value = "join", method = RequestMethod.POST)
 	public String join(@RequestParam Map<String, Object> map, @RequestParam("pw") String pw) {
 		System.out.println("map : " + map);
-		System.out.println("pw : " + pw);
-		String MD_PW = EncryptionClass.convertiMD5(pw);
+		
+		String MD_PW = EncryptionClass.convertiMD5((String)map.get("pw"));
 		map.put("pw", MD_PW);
 		memberService.joinInsert(map);
 		memberService.phoneCheckDelete(map);
