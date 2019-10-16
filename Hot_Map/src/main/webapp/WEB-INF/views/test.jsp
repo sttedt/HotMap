@@ -21,6 +21,17 @@ body .no-padding{
   padding-left: 0;
   padding-right: 0;
 }
+.starR{
+  background: url('http://miuu227.godohosting.com/images/icon/ico_review.png') no-repeat right 0;
+  background-size: auto 100%;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  text-indent: -9999px;
+  cursor: pointer;
+}
+.starR.on{background-position:0 0;}
+
 </style>
 <head>
 	<meta charset="UTF-8">style background image
@@ -32,7 +43,7 @@ body .no-padding{
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <body>
 <img src="http://placeimg.com/640/480/any">
-
+	<p></p>
 	<form method='post' enctype='multipart/form-data'>
 		<input type='text' name='test1' value='test1'><br>
 		<input type='text' name='test1' value='test2'><br>
@@ -51,9 +62,38 @@ body .no-padding{
 	<button type='button' id='btn'>테스트스트스트스트스트</button>
 	<!-- <img src ='http://dndnp4.dothome.co.kr/image/prT1moeJcIcajRObfjZrPz7rnVed3r.png'> -->
 	
+	<div class="starRev">
+  <span class="starR on" id='star1'></span>
+  <span class="starR" id='star2'></span>
+  <span class="starR" id='star3'></span>
+  <span class="starR" id='star4'></span>
+  <span class="starR" id='star5'></span>
+	<input type='hidden' name='star' value=''>
+</div>
+
 </body>
 <script src='resources/js/jquery-3.3.1.min.js'></script>
 <script>
+
+		$('#star1').on('click',function(){
+			$('input[name=star]').val(1)
+		})
+		$('#star2').on('click',function(){
+			$('input[name=star]').val(2)
+		})
+		$('#star3').on('click',function(){
+			$('input[name=star]').val(3)
+		})
+		$('#star4').on('click',function(){
+			$('input[name=star]').val(4)
+		})
+		$('#star5').on('click',function(){
+			$('input[name=star]').val(5)
+		})
+		$(this).parent().children('span').removeClass('on');
+		$(this).addClass('on').prevAll('span').addClass('on');
+
+	
 	function fileRemove(e){
 		$(e).parent().remove()
 		image_preview()
@@ -85,4 +125,9 @@ body .no-padding{
 	$(document).on('change','input[type=file]',function(){
 		image_preview()
 	})
+	$('.starRev span').click(function(){
+		
+  
+  return false;
+});
 </script>

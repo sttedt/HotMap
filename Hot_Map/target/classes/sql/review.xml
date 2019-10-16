@@ -4,7 +4,7 @@
 <mapper namespace="review">
 
 	<insert id="reviewInsert">
-		INSERT INTO REVIEW (St_NO,  MEM_ID, CONTENT, DATE, STAR, img )
+		INSERT INTO REVIEW (St_NO,  MEM_ID, CONTENT, DATE, star, img )
 		VALUES ( #{St_NO}, #{mem_id} , #{content}, NOW(),#{star}, #{img} )
 	</insert>
 	

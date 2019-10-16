@@ -98,7 +98,7 @@
 						<c:if test="${sessionScope.SID eq null}">
 							<li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle" href="login" id="dropdown04" data-toggle="dropdown" aria-haspopup="true"
-									aria-expanded="false" style="text-decoration: none; "><span class="glyphicon glyphicon-user"></span></a>
+									aria-expanded="false" style="text-decoration: none; "><span class="glyphicon glyphicon-user" ></span></a>
 								<div class="dropdown-menu" aria-labelledby="dropdown04">
 									<a class="dropdown-item" href="login">LOGIN</a> 
 									<a class="dropdown-item" href="join">JOIN</a> 
