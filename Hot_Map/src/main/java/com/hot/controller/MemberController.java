@@ -37,7 +37,6 @@ public class MemberController {
 	public String join(@RequestParam Map<String, Object> map, @RequestParam("pw") String pw) {
 		System.out.println("map : " + map);
 		String MD_PW = EncryptionClass.convertiMD5(pw);
-		System.out.println("MD_PW : " + MD_PW);
 		map.put("pw", MD_PW);
 		memberService.joinInsert(map);
 		memberService.phoneCheckDelete(map);
@@ -55,7 +54,6 @@ public class MemberController {
 	@RequestMapping(value = "login", method = RequestMethod.POST)
 	public String login(Model model, @RequestParam Map<String, Object> map, HttpSession httpSession,
 			HttpServletRequest request, @RequestParam("pw") String pw) {
-		System.out.println("pw : " + pw);
 		String MD_PW = EncryptionClass.convertiMD5(pw);
 		map.put("pw", MD_PW);
 		System.out.println("map : " + map);
@@ -132,7 +130,6 @@ public class MemberController {
 	@RequestMapping(value = "createAuth", method = RequestMethod.POST)
 	public String createAuth(@RequestParam Map<String, Object> map)
 			throws UnsupportedEncodingException, MessagingException {
-		System.out.println(map);
 		memberService.createAuth(map);
 
 		return "home";
@@ -184,8 +181,7 @@ public class MemberController {
 	// 비밀번호 재설정 페이지로 가기
 	@RequestMapping(value = "pwup", method = RequestMethod.GET)
 	public String pwrepw(Model model, @RequestParam("email") String email) {
-		
-		model.addAttribute("pwup", memberService.pwup(email));
+		model.addAttribute("email", memberService.pwup(email));
 		return "pwup";
 	}
 	

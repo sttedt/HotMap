@@ -35,7 +35,7 @@
 				<span id="emailMsg"></span>	
 			</div>
 <div>
-			<a href="pwup?email=${find_pw.email}" class="btn btn-primary" >비밀번호 재설정</a>
+			<a id='nextstep' class="btn btn-primary" >비밀번호 재설정</a>
 		</div>
 			<p class="w3-center">
 <!-- 				<button type="button" onclick="history.go(-1);" -->
@@ -48,7 +48,10 @@
 </body>
 
 <script>
-
+$("#nextstep").on('click',function(){
+	var value = $("#email").val()
+	location.href = "pwup?email=" + value
+})
 $('#btn_email').on('click',function(){
 	var email = $('#email').val()
 	$(this).prop('disabled',true)
