@@ -22,6 +22,16 @@ body .no-padding{
   padding-left: 0;
   padding-right: 0;
 }
+.starR{
+  background: url('http://miuu227.godohosting.com/images/icon/ico_review.png') no-repeat right 0;
+  background-size: auto 100%;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  text-indent: -9999px;
+  cursor: pointer;
+}
+.starR.on{background-position:0 0;}
 </style>
 <head>
 	<title>store</title>
@@ -114,7 +124,17 @@ body .no-padding{
 				</tr>
 				<tr>
 					<th>평점</th>
-					<td>${detail.star}</td>
+					<td>
+						<script>
+							var starpoint = parseInt('${detail.star}')
+							for(var i = 0; i < starpoint; i++){
+								document.write("<span class='starR on'></span>")
+							}
+							for(var i = 0; i < 5 - starpoint; i++){
+								document.write("<span class='starR'></span>")
+							}
+						</script>
+					</td>
 				</tr>
 				<tr>
 					<th>태그</th>

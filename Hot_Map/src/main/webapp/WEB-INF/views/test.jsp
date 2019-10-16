@@ -63,17 +63,26 @@ body .no-padding{
 	<!-- <img src ='http://dndnp4.dothome.co.kr/image/prT1moeJcIcajRObfjZrPz7rnVed3r.png'> -->
 	
 	<div class="starRev">
-  <span class="starR on" id='star1'></span>
-  <span class="starR" id='star2'></span>
-  <span class="starR" id='star3'></span>
-  <span class="starR" id='star4'></span>
-  <span class="starR" id='star5'></span>
+  <span class="starR on" id='star1'>1</span>
+  <span class="starR" id='star2'>2</span>
+  <span class="starR" id='star3'>3</span>
+  <span class="starR" id='star4'>4</span>
+  <span class="starR" id='star5'>5</span>
 	<input type='hidden' name='star' value=''>
 </div>
 
 </body>
 <script src='resources/js/jquery-3.3.1.min.js'></script>
 <script>
+for(var i = 1 ;i < 6; i++){
+	var st = '#star' + i
+	$(st).on('click',function(){
+		$(this).parent().children('span').removeClass('on');
+		$(this).addClass('on').prevAll('span').addClass('on');
+		console.log($(this).text())
+	})
+}
+	
 
 		$('#star1').on('click',function(){
 			$('input[name=star]').val(1)
@@ -90,8 +99,7 @@ body .no-padding{
 		$('#star5').on('click',function(){
 			$('input[name=star]').val(5)
 		})
-		$(this).parent().children('span').removeClass('on');
-		$(this).addClass('on').prevAll('span').addClass('on');
+		
 
 	
 	function fileRemove(e){
