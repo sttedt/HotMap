@@ -45,9 +45,6 @@
 	</delete>
 
 
-
-
-
 	<select id="profileup" resultType="map" parameterType="String">
 		SELECT * FROM MEMBER
 		 WHERE MEM_ID = #{id}
@@ -59,7 +56,6 @@
 		WHERE MEM_ID=#{id}
 	</update>
 
-	
 
 	<select id='emailAuth' resultType="String">
 		select code from emailauth where email = #{email}
@@ -76,9 +72,37 @@
 	<select id="find_id" parameterType="String" resultType="String">
 		select * from member where email = #{email}
 	</select>
+	
+	<!-- 비번 찾기 아이디 확인 -->
+	<select id="find_pw" parameterType="String" resultType="String">
+		select * from member where MEM_ID = #{id}
+	</select>
 
- 	<!-- 비밀번호 변경 -->
-<!-- 	<update id="update_pw" parameterType="member"> -->
-<!-- 		update member set pw = #{pw} where mem_id = #{mem_id} -->
-<!-- 	</update> -->
+	<insert id='find_pw_email'>
+		insert into emailauth (email, code)
+		values (#{email}, #{code})
+	</insert>
+	
+	<select id='pwemailAuth' resultType="String">
+		select code from emailauth where email = #{email}
+	</select>
+	<delete id='pwdeleteAuth'>
+		delete from emailauth where email = #{email}
+	</delete>
+	
+
+	<select id="pwup" resultType="map" parameterType="String">
+		SELECT * FROM MEMBER
+		 WHERE email = #{email}
+	</select>
+	
+	<update id="pwUpdate" parameterType="map">
+		UPDATE MEMBER 
+		SET PW=#{pw}
+		WHERE email=#{email}
+	</update>
+	
+	
+	
+
 </mapper>

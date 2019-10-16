@@ -61,7 +61,7 @@
 			</div>
 		<button type="submit" class="btn btn-dark" style="width: 512px; height: 47px;">로그인</button>
 		<a class="dropdown-item" href="find_id_form" style="text-align: center;">아이디찾기</a>
-		<a class="dropdown-item" href="find_pw_form" style="text-align: center;">비밀번호 찾기</a>
+		<a class="dropdown-item" href="find_pw_form" style="text-align: center;">비밀번호 변경</a>
 		</form>
 	</div>
 

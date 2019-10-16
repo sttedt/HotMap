@@ -36,8 +36,8 @@ public class MemberController {
 	@RequestMapping(value = "join", method = RequestMethod.POST)
 	public String join(@RequestParam Map<String, Object> map, @RequestParam("pw") String pw) {
 		System.out.println("map : " + map);
-		System.out.println("pw : " + pw);
 		String MD_PW = EncryptionClass.convertiMD5(pw);
+		System.out.println("MD_PW : " + MD_PW);
 		map.put("pw", MD_PW);
 		memberService.joinInsert(map);
 		memberService.phoneCheckDelete(map);
@@ -55,9 +55,11 @@ public class MemberController {
 	@RequestMapping(value = "login", method = RequestMethod.POST)
 	public String login(Model model, @RequestParam Map<String, Object> map, HttpSession httpSession,
 			HttpServletRequest request, @RequestParam("pw") String pw) {
+		System.out.println("pw : " + pw);
 		String MD_PW = EncryptionClass.convertiMD5(pw);
 		map.put("pw", MD_PW);
-
+		System.out.println("map : " + map);
+		
 		Map<String, Object> map2 = memberService.loginSelect(map);
 		try {
 			if (map2 != null) {
@@ -108,20 +110,15 @@ public class MemberController {
 		map.put("pw", MD_PW);
 		memberService.memberUpdate(map);// 데이터넘기기
 		model.addAttribute("profileup", memberService.profileup(mem_id));// model객체를 이용해서, view로 데이터전달/ 넘길 데이터의 이름과 변수에
-																			// 넣을 데이터값을 넣음, 그값을 뷰로 넘겨줌
+																		 // 넣을 데이터값을 넣음, 그값을 뷰로 넘겨줌
 
 		return "redirect:/profile?mem_id=" + mem_id;
 		// redirect: 경로설정
 	}
+	
+	
 
-	@RequestMapping(value = "createAuth", method = RequestMethod.POST)
-	public String createAuth(@RequestParam Map<String, Object> map)
-			throws UnsupportedEncodingException, MessagingException {
-		memberService.createAuth(map);
-
-		return "home";
-	}
-
+	// 이메일 인증번호가 맞는지 확인
 	@RequestMapping(value = "emailAuth", method = RequestMethod.POST)
 	@ResponseBody
 	public String emailAuth(@RequestParam Map<String, Object> map, Model model) {
@@ -131,11 +128,82 @@ public class MemberController {
 		return tmp;
 	}
 
-//	// 아이디 찾기 폼
-//	@RequestMapping(value = "find_id_form")
-//	public String find_id_form() throws Exception {
-//		return "find_id_form";
-//	}
+	// 이메일 인증코드 보내기
+	@RequestMapping(value = "createAuth", method = RequestMethod.POST)
+	public String createAuth(@RequestParam Map<String, Object> map)
+			throws UnsupportedEncodingException, MessagingException {
+		System.out.println(map);
+		memberService.createAuth(map);
+
+		return "home";
+	}
+	
+	// 비번 찾기 폼으로 가기
+		@RequestMapping(value = "find_pw_form", method = RequestMethod.GET)
+		// param은 map을 받는다
+		public String find_pw_form(Model model) {
+			return "find_pw_form";
+		}
+		
+	// 비밀번호 찾기 아이디확인
+		@RequestMapping(value = "find_pw_form", method = RequestMethod.POST)
+		public String find_pw(HttpServletResponse response, @RequestParam("id") String id, Model md)
+				throws Exception {
+			md.addAttribute("id", memberService.find_pw(response, id));
+			System.out.println("id : " + id);
+			return "redirect:/find_pw";
+			
+		}
+		// 페이지 받기
+		@RequestMapping(value = "find_pw", method = RequestMethod.GET)
+		// param은 map을 받는다
+		public String find_pw(Model model) {
+			return "find_pw";
+		}
+		
+	// 비밀번호 이메일 인증코드 보내기 
+	@RequestMapping(value = "find_pw_email", method = RequestMethod.POST)
+	public String find_pw_email(@RequestParam Map<String, Object> map)
+			throws UnsupportedEncodingException, MessagingException {
+		memberService.find_pw_email(map);
+		
+		return "home";
+	}
+	
+	// 비밀번호 이메일 인증번호가 맞는지 확인
+	@RequestMapping(value = "pwemailAuth", method = RequestMethod.POST)
+	@ResponseBody
+	public String pwemailAuth(@RequestParam Map<String, Object> map, Model model) {
+		String tm = memberService.pwemailAuth(map);
+		if (tm.length() > 1)
+			memberService.deleteAuth(map);
+		return tm;
+	}
+	
+	
+	// 비밀번호 재설정 페이지로 가기
+	@RequestMapping(value = "pwup", method = RequestMethod.GET)
+	public String pwrepw(Model model, @RequestParam("email") String email) {
+		
+		model.addAttribute("pwup", memberService.pwup(email));
+		return "pwup";
+	}
+	
+	// 비밀번호 재설정 데이터를 디비로 보내기
+	@RequestMapping(value = "pwup", method = RequestMethod.POST)
+	public String pwrepw(@RequestParam Map<String, Object> map, Model model, @RequestParam("email") String email,
+			@RequestParam("pw") String pw) {
+		String MD_PW = EncryptionClass.convertiMD5(pw);
+
+		map.put("pw", MD_PW);
+		memberService.pwUpdate(map);// 데이터넘기기
+		model.addAttribute("pwup", memberService.pwup(email));// model객체를 이용해서, view로 데이터전달/ 넘길 데이터의 이름과 변수에
+																		 // 넣을 데이터값을 넣음, 그값을 뷰로 넘겨줌
+
+		return "redirect:/login";
+		// redirect: 경로설정
+	}
+	
 
 	// 아이디 찾기 폼
 	@RequestMapping(value = "find_id_form", method = RequestMethod.GET)
@@ -153,9 +221,5 @@ public class MemberController {
 		return "find_id";
 	}
 	
-//	// 비밀번호 찾기 폼
-//		@RequestMapping(value = "find_pw_form")
-//		public String find_pw_form() throws Exception{
-//			return "find_pw_form";
-//		}
+
 }

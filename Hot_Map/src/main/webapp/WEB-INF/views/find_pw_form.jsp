@@ -15,28 +15,34 @@
 	<hr>
 	<div class="container" style="margin-top: 150px; max-width: 540px;">
 		<div>
-			<h3 style="text-align: center;">아이디찾기 검색결과</h3>
+			<h3 style="text-align: center;">비밀번호 찾기</h3>
+			<h6> 비밀번호를 찾고자 하는 아이디를 입력해주세요</h6>
 		</div>
-		<br>
-		<div>
-			<h4>아이디 : ${ id }</h4>
+
+		<form method="post">
+
+			<p>
+				<label>아이디</label> <input class="form-control" type="text"
+					id="id" name="id" required>
+			</p>
+
 			<p class="w3-center">
-				<button type="button" id=loginBtn
-					class="btn btn-dark" style="width: 512px; height: 47px;">로그인</button>
+				<button type="submit" id=findBtn
+					class="btn btn-dark" style="width: 512px; height: 47px;">찾기</button>
+				
 				<button type="button" onclick="history.go(-1);"
 					class="btn btn-dark" style="width: 512px; height: 47px; margin-top: 10px;">취소</button>
+				
 			</p>
+
+		</form>
+			<div>
+			<h6>아이디가 기억나지 않는다면?</h6>
+			<a class="dropdown-item" href="find_id_form" style="text-align: center;">아이디찾기</a>
 		</div>
-		<a class="dropdown-item" href="find_pw_form" style="text-align: center;">비밀번호 변경</a>
 	</div>
+
 </body>
 
-<script>
-	$(function() {
-		$("#loginBtn").click(function() {
-			location.href = '../map/login';
-		})
-	})
-</script>
 
 

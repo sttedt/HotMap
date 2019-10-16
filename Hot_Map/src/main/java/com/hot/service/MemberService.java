@@ -61,6 +61,7 @@ public class MemberService {
 		return memberDao.phoneCheckDelete(map);
 	}
 
+	// 이메일 인증 보내는 코드
 	@Transactional
 	public void createAuth(Map<String, Object> map)
 			throws MessagingException, UnsupportedEncodingException {
@@ -71,30 +72,78 @@ public class MemberService {
 		memberDao.createAuth(map);
 
 		MailHandler sendMail = new MailHandler(mailSender);
-//		if (.equals("join")) {
 
 			sendMail.setSubject("hot map 이메일 인증");
 			sendMail.setText("<h1>test Test..." + code + "</h1>");
 			sendMail.setFrom("devforthebest@gmail.com", "Admin");
 			sendMail.setTo(map.get("email").toString());
 			sendMail.send();
-//		} else if (div.equals("find_pw")) {
-//			sendMail.setSubject("hot map 임시비밀번호 입니다.");
-//			sendMail.setText("<h1>test Test..." + code + "</h1>");
-//			sendMail.setFrom("devforthebest@gmail.com", "Admin");
-//			sendMail.setTo(map.get("email").toString());
-//			sendMail.send();
-//		}
 	}
 
+	// 디비에 확인
 	public String emailAuth(Map<String, Object> map) {
 		return memberDao.emailAuth(map);
 	}
 
+	// 디비 지우기
 	public int deleteAuth(Map<String, Object> map) {
 		return memberDao.deleteAuth(map);
 	}
+	
+	// 비번찾기 아이디 확인
+		public String find_pw(HttpServletResponse response, String id) throws Exception {
+			response.setContentType("text/html;charset=utf-8");
+			PrintWriter out = response.getWriter();
+			String pw = memberDao.find_pw(id);
 
+			if (pw == null) {
+				out.println("<script>");
+				out.println("alert('가입된 아이디가 없습니다.');");
+				out.println("history.go(-1);");
+				out.println("</script>");
+				out.close();
+				return null;
+			} else {
+				return "find_pw";
+			}
+		}
+	
+	// 비밀번호 이메일 인증 보내는 코드
+		@Transactional
+		public void find_pw_email(Map<String, Object> map)
+				throws MessagingException, UnsupportedEncodingException {
+			RandomString rand = new RandomString();
+			String code = rand.run(10);
+
+			map.put("code", code);
+			memberDao.find_pw_email(map);
+
+			MailHandler sendMail = new MailHandler(mailSender);
+
+				sendMail.setSubject("hot map 비밀번경 인증번호");
+				sendMail.setText("<h1>test Test..." + code + "</h1>");
+				sendMail.setFrom("devforthebest@gmail.com", "Admin");
+				sendMail.setTo(map.get("email").toString());
+				sendMail.send();
+		}
+		// 디비에 확인
+		public String pwemailAuth(Map<String, Object> map) {
+			return memberDao.pwemailAuth(map);
+		}
+
+		// 디비 지우기
+		public int pwdeleteAuth(Map<String, Object> map) {
+			return memberDao.pwdeleteAuth(map);
+		}
+		// 비밀번호 재설정페이지로 가기
+		public Map<String, Object> pwup(String email) {
+			return memberDao.pwup(email);
+		}
+		// 비밀번호 재설정 데이터를 디비로 보내기
+		public void pwUpdate(Map<String, Object> map) {
+			memberDao.pwUpdate(map);
+		}
+		
 	// 아이디 찾기
 	public String find_id(HttpServletResponse response, String email) throws Exception {
 		response.setContentType("text/html;charset=utf-8");
