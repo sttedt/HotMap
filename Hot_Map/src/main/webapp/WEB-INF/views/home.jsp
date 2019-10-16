@@ -51,7 +51,9 @@
  <h1>이번주 핫플랭킹</h1>
 	<div id="div_right">
 	 
-		<div class="table"></div>
+		<div class="table">
+		
+		</div>
 	</div>
 
 
