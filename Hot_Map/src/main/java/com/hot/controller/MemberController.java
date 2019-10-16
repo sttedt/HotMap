@@ -36,13 +36,8 @@ public class MemberController {
 	@RequestMapping(value = "join", method = RequestMethod.POST)
 	public String join(@RequestParam Map<String, Object> map, @RequestParam("pw") String pw) {
 		System.out.println("map : " + map);
-<<<<<<< HEAD
 		String MD_PW = EncryptionClass.convertiMD5(pw);
 		System.out.println("MD_PW : " + MD_PW);
-=======
-		
-		String MD_PW = EncryptionClass.convertiMD5((String)map.get("pw"));
->>>>>>> branch 'master' of https://github.com/sttedt/HotMap.git
 		map.put("pw", MD_PW);
 		memberService.joinInsert(map);
 		memberService.phoneCheckDelete(map);
