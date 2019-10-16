@@ -93,6 +93,7 @@ public class StoreController {
 		}
 		List<Map<String, Object>> rList = reviewService.reviewList(St_NO);
 		List<String> imglist = storeService.getAllImage(St_NO);
+		Map<String,Object> detail = storeService.storeOne(St_NO);
 		//return받은 store map에서 img 필드만 가지고와서 string split 하는 작업... 필요하면쓰기...
 //		List<String> imgList= storeService.get_imgList((String)storeService.storeOne(St_NO).get("img"));
 		
@@ -101,13 +102,18 @@ public class StoreController {
 		slide_page_cnt += imglist.size() / slide_img_cnt;
 		if(imglist.size() % slide_img_cnt == 0 ) slide_page_cnt--;
 		
+		int detail_star = 0;
+		for(int i = 0; i< rList.size(); i++) {
+			detail_star += (int)rList.get(i).get("star");
+		}
+		if(rList.size() > 0) detail.put("star", detail_star / rList.size());
+		else detail.put("star", detail_star);
 		model.addAttribute("slide_page_cnt", slide_page_cnt);
 		model.addAttribute("slide_img_cnt", slide_img_cnt);
 		model.addAttribute("imglist",imglist);
 		model.addAttribute("reviewCount",rList.size());
 		model.addAttribute("r_list", rList);
-		System.out.println("rlist :  " + rList);
-		model.addAttribute("detail", storeService.storeOne(St_NO));
+		model.addAttribute("detail", detail);
 		return "storer";
 	}
 	

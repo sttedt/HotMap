@@ -1,6 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+<style>
+.starR{
+  background: url('http://miuu227.godohosting.com/images/icon/ico_review.png') no-repeat right 0;
+  background-size: auto 100%;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  text-indent: -9999px;
+  cursor: pointer;
+}
+.starR.on{background-position:0 0;}
+</style>
 <head>
 	<meta charset="UTF-8">
 	<title>리뷰</title>
@@ -28,13 +40,15 @@
 			내용 : <textarea rows="6" name="content" class="form-control" placeholder="주문하신 메뉴는 어떠셨나요? 식당의 분위기와 서비스도 궁금해요!"></textarea>
 			<br /> 
 			별점 : 
-			<select name="star">
-				<option value="1">1
-				<option value="2">2
-				<option value="3">3
-				<option value="4">4
-				<option value="5">5
-			</select>
+			<div class="starRev">
+				<span class="starR on" id='star1'></span>
+				<span class="starR" id='star2'></span>
+				<span class="starR" id='star3'></span>
+				<span class="starR" id='star4'></span>
+				<span class="starR" id='star5'></span>
+				
+			</div>
+			<input type='hidden' name='star' value=''>
 			<br />
 			사진첨부 : <br>
 			<button type='button' id='add_img'> 이미지 추가 </button>
@@ -46,6 +60,34 @@
 	</div>
 </body>
 <script>
+$('#star1').on('click',function(){
+	$('input[name=star]').val(1)
+	$(this).parent().children('span').removeClass('on');
+	$(this).addClass('on').prevAll('span').addClass('on');
+})
+$('#star2').on('click',function(){
+	$('input[name=star]').val(2)
+	$(this).parent().children('span').removeClass('on');
+	$(this).addClass('on').prevAll('span').addClass('on');
+})
+$('#star3').on('click',function(){
+	$('input[name=star]').val(3)
+	$(this).parent().children('span').removeClass('on');
+	$(this).addClass('on').prevAll('span').addClass('on');
+})
+$('#star4').on('click',function(){
+	$('input[name=star]').val(4)
+	$(this).parent().children('span').removeClass('on');
+	$(this).addClass('on').prevAll('span').addClass('on');
+})
+$('#star5').on('click',function(){
+	$('input[name=star]').val(5)
+	$(this).parent().children('span').removeClass('on');
+	$(this).addClass('on').prevAll('span').addClass('on');
+})
+
+
+
 function fileRemove(e) {
 	$(e).parent().remove()
 	image_preview()

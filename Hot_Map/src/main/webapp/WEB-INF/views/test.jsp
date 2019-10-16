@@ -21,6 +21,17 @@ body .no-padding{
   padding-left: 0;
   padding-right: 0;
 }
+.starR{
+  background: url('http://miuu227.godohosting.com/images/icon/ico_review.png') no-repeat right 0;
+  background-size: auto 100%;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  text-indent: -9999px;
+  cursor: pointer;
+}
+.starR.on{background-position:0 0;}
+
 </style>
 <head>
 	<meta charset="UTF-8">style background image
@@ -30,71 +41,9 @@ body .no-padding{
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<div id="demo" class="carousel slide" data-ride="carousel">
-
-  <!-- Indicators -->
-  <ul class="carousel-indicators">
-    <li data-target="#demo" data-slide-to="0" class="active"></li>
-    <li data-target="#demo" data-slide-to="1"></li>
-    <li data-target="#demo" data-slide-to="2"></li>
-  </ul>
-  
-  <!-- The slideshow -->
-  <div class="container carousel-inner no-padding">
-    <div class="carousel-item active">
-      <div class="col-xs-3 col-sm-3 col-md-3">
-        <img src="https://image.shutterstock.com/z/stock-photo-sleeping-disorders-as-a-reason-for-insomnia-293777093.jpg">
-      </div>    
-      <div class="col-xs-3 col-sm-3 col-md-3">
-        <img src="https://image.shutterstock.com/z/stock-photo-sleeping-disorders-as-a-reason-for-insomnia-293777093.jpg">
-      </div>   
-      <div class="col-xs-3 col-sm-3 col-md-3">
-        <img src="https://image.shutterstock.com/z/stock-photo-sleeping-disorders-as-a-reason-for-insomnia-293777093.jpg">
-      </div>   
-      <div class="col-xs-3 col-sm-3 col-md-3">
-        <img src="https://image.shutterstock.com/z/stock-photo-sleeping-disorders-as-a-reason-for-insomnia-293777093.jpg">
-      </div>   
-    </div>
-    <div class="carousel-item">
-      <div class="col-xs-3 col-sm-3 col-md-3">
-        <img src="https://image.shutterstock.com/z/stock-photo-sleeping-disorders-as-a-reason-for-insomnia-293777093.jpg">
-      </div>    
-      <div class="col-xs-3 col-sm-3 col-md-3">
-        <img src="https://image.shutterstock.com/z/stock-photo-sleeping-disorders-as-a-reason-for-insomnia-293777093.jpg">
-      </div>   
-      <div class="col-xs-3 col-sm-3 col-md-3">
-        <img src="https://image.shutterstock.com/z/stock-photo-sleeping-disorders-as-a-reason-for-insomnia-293777093.jpg">
-      </div>   
-      <div class="col-xs-3 col-sm-3 col-md-3">
-        <img src="https://image.shutterstock.com/z/stock-photo-sleeping-disorders-as-a-reason-for-insomnia-293777093.jpg">
-      </div>  
-    </div>
-    <div class="carousel-item">
-      <div class="col-xs-3 col-sm-3 col-md-3">
-        <img src="https://image.shutterstock.com/z/stock-photo-sleeping-disorders-as-a-reason-for-insomnia-293777093.jpg">
-      </div>    
-      <div class="col-xs-3 col-sm-3 col-md-3">
-        <img src="https://image.shutterstock.com/z/stock-photo-sleeping-disorders-as-a-reason-for-insomnia-293777093.jpg">
-      </div>   
-      <div class="col-xs-3 col-sm-3 col-md-3">
-        <img src="https://image.shutterstock.com/z/stock-photo-sleeping-disorders-as-a-reason-for-insomnia-293777093.jpg">
-      </div>   
-      <div class="col-xs-3 col-sm-3 col-md-3">
-        <img src="https://image.shutterstock.com/z/stock-photo-sleeping-disorders-as-a-reason-for-insomnia-293777093.jpg">
-      </div>  
-    </div>
-  </div>
-  
-  <!-- Left and right controls -->
-  <a class="carousel-control-prev" href="#demo" data-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-  </a>
-  <a class="carousel-control-next" href="#demo" data-slide="next">
-    <span class="carousel-control-next-icon"></span>
-  </a>
-</div>
-<!-- 이 위로 지우기 -->
 <body>
+<img src="http://placeimg.com/640/480/any">
+	<p></p>
 	<form method='post' enctype='multipart/form-data'>
 		<input type='text' name='test1' value='test1'><br>
 		<input type='text' name='test1' value='test2'><br>
@@ -113,9 +62,46 @@ body .no-padding{
 	<button type='button' id='btn'>테스트스트스트스트스트</button>
 	<!-- <img src ='http://dndnp4.dothome.co.kr/image/prT1moeJcIcajRObfjZrPz7rnVed3r.png'> -->
 	
+	<div class="starRev">
+  <span class="starR on" id='star1'>1</span>
+  <span class="starR" id='star2'>2</span>
+  <span class="starR" id='star3'>3</span>
+  <span class="starR" id='star4'>4</span>
+  <span class="starR" id='star5'>5</span>
+	<input type='hidden' name='star' value=''>
+</div>
+
 </body>
 <script src='resources/js/jquery-3.3.1.min.js'></script>
 <script>
+for(var i = 1 ;i < 6; i++){
+	var st = '#star' + i
+	$(st).on('click',function(){
+		$(this).parent().children('span').removeClass('on');
+		$(this).addClass('on').prevAll('span').addClass('on');
+		console.log($(this).text())
+	})
+}
+	
+
+		$('#star1').on('click',function(){
+			$('input[name=star]').val(1)
+		})
+		$('#star2').on('click',function(){
+			$('input[name=star]').val(2)
+		})
+		$('#star3').on('click',function(){
+			$('input[name=star]').val(3)
+		})
+		$('#star4').on('click',function(){
+			$('input[name=star]').val(4)
+		})
+		$('#star5').on('click',function(){
+			$('input[name=star]').val(5)
+		})
+		
+
+	
 	function fileRemove(e){
 		$(e).parent().remove()
 		image_preview()
@@ -147,4 +133,9 @@ body .no-padding{
 	$(document).on('change','input[type=file]',function(){
 		image_preview()
 	})
+	$('.starRev span').click(function(){
+		
+  
+  return false;
+});
 </script>

@@ -99,7 +99,7 @@
 	<update id="pwUpdate" parameterType="map">
 		UPDATE MEMBER 
 		SET PW=#{pw}
-		WHERE email=#{email}
+		WHERE MEM_ID=#{id}
 	</update>
 	
 	

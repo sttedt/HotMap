@@ -46,7 +46,6 @@ public class HomeController {
 			tmp1.put("img", imgList.get(0));
 			list.set(i,tmp1);
 		}
-		System.out.println(list);
 		model.addAttribute("serverTime", formattedDate );
 		model.addAttribute("s_list", list);
 		return "home";

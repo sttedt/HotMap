@@ -2,7 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+<style>
 
+
+</style>
 <body>
 	<!-- 상단바 -->
 	
@@ -20,7 +23,18 @@
 				<c:forEach items="${r_list}" var="map" varStatus="status">
 					<tr style="font-size: 12px;" >
 						<td rowspan="3">${map.mem_id}</td>
-						<td>점수 : ${map.Star }</td>
+						<td>
+							<script>
+								var starpoint = parseInt('${map.star}')
+								for(var i = 0; i < starpoint; i++){
+									document.write("<span class='starR on'></span>")
+								}
+								for(var i = 0; i < 5 - starpoint; i++){
+									document.write("<span class='starR'></span>")
+								}
+								
+							</script>
+						</td>
 						<td>작성시간 : ${map.Date}</td>
 						
 					</tr>
