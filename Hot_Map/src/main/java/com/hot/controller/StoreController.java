@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -132,6 +133,20 @@ public class StoreController {
 		model.addAttribute("detail", detail);
 		return "storer";
 	}
-	
+	@RequestMapping(value="storeUpdate", method = RequestMethod.GET)
+	public String storUpdate(Model model, @RequestParam("St_NO") int St_NO, 
+			HttpServletResponse response, HttpServletRequest request, HttpSession httpSession) {
+			String no = (String) httpSession.getAttribute("SID");
+			model.addAttribute("storeUpdateOne", storeService.storeUpdateOne(St_NO));
+			if(no==null) {
+				request.setAttribute("type", "error");
+				request.setAttribute("msg", "세션이 만료되었습니다. 다시 로그인 해주세요");
+				request.setAttribute("url", "login");
+				return "alert";
+			}
+		
+		
+		return "storeUpdate";
+	}
 
 }

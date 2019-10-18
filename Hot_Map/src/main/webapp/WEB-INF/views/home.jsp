@@ -16,10 +16,8 @@
 	
 	#div_right {
 		width: 15%;
-		height: 568px;
 		float: left;
 		margin-left: 50px;
-		text-align: center;
 	}
 	</style>
 </head>
@@ -41,24 +39,33 @@
 						<p class="card-header" style= "width: 350px; text-align: center; background:white;">
 							<span style="color:black; text-decoration: none;">${map.name}</span><br/>
 							<span style="color:black; text-decoration: none;">${map.menu}</span><br/>
-<%-- 							<span style="color:black; text-decoration: none;">${map.menu}</span> --%>
 						</p>
 				</div>		
 			</a>
 		</c:forEach>
 	</div>
 
-	<div id="div_right">
+	<div id="div_right" class="border 	">
 		 <h2>이번주 핫플랭킹</h2>
-		<div class="table" style="font-size: 16pt">
+		<div class="table" style="font-size: 14pt">
+
 			<c:forEach items="${rank}" var="map" >
-				<span style="color:black; text-decoration: none;">${map.name}</span>
-				<span style="color:black; text-decoration: none;">${map.starAvg}</span><br/>
+				<a href="storer?St_NO=${map.St_NO}">
+					<span id = "imgOne"  style="margin-bottom: 5px">	
+						<script>
+							var imgList = '${map.img}';
+							var imgOne = imgList.split(',');
+							for(var i in imgOne){
+								if(i==1){
+									document.write('<img style= "height: 70px; width: 85px;" src="http://dndnp4.dothome.co.kr/image/' + imgOne[i] + '"/>');
+								}
+							}
+						</script>
+					</span>
+					<span style="color:black; text-decoration: none;">${map.name}</span><br/>
+				</a>
 			</c:forEach>
 		</div>
 	</div>
-
-
 </body>
-
 
