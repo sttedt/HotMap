@@ -42,6 +42,10 @@
 	</select>
 	
 	<select id="nowRank" parameterType="int" resultType="map" >
-		SELECT starAvg, name FROM STORE ORDER BY starAvg DESC Limit 10;	
+		SELECT St_NO, starAvg, name, img FROM STORE ORDER BY starAvg DESC Limit 10;	
+	</select>
+	
+	<select id="storeUpdateOne" parameterType="int" resultType="map">
+		SELECT * FROM STORE WHERE St_NO = #{St_NO}
 	</select>
 </mapper>	

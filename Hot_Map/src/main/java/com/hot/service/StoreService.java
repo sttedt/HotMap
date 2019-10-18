@@ -118,5 +118,8 @@ public class StoreService {
 	public List<Map<String, Object>> nowRank() {
 		return storeDao.nowRank();
 	}
+	public Map<String, Object> storeUpdateOne(int St_NO){
+		return storeDao.storeUpdateOne(St_NO);
+	}
 
 }
