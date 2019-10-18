@@ -114,8 +114,13 @@ body .no-padding{
 					<th>가게번호</th>
 					<td>${detail.phone}</td>
 				</tr>
+				
+				<tr>	
+					<th>가게종류</th>
+					<td>${detail.storetype}</td>
+				</tr>
 				<tr>
-					<th>음식종류</th>
+					<th>메뉴</th>
 					<td>${detail.menu}</td>
 				</tr>
 				<tr>
