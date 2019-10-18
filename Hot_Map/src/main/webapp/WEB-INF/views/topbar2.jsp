@@ -8,9 +8,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800" rel="stylesheet">
 <link rel="stylesheet" href="resources/css/animate.css">
-<!-- <link rel="stylesheet" href="resources/css/owl.carousel.min.css"> -->
-<!-- <link rel="stylesheet" href="resources/css/magnific-popup.css"> -->
-<!-- <link rel="stylesheet" href="resources/fonts/ionicons/css/ionicons.min.css"> -->
+<link rel="stylesheet" href="resources/css/owl.carousel.min.css">
+<link rel="stylesheet" href="resources/css/magnific-popup.css">
+<link rel="stylesheet" href="resources/fonts/ionicons/css/ionicons.min.css">
 <link rel="stylesheet" href="resources/fonts/flaticons/font/flaticon.css">
 <link rel="stylesheet" href="resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="resources/css/fontawesome.min.css">
@@ -85,34 +85,16 @@ header {
 				<div style="float: right; margin-top:-60px; margin-right: 120;">						
 					<form>
 						<ul class="list-inline">
-<%-- 							<c:if test="${sessionScope.SID eq null}"> --%>
-<!-- 								<li class="list-inline-item"> -->
-<!-- 									<a class="list-inline-item" href="login" style="color: #fff; text-decoration: none; margin-top: 15px;">	LOGIN </a>&nbsp; -->
-<!-- 								</li> -->
-<!-- 								<li class="list-inline-item"> -->
-<!-- 									<a class="list-inline-item" href="join" style="color: #fff; text-decoration: none;">JOIN </a> -->
-<!-- 									&nbsp; -->
-<!-- 								</li> -->
-<!-- 								<li class="list-inline-item"> -->
-<!-- 									<a class="list-inline-item" href="board" style="color: #fff; text-decoration: none;"> Q	& A</a> -->
-<!-- 									 &nbsp; -->
-<!-- 								</li> -->
-<!-- 									<li class="list-inline-item"> -->
-<!-- 									<a class="list-inline-item" href="board" style="color: #fff; text-decoration: none;"><span class="glyphicon glyphicon-user"></span> </a> -->
-<!-- 									 &nbsp; -->
-<!-- 								</li> -->
-<%-- 							</c:if> --%>
-							
-						<c:if test="${sessionScope.SID eq null}">
-							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="login" id="dropdown04" data-toggle="dropdown" aria-haspopup="true"
-									aria-expanded="false" style="text-decoration: none; "><span class="glyphicon glyphicon-user" ></span></a>
-								<div class="dropdown-menu" aria-labelledby="dropdown04">
-									<a class="dropdown-item" href="login">LOGIN</a> 
-									<a class="dropdown-item" href="join">JOIN</a> 
-									<a class="dropdown-item" href="board">Q & A</a> 
-								</div>
-							</li>		
+							<c:if test="${sessionScope.SID eq null}">
+								<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" href="login" id="dropdown04" data-toggle="dropdown" aria-haspopup="true"
+										aria-expanded="false" style="text-decoration: none; "><span class="fa fa-lock " ></span></a>
+									<div class="dropdown-menu" aria-labelledby="dropdown04">
+										<a class="dropdown-item" href="login">LOGIN</a> 
+										<a class="dropdown-item" href="join">JOIN</a> 
+										<a class="dropdown-item" href="board">Q & A</a> 
+									</div>
+								</li>		
 							</c:if>
 	
 							<c:if test="${sessionScope.SID ne null}">
