@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <style>
 .col-md-3{
   display: inline-block;
@@ -119,9 +119,21 @@ body .no-padding{
 			</tr>
 			<tr>
 				<th>평점</th>
-				<td>
-					${detail.starAvg}
-				</td>
+               <td>
+                  <script>
+                     var starpoint = parseInt('${detail.star}')
+                     for(var i = 0; i < starpoint; i++){
+                        document.write("<span class='starR on'></span>")
+                     }
+                     for(var i = 0; i < 5 - starpoint; i++){
+                        document.write("<span class='starR'></span>")
+                     }
+                  </script>
+                  <span style="font-size: 20pt">
+                  ${detail.starAvg}
+                  </span>
+               </td>
+				<tr>
 			</tr>
 			<tr>
 				<th>태그</th>
