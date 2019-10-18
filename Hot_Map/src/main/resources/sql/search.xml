@@ -5,7 +5,7 @@
 	<select id="searchList" parameterType="map" resultType="map">
 		SELECT * FROM store WHERE 
 		tag LIKE CONCAT( '%',#{search}, '%') 
-		OR name LIKE CONCAT(#{search}, '%')
-		OR menu LIKE CONCAT(#{search}, '%')
+		OR name LIKE CONCAT( '%', #{search}, '%')
+		OR menu LIKE CONCAT( '%', #{search}, '%')
 	</select>
 </mapper>

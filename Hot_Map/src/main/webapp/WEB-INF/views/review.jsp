@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <style>
 .starR{
   background: url('http://miuu227.godohosting.com/images/icon/ico_review.png') no-repeat right 0;
@@ -48,7 +48,7 @@
 				<span class="starR" id='star5'></span>
 				
 			</div>
-			<input type='hidden' name='star' value=''>
+			<input type='hidden' name='star' value='1'>
 			<br />
 			사진첨부 : <br>
 			<button type='button' id='add_img'> 이미지 추가 </button>

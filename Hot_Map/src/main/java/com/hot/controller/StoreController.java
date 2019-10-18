@@ -1,6 +1,5 @@
 package com.hot.controller;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -106,6 +105,8 @@ public class StoreController {
 			storeService.hitUpdate(map);
 			
 		}
+		//평균별점 업데이트
+		reviewService.reviewStarUpdate(map);
 		List<Map<String, Object>> rList = reviewService.reviewList(St_NO);
 		List<String> imglist = storeService.getAllImage(St_NO);
 		Map<String,Object> detail = storeService.storeOne(St_NO);

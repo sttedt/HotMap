@@ -110,5 +110,8 @@ public class StoreService {
 		}
 		return list;
 	}
+	public List<Map<String, Object>> nowRank() {
+		return storeDao.nowRank();
+	}
 
 }

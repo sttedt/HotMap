@@ -19,7 +19,6 @@
 		height: 568px;
 		float: left;
 		margin-left: 50px;
-		background-color: purple;
 		text-align: center;
 	}
 	</style>
@@ -49,11 +48,13 @@
 		</c:forEach>
 	</div>
 
- <h1>이번주 핫플랭킹</h1>
 	<div id="div_right">
-	 
-		<div class="table">
-		
+		 <h2>이번주 핫플랭킹</h2>
+		<div class="table" style="font-size: 16pt">
+			<c:forEach items="${rank}" var="map" >
+				<span style="color:black; text-decoration: none;">${map.name}</span>
+				<span style="color:black; text-decoration: none;">${map.starAvg}</span><br/>
+			</c:forEach>
 		</div>
 	</div>
 
