@@ -29,7 +29,7 @@
 			<div align="right">	
 				<span id="pwMsg"></span>	
 			</div>
-			<input type="password" name ="pw"      id="pw_confirm"  placeholder="비밀번호 확인" class="form-control"><br>
+			<input type="password"      id="pw_confirm"  placeholder="비밀번호 확인" class="form-control"><br>
 			<div align="right">	
 				<span id="pw_confirmMsg"></span>	
 			</div>
