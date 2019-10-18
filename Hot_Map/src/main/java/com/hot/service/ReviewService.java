@@ -42,6 +42,9 @@ public class ReviewService {
 		return reviewDao.reviewList(St_NO);
 	}
 	
+	public void reviewStarUpdate(Map<String, Object> map){
+		reviewDao.reviewStarUpdate(map);
+	}
 	
 
 }

@@ -46,8 +46,11 @@ public class HomeController {
 			tmp1.put("img", imgList.get(0));
 			list.set(i,tmp1);
 		}
+		//별점순 랭킹 10위 출력
+		List<Map<String, Object>> rank = storeService.nowRank();
 		model.addAttribute("serverTime", formattedDate );
 		model.addAttribute("s_list", list);
+		model.addAttribute("rank", rank);
 		return "home";
 	}
 	

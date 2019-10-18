@@ -30,4 +30,7 @@
 		SELECT img FROM store where img is not null and St_NO = #{St_NO} UNION SELECT img FROM review where img is not null and St_NO = #{St_NO} 
 	</select>
 	
-</mapper>
+	<select id="nowRank" parameterType="int" resultType="map" >
+		SELECT starAvg, name FROM STORE ORDER BY starAvg DESC Limit 10;	
+	</select>
+</mapper>	

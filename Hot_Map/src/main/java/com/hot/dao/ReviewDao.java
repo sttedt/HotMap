@@ -25,4 +25,7 @@ public class ReviewDao {
 	public int reviewCount(int St_NO) {
 		return sessionTemplate.selectOne("review.reviewCount",St_NO);
 	}
+	public int reviewStarUpdate(Map<String, Object> map) {
+		return sessionTemplate.update("review.reviewStarUpdate", map);
+	}
 }

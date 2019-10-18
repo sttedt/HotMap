@@ -45,6 +45,7 @@ public class ReviewController {
 	public String re(@RequestParam("file") List<MultipartFile> list, @RequestParam Map<String, Object> map,
 			@RequestParam("St_NO") int St_NO) throws Exception {
 		map.put("St_NO", St_NO);
+		System.out.println("map : " + map);
 		reviewService.reviewInsert(map, list);
 		return "redirect:/storer?St_NO="+St_NO;
 	}

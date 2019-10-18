@@ -48,7 +48,7 @@
 				<span class="starR" id='star5'></span>
 				
 			</div>
-			<input type='hidden' name='star' value=''>
+			<input type='hidden' name='star' value='1'>
 			<br />
 			사진첨부 : <br>
 			<button type='button' id='add_img'> 이미지 추가 </button>

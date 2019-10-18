@@ -12,14 +12,13 @@
 <link rel="stylesheet" href="resources/css/magnific-popup.css">
 <link rel="stylesheet" href="resources/fonts/ionicons/css/ionicons.min.css">
 <link rel="stylesheet" href="resources/fonts/flaticons/font/flaticon.css">
-<link rel="stylesheet" href="resources/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="stylesheet" href="resources/css/fontawesome.min.css">
 
 <!-- Theme Style -->
 <link rel="stylesheet" href="resources/css/style.css">
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300" >
-<!--   <div id ="bb" style="z-index: 9999;"> -->
 	<header class="site-navbar js-sticky-header site-navbar-target" role="banner" style="height: 130px;  background-color: #000000; z-index: 9999;">
 		<nav class="navbar navbar-expand-md" style="background-color: #ffffff; ">
 			<div class="container">
@@ -41,29 +40,29 @@
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="services.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">주류</a>
 							<div class="dropdown-menu" aria-labelledby="dropdown04">
-								<a class="dropdown-item" href="services.html">소주</a> 
-								<a class="dropdown-item" href="services.html">맥주</a> 
-								<a class="dropdown-item" href="services.html">칵테일</a> 
-								<a class="dropdown-item" href="services.html">와인</a> 
-								<a class="dropdown-item" href="services.html">샴페인</a> 
-								<a class="dropdown-item" href="services.html">사케</a>
-								<a class="dropdown-item" href="services.html">막걸리</a>
+								<a class="dropdown-item" href="search?search=소주">소주</a> 
+								<a class="dropdown-item" href="search?search=맥주">맥주</a> 
+								<a class="dropdown-item" href="search?search=칵테일">칵테일</a> 
+								<a class="dropdown-item" href="search?search=와인">와인</a> 
+								<a class="dropdown-item" href="search?search=샴페인">샴페인</a> 
+								<a class="dropdown-item" href="search?search=사케">사케</a>
+								<a class="dropdown-item" href="search?search=막걸리">막걸리</a>
 							</div>
 						</li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="services.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">요리</a>
 							<div class="dropdown-menu" aria-labelledby="dropdown04">
-								<a class="dropdown-item" href="services.html">한식</a> 
-								<a class="dropdown-item" href="services.html">중식</a> 
-								<a class="dropdown-item" href="services.html">일식</a> 
-								<a class="dropdown-item" href="services.html">양식</a>
+								<a class="dropdown-item" href="search?search=한식">한식</a> 
+								<a class="dropdown-item" href="search?search=중식">중식</a> 
+								<a class="dropdown-item" href="search?search=일식">일식</a> 
+								<a class="dropdown-item" href="search?search=양식">양식</a>
 							</div>
 						</li>
 						<li class="nav-item"><a class="nav-link" href="news.html">News</a>
 						</li>
 					</ul>
 
-					<form action ="search?search=${'#search'}">
+					<form action ="search?search=${search}">
 						<div style="float: right; margin-top: 8px">
 							<input type="text" class="nav-item" id="search" name="search" style="max-width: 200px; display: inline-block;" placeholder="want를 검색하세요"> 
 							<button type="submit" class="btn btn-white btn-outline-white " style="height: 33px; margin-top: -3px">
@@ -80,7 +79,8 @@
 							<c:if test="${sessionScope.SID eq null}">
 								<li class="nav-item dropdown">
 									<a class="nav-link dropdown-toggle" href="login" id="dropdown04" data-toggle="dropdown" aria-haspopup="true"
-										aria-expanded="false" style="text-decoration: none; "><span class="fa fa-lock " ></span></a>
+										aria-expanded="false" style="text-decoration: none; "><span class="fa fa-lock " ></span>
+									</a>
 									<div class="dropdown-menu" aria-labelledby="dropdown04">
 										<a class="dropdown-item" href="login">LOGIN</a> 
 										<a class="dropdown-item" href="join">JOIN</a> 
@@ -109,7 +109,7 @@
 </body>
 <script src='resources/js/jquery-3.3.1.min.js'></script>
 <script src="resources/js/popper.min.js"></script>
-<script src="resources/js/bootstrap.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="resources/js/owl.carousel.min.js"></script>
 <script src="resources/js/jquery.waypoints.min.js"></script>
 <script src="resources/js/jquery.magnific-popup.min.js"></script>

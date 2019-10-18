@@ -33,5 +33,8 @@ public class StoreDao {
 	public List<Map<String, Object>> getAllImage(int St_NO) {
 		return sessionTemplate.selectList("store.getAllImage", St_NO);
 	}
+	public List<Map<String, Object>> nowRank(){
+		return sessionTemplate.selectList("store.nowRank");
+	}
 
 }

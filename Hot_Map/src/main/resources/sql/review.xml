@@ -25,4 +25,8 @@
 	</select>
 	
 	
+	<update id="reviewStarUpdate" parameterType="map">
+		UPDATE store SET starAvg= TRUNCATE((SELECT AVG(star) FROM review 
+		WHERE St_no= #{St_NO}), 2) WHERE St_NO = #{St_NO}
+	</update>
 </mapper>
