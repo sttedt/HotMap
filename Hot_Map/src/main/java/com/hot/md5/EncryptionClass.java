@@ -3,7 +3,7 @@ package com.hot.md5;
 import java.security.MessageDigest;
 
 public class EncryptionClass {
-	
+
 	public static String convertiMD5(String str) {
 		try {
 			MessageDigest md = MessageDigest.getInstance("MD5");
