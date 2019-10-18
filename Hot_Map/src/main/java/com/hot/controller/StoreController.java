@@ -52,16 +52,17 @@ public class StoreController {
 	@RequestMapping(value = "test", method = RequestMethod.POST)
 	public String test_post(@RequestParam("file") List<MultipartFile> file, @RequestParam("test1") List<Object> list, @RequestParam Map<String, Object> map,
 			Model model) throws Exception {
-		Map<String, Object> tmp = new HashMap<String, Object>();
-		
-		for(MultipartFile mFile : file) {
-			storeService.storeFile(mFile);
-		}
-		
-		String encrypttest = EncryptionClass.convertiMD5((String) map.get("test1"));
-		
-		System.out.println(encrypttest);
-		
+//		Map<String, Object> tmp = new HashMap<String, Object>();
+//		
+//		for(MultipartFile mFile : file) {
+//			storeService.storeFile(mFile);
+//		}
+//		
+//		String encrypttest = EncryptionClass.convertiMD5((String) map.get("test1"));
+//		
+//		System.out.println(encrypttest);
+		String removeImg = (String)map.get("removeImg");
+		storeService.deleteFile(removeImg);
 		return "redirect:/test";
 	}
 	

@@ -40,6 +40,7 @@
 					</tr>
 					<tr>
 						<td>${map.Content}</td>
+						<td></td>
 					</tr>
 					<tr>
 						<td id='img${status.count}'>
@@ -49,6 +50,21 @@
 								for(var i = 0; i < img.length; i++){
 									var url = 'http://dndnp4.dothome.co.kr/image/' + img[i]
 									if(img[i]) $("#img${status.count}").append("<div style='background:url(" + url +");background-size:100px;height:100px;width:100px;display:inline-block;margin-right:5px;'></div>")
+								}
+							</script>
+						</td>
+						<td style='vertical-align:bottom' align='right'>
+							<script>
+								var sessionID = '${sessionScope.SID}'
+								var writer = '${map.mem_id}'
+								var St_NO = '${detail.St_NO}'
+								var Re_NO = '${map.Re_NO}'
+
+								if(sessionID === writer) {
+									var u_href = "/map/reviewu?St_NO=" + St_NO + "&Re_NO=" +Re_NO
+									var d_href = "/map/reviewd?St_NO=" + St_NO + "&Re_NO=" +Re_NO
+									document.write("<a href="+ u_href + ">수정</a>")
+									document.write("<a href="+ d_href + ">삭제</a>")
 								}
 							</script>
 						</td>
