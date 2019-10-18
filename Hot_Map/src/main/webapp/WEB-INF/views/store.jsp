@@ -19,6 +19,8 @@
 			</div>
 			이름 :<br /> 
 			<input type="text" name="name" class="form-control"	required /> <br /> 
+			가게종류 : 
+			<input type="text" name="storetype"	class="form-control" /> <br /> 
 			메뉴 : 
 			<input type="text" name="menu"	class="form-control" /> <br /> 
 			가격 : 
