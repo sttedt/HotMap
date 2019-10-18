@@ -12,4 +12,8 @@
 			</div>
 		</div>
 	</div>
+<<<<<<< HEAD
 </div>
+=======
+</body>
+>>>>>>> branch 'master' of https://github.com/sttedt/HotMap.git

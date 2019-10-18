@@ -14,12 +14,25 @@
 <link rel="stylesheet" href="resources/fonts/flaticons/font/flaticon.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="stylesheet" href="resources/css/fontawesome.min.css">
+   <!-- 카드 부트스트랩 -->
 
 <!-- Theme Style -->
 <link rel="stylesheet" href="resources/css/style.css">
+
+<style type="text/css">
+
+header {
+	z-index:9999 !important;
+}
+</style>
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300" >
+<<<<<<< HEAD
 	<header class="site-navbar js-sticky-header site-navbar-target" role="banner" style="height: 130px;  background-color: #000000; z-index: 9999;">
+=======
+<!--   <div id ="bb" style="z-index: 9999;"> -->
+	<header class="site-navbar js-sticky-header site-navbar-target" role="banner" style="height: 120px;  background-color: #000000; z-index: 9999;">
+>>>>>>> branch 'master' of https://github.com/sttedt/HotMap.git
 		<nav class="navbar navbar-expand-md" style="background-color: #ffffff; ">
 			<div class="container">
 				<a class="navbar-brand" style="color: white; font-size: 40px;" href="home">HOT MAP</a>
@@ -32,7 +45,7 @@
 				<div class="collapse navbar-collapse" id="navbarsExample05" style="margin-left: 190px">
 					<ul class="navbar-nav ml-auto pl-lg-5 pl-0">
 						<li class="nav-item">
-							<a class="nav-link active" href="index.html">Home</a>
+							<a class="nav-link active" href="storelist_sum">전체목록</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="recipes.html">Recipes</a>

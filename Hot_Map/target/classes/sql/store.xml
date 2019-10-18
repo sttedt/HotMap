@@ -10,6 +10,17 @@
 		VALUES (#{name},#{menu},#{price},#{address},#{phone},#{opening_time},#{closing_time},now(),#{mem_id}, #{img}, #{hash})
 	</insert>
 	
+	<!-- 핫플 전체목록 -->
+	<select id="storeListSum" resultType="map">
+		SELECT St_NO, name, menu, price, address, phone, opening_time, closing_time, date, mem_id, hit, tag
+		     , CASE 
+               WHEN INSTR(IMG, ',') = 0 THEN IMG
+               WHEN INSTR(IMG, ',') > 0 THEN SUBSTR(IMG, 1, INSTR(IMG, ',') - 1) END AS img
+		  FROM STORE 
+		 ORDER BY St_NO DESC;
+	</select>
+	
+	<!-- 홈에 신상핫플 6개띄우기 -->
 	<select id="storeList" resultType="map">
 		SELECT * FROM STORE 
 		ORDER BY St_NO DESC Limit 6;

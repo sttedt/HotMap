@@ -3,29 +3,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="false"%>
 <head>
-<<<<<<< HEAD
-	<title>HotMap</title>
-=======
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <title>HotMap</title>
->>>>>>> branch 'master' of https://github.com/sttedt/HotMap.git
-	<style>
-	#div_left {
-		width: 70%;
-		height: 300px;
-		float: left;
-		text-align: center;
-		margin-left: 130px;
-	}
 	
-	#div_right {
-		width: 15%;
-		height: 568px;
-		float: left;
-		margin-left: 50px;
-		text-align: center;
-	}
-	</style>
 </head>
 
 <body style="background-color: #F2F2F2; ">
@@ -33,7 +13,7 @@
 	<jsp:include page="topbar2.jsp"></jsp:include>
 	
 	<div style="text-align: center; margin-bottom: 100px; " >
-		<h2>신상 핫플레이스</h2>
+		<h2>서면 핫플레이스 전체목록</h2>
 	</div>
 
 	<div class="card-deck mb-3 " id="div_left" >
@@ -45,21 +25,11 @@
 						<p class="card-header" style= "width: 350px; text-align: center; background:white;">
 							<span style="color:black; text-decoration: none;">${map.name}</span><br/>
 							<span style="color:black; text-decoration: none;">${map.menu}</span><br/>
-<%-- 							<span style="color:black; text-decoration: none;">${map.menu}</span> --%>
+<%-- 							<span style="color:black; text-decoration: none;">${map.price}</span> --%>
 						</p>
 				</div>		
 			</a>
 		</c:forEach>
-	</div>
-
-	<div id="div_right">
-		 <h2>이번주 핫플랭킹</h2>
-		<div class="table" style="font-size: 16pt">
-			<c:forEach items="${rank}" var="map" >
-				<span style="color:black; text-decoration: none;">${map.name}</span>
-				<span style="color:black; text-decoration: none;">${map.starAvg}</span><br/>
-			</c:forEach>
-		</div>
 	</div>
 
 
