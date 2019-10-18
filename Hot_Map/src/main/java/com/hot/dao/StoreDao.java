@@ -18,6 +18,12 @@ public class StoreDao {
 	public int storeInsert(Map<String, Object> map) {
 		return sessionTemplate.insert("store.storeInsert",map);
 	}
+	
+	public List<Map<String, Object>> storeListSum() {
+		return sessionTemplate.selectList("store.storeListSum");
+	}
+	
+	// 홈에 신상 스토어 6개띄우기
 	public List<Map<String, Object>> storeList() {
 		return sessionTemplate.selectList("store.storeList");
 	}

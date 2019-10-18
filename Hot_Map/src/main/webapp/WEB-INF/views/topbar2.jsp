@@ -14,13 +14,21 @@
 <link rel="stylesheet" href="resources/fonts/flaticons/font/flaticon.css">
 <link rel="stylesheet" href="resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="resources/css/fontawesome.min.css">
+   <!-- 카드 부트스트랩 -->
 
 <!-- Theme Style -->
 <link rel="stylesheet" href="resources/css/style.css">
+
+<style type="text/css">
+
+header {
+	z-index:9999 !important;
+}
+</style>
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300" >
 <!--   <div id ="bb" style="z-index: 9999;"> -->
-	<header class="site-navbar js-sticky-header site-navbar-target" role="banner" style="height: 130px;  background-color: #000000; z-index: 9999;">
+	<header class="site-navbar js-sticky-header site-navbar-target" role="banner" style="height: 120px;  background-color: #000000; z-index: 9999;">
 		<nav class="navbar navbar-expand-md" style="background-color: #ffffff; ">
 			<div class="container">
 				<a class="navbar-brand" style="color: white; font-size: 40px;" href="home">HOT MAP</a>
@@ -33,7 +41,7 @@
 				<div class="collapse navbar-collapse" id="navbarsExample05" style="margin-left: 190px">
 					<ul class="navbar-nav ml-auto pl-lg-5 pl-0">
 						<li class="nav-item">
-							<a class="nav-link active" href="index.html">Home</a>
+							<a class="nav-link active" href="storelist_sum">전체목록</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="recipes.html">Recipes</a>
@@ -127,7 +135,7 @@
 </body>
 <script src='resources/js/jquery-3.3.1.min.js'></script>
 <script src="resources/js/popper.min.js"></script>
-<script src="resources/js/bootstrap.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="resources/js/owl.carousel.min.js"></script>
 <script src="resources/js/jquery.waypoints.min.js"></script>
 <script src="resources/js/jquery.magnific-popup.min.js"></script>

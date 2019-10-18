@@ -72,6 +72,13 @@ public class StoreService {
         
         return fileName;
 	}
+
+	// 전체 스토어 목록
+	public List<Map<String, Object>> storeListSum() {
+		return storeDao.storeListSum();
+	}
+	
+	// 홈에 신상핫플 6개 띄우기
 	public List<Map<String, Object>> storeList() {
 		return storeDao.storeList();
 	}

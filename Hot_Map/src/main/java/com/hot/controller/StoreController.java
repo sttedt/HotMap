@@ -66,6 +66,15 @@ public class StoreController {
 		return "redirect:/test";
 	}
 	
+	// 스토어 목록 
+	@RequestMapping(value="storelist_sum", method = RequestMethod.GET)
+	public String listSum(Model model, Map<String, Object> map) {
+		model.addAttribute("s_list", storeService.storeListSum());
+		System.out.println("map : " + map);
+		return "storelist_sum";
+	}
+	
+	// 스토어 목록 6개 띄우기
 	@RequestMapping(value="storel", method = RequestMethod.GET)
 	public String list(Model model, Map<String, Object> map) {
 		model.addAttribute("s_list", storeService.storeList());
