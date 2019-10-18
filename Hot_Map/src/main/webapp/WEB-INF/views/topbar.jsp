@@ -15,17 +15,3 @@
 		</div>
 	</div>
 </body>
-<<<<<<< HEAD
-=======
-<script src='resources/js/jquery-3.3.1.min.js'></script>
-<script src="resources/js/jquery.waypoints.min.js"></script>
-<script src="resources/js/jquery.magnific-popup.min.js"></script>
-<script src="resources/js/popper.min.js"></script>
-<script src="resources/js/bootstrap.min.js"></script>
-<script src="resources/js/owl.carousel.min.js"></script>
-<script src="resources/js/jquery.waypoints.min.js"></script>
-<script src="resources/js/jquery.magnific-popup.min.js"></script>
-<script src="resources/js/magnific-popup-options.js"></script>
-<script src="resources/js/main.js"></script>
-
->>>>>>> branch 'master' of https://github.com/sttedt/HotMap.git
