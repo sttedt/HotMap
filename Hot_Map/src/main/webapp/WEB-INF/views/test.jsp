@@ -53,6 +53,8 @@ body .no-padding{
 		<div id="image_area">
 		</div>
 		<input type='text' name='test1' value='test4'>
+		<input type='text' name='removeImg'>
+		
 		<input type='submit' value='test'>
 	</form>
 	<img id="image_section" src="#" alt="your image">

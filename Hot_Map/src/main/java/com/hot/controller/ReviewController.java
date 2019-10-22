@@ -45,9 +45,32 @@ public class ReviewController {
 	public String re(@RequestParam("file") List<MultipartFile> list, @RequestParam Map<String, Object> map,
 			@RequestParam("St_NO") int St_NO) throws Exception {
 		map.put("St_NO", St_NO);
-		System.out.println("map : " + map);
 		reviewService.reviewInsert(map, list);
 		return "redirect:/storer?St_NO="+St_NO;
 	}
+	
+	@RequestMapping(value="reviewu", method = RequestMethod.GET)
+	public String reviewu_get(Model model, @RequestParam Map<String, Object> map) {
+		Map<String, Object> tmp = reviewService.getReview(map);
+		model.addAttribute("data", tmp);
+		return "reviewu";
+	}
+	
 
+	@RequestMapping(value="reviewu", method = RequestMethod.POST)
+	public String reviewu_post(@RequestParam("file") List<MultipartFile> file, @RequestParam Map<String, Object> map,@RequestParam(value = "uploadimg", defaultValue="") List<String> uploadimg, int St_NO) throws Exception {
+		
+		map.put("uploadimg", uploadimg);
+		map.put("file", file);
+		
+		reviewService.reviewUpdate(map);
+		
+		return "redirect:/storer?St_NO="+St_NO;
+	}
+	@RequestMapping(value="reviewd", method = RequestMethod.GET)
+	public String reviewd_get(Model model,HttpSession httpSession, HttpServletRequest request, @RequestParam Map<String, Object> map ) throws Exception {
+		reviewService.reviewDelete(map);
+		return "redirect:/storer?St_NO="+map.get("St_NO");
+	}
+	
 }

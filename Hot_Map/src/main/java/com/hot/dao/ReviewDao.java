@@ -28,4 +28,15 @@ public class ReviewDao {
 	public int reviewStarUpdate(Map<String, Object> map) {
 		return sessionTemplate.update("review.reviewStarUpdate", map);
 	}
+	
+	public Map<String, Object> getReview(Map<String, Object> map) {
+		return sessionTemplate.selectOne("review.getReview", map);
+	}
+	public void reviewUpdate(Map<String, Object> map) {
+		sessionTemplate.update("review.reviewUpdate",map);
+	}
+	public void reviewDelete(Map<String, Object> map) {
+		sessionTemplate.delete("review.reviewDelete",map);
+	}
 }
+

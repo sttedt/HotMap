@@ -38,7 +38,7 @@
 	</update>
 	
 	<select id='getAllImage' parameterType="int" resultType='map'>
-		SELECT img FROM store where img is not null and St_NO = #{St_NO} UNION SELECT img FROM review where img is not null and St_NO = #{St_NO} 
+		SELECT img FROM store where img != "" and St_NO = #{St_NO} UNION SELECT img FROM review where img != "" and St_NO = #{St_NO} 
 	</select>
 	
 	<select id="nowRank" parameterType="int" resultType="map" >
