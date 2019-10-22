@@ -12,10 +12,8 @@
 <link rel="stylesheet" href="resources/css/magnific-popup.css">
 <link rel="stylesheet" href="resources/fonts/ionicons/css/ionicons.min.css">
 <link rel="stylesheet" href="resources/fonts/flaticons/font/flaticon.css">
-<link rel="stylesheet" href="resources/css/fontawesome.min.css">
-   <!-- 카드 부트스트랩 -->
-
-<!-- Theme Style -->
+<script src="https://kit.fontawesome.com/80acdb1e5f.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <link rel="stylesheet" href="resources/css/style.css">
 
 <style type="text/css">
@@ -86,7 +84,7 @@
 							<c:if test="${sessionScope.SID eq null}">
 								<li class="nav-item dropdown">
 									<a class="nav-link dropdown-toggle" href="login" id="dropdown04" data-toggle="dropdown" aria-haspopup="true"
-										aria-expanded="false" style="text-decoration: none; "><span class="fa fa-lock " ></span>
+										aria-expanded="false" style="text-decoration: none; ">
 									</a>
 									<div class="dropdown-menu" aria-labelledby="dropdown04">
 										<a class="dropdown-item" href="login">LOGIN</a> 

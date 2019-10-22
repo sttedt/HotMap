@@ -42,7 +42,9 @@
 	</select>
 	
 	<select id="nowRank" parameterType="int" resultType="map" >
-		SELECT St_NO, starAvg, name, img FROM STORE ORDER BY starAvg DESC Limit 10;	
+		<![CDATA[ 
+			SELECT St_NO, name, img ,TRUNCATE(@curRank := @curRank + 1, 0) AS rank FROM STORE s, (SELECT @curRank := 0) r ORDER BY starAvg DESC Limit 10;	
+			]]>
 	</select>
 	
 	<select id="storeUpdateOne" parameterType="int" resultType="map">
