@@ -58,10 +58,13 @@ public class ReviewController {
 	
 
 	@RequestMapping(value="reviewu", method = RequestMethod.POST)
-	public String reviewu_post(@RequestParam("file") List<MultipartFile> file, @RequestParam Map<String, Object> map,@RequestParam("uploadimg") List<String> uploadimg, int St_NO) throws Exception {
+	public String reviewu_post(@RequestParam("file") List<MultipartFile> file, @RequestParam Map<String, Object> map,@RequestParam(value = "uploadimg", defaultValue="") List<String> uploadimg, int St_NO) throws Exception {
+		
 		map.put("uploadimg", uploadimg);
 		map.put("file", file);
+		
 		reviewService.reviewUpdate(map);
+		
 		return "redirect:/storer?St_NO="+St_NO;
 	}
 	@RequestMapping(value="reviewd", method = RequestMethod.GET)

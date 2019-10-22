@@ -126,6 +126,8 @@ public class StoreController {
 		}
 		if(rList.size() > 0) detail.put("star", detail_star / rList.size());
 		else detail.put("star", detail_star);
+		
+		
 		model.addAttribute("slide_page_cnt", slide_page_cnt);
 		model.addAttribute("slide_img_cnt", slide_img_cnt);
 		model.addAttribute("imglist",imglist);

@@ -49,7 +49,7 @@
 								var img = imgString.split(",")
 								for(var i = 0; i < img.length; i++){
 									var url = 'http://dndnp4.dothome.co.kr/image/' + img[i]
-									if(img[i]) $("#img${status.count}").append("<div style='background:url(" + url +");background-size:100px;height:100px;width:100px;display:inline-block;margin-right:5px;'></div>")
+									if(img[i]) $("#img${status.count}").append("<div style='background:url(" + url +");background-size:100px;height:100px;width:100px;display:inline-block;margin-right:5px;' onclick='imgClick(\""+ img[i]+"\")'></div>")
 								}
 							</script>
 						</td>

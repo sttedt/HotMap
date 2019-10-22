@@ -19,6 +19,22 @@
 		float: left;
 		margin-left: 50px;
 	}
+	.scale {
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transition: all 0.3s ease-in-out;   /* 부드러운 모션을 위해 추가*/
+}
+.scale:hover {
+  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -o-transform: scale(1.2);
+}
+.img {width:325px; height:280px; overflow:hidden }
 	</style>
 </head>
 
@@ -33,7 +49,7 @@
 	<div class="card-deck mb-3 " id="div_left" >
 		<c:forEach items="${s_list}" var="map">
 			<a href="storer?St_NO=${map.St_NO}" style="margin-left: 10px;">
-				<div class="card mb-4" style=" z-index: -9999;">
+				<div class="card mb-4 scale" >
 						<img class="card-img-top" src="http://dndnp4.dothome.co.kr/image/${map.img}" onerror="this.src='http://dndnp4.dothome.co.kr/imgNotFound.png'"
 							style= "height: 280px; width: 350px;"/>
 						<p class="card-header" style= "width: 350px; text-align: center; background:white;">
@@ -45,7 +61,7 @@
 		</c:forEach>
 	</div>
 
-	<div id="div_right" class="border 	">
+	<div id="div_right" class="border">
 		 <h2>이번주 핫플랭킹</h2>
 		<div class="table" style="font-size: 14pt">
 
@@ -55,8 +71,9 @@
 						<script>
 							var imgList = '${map.img}';
 							var imgOne = imgList.split(',');
+							
 							for(var i in imgOne){
-								if(i==1){
+								if(i==0){
 									document.write('<img style= "height: 70px; width: 85px;" src="http://dndnp4.dothome.co.kr/image/' + imgOne[i] + '"/>');
 								}
 							}
@@ -67,5 +84,6 @@
 			</c:forEach>
 		</div>
 	</div>
+<jsp:include page="footer.jsp"></jsp:include>	
 </body>
 

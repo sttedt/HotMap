@@ -53,8 +53,7 @@ body .no-padding {
 	<jsp:include page="topbar2.jsp"></jsp:include>
 
 	<div class="container">
-		<div id="demo" class="carousel slide" data-ride="carousel"
-			style="z-index: -9999">
+		<div id="demo" class="carousel slide" data-ride="carousel">
 			<!-- Indicators -->
 			<script>
 				var cnt = parseInt('${slide_page_cnt}');
@@ -70,8 +69,7 @@ body .no-padding {
 				document.write('</ol>')
 			</script>
 			<!-- The slideshow -->
-			<div class="container carousel-inner no-padding"
-				style="z-index: -9999">
+			<div class="container carousel-inner no-padding">
 				<script>
 					var cnt = parseInt('${slide_page_cnt}');
 					var img_cnt = parseInt('${slide_img_cnt}');
@@ -81,8 +79,7 @@ body .no-padding {
 
 					for (var i = 0; i < cnt; i++) {
 						if (i === 0)
-							document
-									.write("<div class='carousel-item active'>")
+							document.write("<div class='carousel-item active'>")
 						else
 							document.write("<div class='carousel-item'>")
 
@@ -91,21 +88,22 @@ body .no-padding {
 								document
 										.write("<div class='col-xs-3 col-sm-3 col-md-3'>")
 								document
-										.write("<img src='http://dndnp4.dothome.co.kr/image/" + imglist[j] +"'style= 'width:300px;height:300px'>")
+										.write("<img src='http://dndnp4.dothome.co.kr/image/" + imglist[j] +"'style= 'width:280px;height:280px' onclick='imgClick(\"" + imglist[j] +"\")'>")
 								document.write("</div>")
 							}
 						}
 						document.write("</div>")
 					}
+					function imgClick(imgSrc){
+						$("#modalImg").attr("src","http://dndnp4.dothome.co.kr/image/" + imgSrc)
+						$("#myModal").modal("show")
+					}
 				</script>
 			</div>
 
 			<!-- Left and right controls -->
-			<a class="carousel-control-prev" href="#demo" data-slide="prev">
-				<span class="carousel-control-prev-icon"></span>
-			</a> <a class="carousel-control-next" href="#demo" data-slide="next">
-				<span class="carousel-control-next-icon"></span>
-			</a>
+			<a class="carousel-control-prev" href="#demo" data-slide="prev" style="width:50px"><span class="carousel-control-prev-icon"></span></a>
+			<a class="carousel-control-next" href="#demo" data-slide="next" style="width:50px"><span class="carousel-control-next-icon"></span></a>
 		</div>
 		<!--슬라이드  -->
 		<div>
@@ -161,10 +159,17 @@ body .no-padding {
 						var taglist = '${detail.tag}';
 						var tagOne = taglist.split(',');
 						for ( var i in tagOne) {
-							document.write('<a href="search?search='
+							if(i == 0 ) {
+								document.write('<a href="search?search='
+										+ encodeURIComponent(tagOne[i])
+										+ '" name="search">' + tagOne[i] 
+										+ '</a>');
+							}
+							else {document.write('<a href="search?search='
 									+ encodeURIComponent(tagOne[i])
-									+ '" name="search">' + tagOne[i] + ', '
+									+ '" name="search">' + ', ' + tagOne[i] 
 									+ '</a>');
+							}
 						}
 					</script></td>
 				</tr>
@@ -206,7 +211,7 @@ body .no-padding {
 	<jsp:include page="reviewr.jsp"></jsp:include>
 
 	<script type="text/javascript"
-		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=63cbe8b7d32166b463b803e3f12eb584&libraries=services"></script>
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=bc4f5231caf385cfb7e50444395c5b09&libraries=services"></script>
 	<script>
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 		mapOption = {
@@ -251,6 +256,29 @@ body .no-padding {
 							}
 						});
 	</script>
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+					aria-labelledby="myModalLabel" aria-hidden="true" style="top:120px">
+					<div class="modal-dialog modal-lg">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-hidden="true">&times;</button>
+								 <!-- <h4 class="modal-title" id="myModalLabel">Modal title</h4> -->
+							</div>
+							<div class="modal-body">
+							<img id="modalImg" style="width:100%;">
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default"
+									data-dismiss="modal">Close</button>
+								<!-- <button type="button" class="btn btn-primary">Save
+									changes</button> -->
+							</div>
+						</div>
+
+					</div>
+
+				</div>
 </body>
 
 
