@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -52,16 +53,17 @@ public class StoreController {
 	@RequestMapping(value = "test", method = RequestMethod.POST)
 	public String test_post(@RequestParam("file") List<MultipartFile> file, @RequestParam("test1") List<Object> list, @RequestParam Map<String, Object> map,
 			Model model) throws Exception {
-		Map<String, Object> tmp = new HashMap<String, Object>();
-		
-		for(MultipartFile mFile : file) {
-			storeService.storeFile(mFile);
-		}
-		
-		String encrypttest = EncryptionClass.convertiMD5((String) map.get("test1"));
-		
-		System.out.println(encrypttest);
-		
+//		Map<String, Object> tmp = new HashMap<String, Object>();
+//		
+//		for(MultipartFile mFile : file) {
+//			storeService.storeFile(mFile);
+//		}
+//		
+//		String encrypttest = EncryptionClass.convertiMD5((String) map.get("test1"));
+//		
+//		System.out.println(encrypttest);
+		String removeImg = (String)map.get("removeImg");
+		storeService.deleteFile(removeImg);
 		return "redirect:/test";
 	}
 	
@@ -105,8 +107,11 @@ public class StoreController {
 			storeService.hitUpdate(map);
 			
 		}
+		
 		//평균별점 업데이트
 		reviewService.reviewStarUpdate(map);
+	
+		// 리뷰목록
 		List<Map<String, Object>> rList = reviewService.reviewList(St_NO);
 		List<String> imglist = storeService.getAllImage(St_NO);
 		Map<String,Object> detail = storeService.storeOne(St_NO);
@@ -124,6 +129,8 @@ public class StoreController {
 		}
 		if(rList.size() > 0) detail.put("star", detail_star / rList.size());
 		else detail.put("star", detail_star);
+		
+		
 		model.addAttribute("slide_page_cnt", slide_page_cnt);
 		model.addAttribute("slide_img_cnt", slide_img_cnt);
 		model.addAttribute("imglist",imglist);
@@ -133,5 +140,20 @@ public class StoreController {
 		return "storer";
 	}
 	
+	@RequestMapping(value="storeUpdate", method = RequestMethod.GET)
+	public String storUpdate(Model model, @RequestParam("St_NO") int St_NO, 
+			HttpServletResponse response, HttpServletRequest request, HttpSession httpSession) {
+			String no = (String) httpSession.getAttribute("SID");
+			model.addAttribute("storeUpdateOne", storeService.storeUpdateOne(St_NO));
+			if(no==null) {
+				request.setAttribute("type", "error");
+				request.setAttribute("msg", "세션이 만료되었습니다. 다시 로그인 해주세요");
+				request.setAttribute("url", "login");
+				return "alert";
+			}
+		
+		
+		return "storeUpdate";
+	}
 
 }

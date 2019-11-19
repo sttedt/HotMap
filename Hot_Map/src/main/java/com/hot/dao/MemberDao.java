@@ -80,9 +80,11 @@ public class MemberDao {
 		return sessionTemplate.update("member.pwUpdate", map);
 	}
 	
+	// 회원정보 수정페이지
 	public Map<String, Object> profileup(String mem_id) {
 		return sessionTemplate.selectOne("member.profileup", mem_id);
 	}
+	// 회원정보 수정 데이터를 디비로 보내기
 	public int memberUpdate(Map<String, Object> map) {
 		return sessionTemplate.update("member.memberUpdate", map);
 		

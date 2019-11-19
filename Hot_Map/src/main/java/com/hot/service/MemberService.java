@@ -45,10 +45,12 @@ public class MemberService {
 		return memberDao.phoneCheckNumber(map);
 	}
 
+	// 회원정보 수정 페이지
 	public Map<String, Object> profileup(String mem_id) {
 		return memberDao.profileup(mem_id);
 	}
 
+	// 회원정보 수정 데이터를 디비로 보내기
 	public void memberUpdate(Map<String, Object> map) {
 		memberDao.memberUpdate(map);
 	}

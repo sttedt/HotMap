@@ -44,12 +44,13 @@
 		WHERE phone = #{phone}
 	</delete>
 
-
+	<!-- 회원정보 수정  -->
 	<select id="profileup" resultType="map" parameterType="String">
 		SELECT * FROM MEMBER
 		 WHERE MEM_ID = #{id}
 	</select>
 	
+	<!-- 회원정보 수정 데이터 디비 넣기  -->
 	<update id="memberUpdate" parameterType="map">
 		UPDATE MEMBER 
 		SET Name=#{Name}, PW=#{pw}

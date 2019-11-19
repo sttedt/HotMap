@@ -37,9 +37,11 @@
 					<th>날짜</th>
 					<td>${detail.date}</td>
 				</tr>
+				
 			</tbody>
 		</table>
 		<div>
+			<input type="button" class="btn btn-dark" value="버튼명" onclick="history.back(-1)"/>
 			<a href="board" class="btn btn-dark" >목록</a>
 			<c:if test="${sessionScope.SID eq detail.mem_id }">
 				<a href="upd?Brd_NO=${detail.Brd_NO}" class="btn btn-dark" >수정</a>

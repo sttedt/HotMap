@@ -12,10 +12,8 @@
 <link rel="stylesheet" href="resources/css/magnific-popup.css">
 <link rel="stylesheet" href="resources/fonts/ionicons/css/ionicons.min.css">
 <link rel="stylesheet" href="resources/fonts/flaticons/font/flaticon.css">
-<link rel="stylesheet" href="resources/css/fontawesome.min.css">
-   <!-- 카드 부트스트랩 -->
-
-<!-- Theme Style -->
+<script src="https://kit.fontawesome.com/80acdb1e5f.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <link rel="stylesheet" href="resources/css/style.css">
 
 <style type="text/css">
@@ -36,13 +34,21 @@
 					<span class="navbar-toggler-icon"></span>
 				</button>
 			
-				<div class="collapse navbar-collapse" id="navbarsExample05" style="margin-left: 190px">
+				<div class="collapse navbar-collapse" id="navbarsExample05">
 					<ul class="navbar-nav ml-auto pl-lg-5 pl-0">
 						<li class="nav-item">
 							<a class="nav-link active" href="storelist_sum">전체목록</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="recipes.html">Recipes</a>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="services.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">분위기</a>
+							<div class="dropdown-menu" aria-labelledby="dropdown04">
+								<a class="dropdown-item" href="search?search=노래주점">노래주점</a> 
+								<a class="dropdown-item" href="search?search=포차">포차</a> 
+								<a class="dropdown-item" href="search?search=재즈">재즈</a> 
+								<a class="dropdown-item" href="search?search=펍">펍</a> 
+								<a class="dropdown-item" href="search?search=감주">감주</a> 
+								<a class="dropdown-item" href="search?search=클럽">클럽</a>
+							</div>
 						</li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="services.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">주류</a>
@@ -60,24 +66,28 @@
 							<a class="nav-link dropdown-toggle" href="services.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">요리</a>
 							<div class="dropdown-menu" aria-labelledby="dropdown04">
 								<a class="dropdown-item" href="search?search=한식">한식</a> 
-								<a class="dropdown-item" href="search?search=중식">중식</a> 
-								<a class="dropdown-item" href="search?search=일식">일식</a> 
+								<a class="dropdown-item" href="search?search=중식당">중식당</a> 
+								<a class="dropdown-item" href="search?search=이자카야">이자카야</a> 
 								<a class="dropdown-item" href="search?search=양식">양식</a>
 							</div>
 						</li>
-						<li class="nav-item"><a class="nav-link" href="news.html">News</a>
+						<li>
+							<a class="nav-link active" href="News">News</a>
+						</li>
+						<li>
+							<form action ="search?search=${search}">
+								<div style="float: right; margin-top: 22px">
+									<input type="text" class="nav-item" id="search" name="search" style="max-width: 200px; display: inline-block;" placeholder="want를 검색하세요"> 
+									<button type="submit" class="btn btn-white btn-outline-white " style="height: 33px; margin-top: -3px">
+										<span class="fas fa-search-plus">
+										</span>
+									</button>
+								</div>
+							</form>
 						</li>
 					</ul>
 
-					<form action ="search?search=${search}">
-						<div style="float: right; margin-top: 8px">
-							<input type="text" class="nav-item" id="search" name="search" style="max-width: 200px; display: inline-block;" placeholder="want를 검색하세요"> 
-							<button type="submit" class="btn btn-white btn-outline-white " style="height: 33px; margin-top: -3px">
-								<span class="fas fa-search-plus">
-								</span>
-							</button>
-						</div>
-					</form>
+
 				</div>
 			</div>
 				<div style="float: right; margin-top:-60px; margin-right: 120;">						
@@ -86,7 +96,7 @@
 							<c:if test="${sessionScope.SID eq null}">
 								<li class="nav-item dropdown">
 									<a class="nav-link dropdown-toggle" href="login" id="dropdown04" data-toggle="dropdown" aria-haspopup="true"
-										aria-expanded="false" style="text-decoration: none; "><span class="fa fa-lock " ></span>
+										aria-expanded="false" style="text-decoration: none; ">회원
 									</a>
 									<div class="dropdown-menu" aria-labelledby="dropdown04">
 										<a class="dropdown-item" href="login">LOGIN</a> 

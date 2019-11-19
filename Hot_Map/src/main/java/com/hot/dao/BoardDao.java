@@ -36,7 +36,6 @@ public class BoardDao {
 	// 게시판 수정데이터 디비 보내기
 	public int boardUpdate(Map<String, Object> map) {
 		return sessionTemplate.update("board.boardUpdate", map);
-		
 	}
 	
 	// 게시판 삭제

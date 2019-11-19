@@ -11,26 +11,30 @@
 		SELECT * FROM BOARD 
 		ORDER BY Brd_NO DESC
 	</select>
+	
+	<!-- 상세페이지 -->
 	<select id="boardOne" resultType="map" parameterType="_int">
 		SELECT * FROM BOARD
 		 WHERE Brd_NO = #{Brd_NO}
 	</select>
 	
+	<!-- 수정페이지 -->
 	<select id="upd" resultType="map" parameterType="_int">
 		SELECT * FROM BOARD
 		 WHERE Brd_NO = #{Brd_NO}
 	</select>
 	
+	<!-- 수정 정보 디비에 보내기 -->
 	<update id="boardUpdate" >
 		UPDATE BOARD 
 		SET TITLE=#{title}, CONTENT=#{content}
 		WHERE Brd_NO=#{Brd_NO}
-	
 	</update>
+	
+	<!-- 게시글 삭제 --> 
 	<delete id="boardDelete" parameterType="map" >
 		DELETE FROM BOARD 
 		WHERE Brd_NO=#{Brd_NO}
-	
 	</delete>
 
 </mapper>

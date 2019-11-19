@@ -42,5 +42,9 @@ public class StoreDao {
 	public List<Map<String, Object>> nowRank(){
 		return sessionTemplate.selectList("store.nowRank");
 	}
+	
+	public Map<String, Object> storeUpdateOne(int St_NO){
+		return sessionTemplate.selectOne("store.storeUpdateOne", St_NO);
+	}
 
 }

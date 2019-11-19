@@ -63,7 +63,7 @@ public class StoreService {
 		// 확장자 추출
 		String ext = mFile.getOriginalFilename().substring(mFile.getOriginalFilename().lastIndexOf(".") + 1, mFile.getOriginalFilename().length());
 		String fileName = rand.run(30) +"." + ext;
-		FTPUploader ftpUploader = new FTPUploader("dndnp4.dothome.co.kr", "dndnp4", "dothome11!");
+		FTPHandler ftpUploader = new FTPHandler("dndnp4.dothome.co.kr", "dndnp4", "dothome11!");
         ftpUploader.uploadFile(temp.toString(), fileName, "/html/image/");
         ftpUploader.disconnect();
 
@@ -71,6 +71,11 @@ public class StoreService {
         temp.delete();
         
         return fileName;
+	}
+	public void deleteFile(String fileName) throws Exception {
+		FTPHandler ftp = new FTPHandler("dndnp4.dothome.co.kr", "dndnp4", "dothome11!");
+		String hostDir = "/html/image/";
+		ftp.deleteFile(fileName, hostDir);
 	}
 
 	// 전체 스토어 목록
@@ -112,6 +117,9 @@ public class StoreService {
 	}
 	public List<Map<String, Object>> nowRank() {
 		return storeDao.nowRank();
+	}
+	public Map<String, Object> storeUpdateOne(int St_NO){
+		return storeDao.storeUpdateOne(St_NO);
 	}
 
 }

@@ -38,10 +38,16 @@
 	</update>
 	
 	<select id='getAllImage' parameterType="int" resultType='map'>
-		SELECT img FROM store where img is not null and St_NO = #{St_NO} UNION SELECT img FROM review where img is not null and St_NO = #{St_NO} 
+		SELECT img FROM store where img != "" and St_NO = #{St_NO} UNION SELECT img FROM review where img != "" and St_NO = #{St_NO} 
 	</select>
 	
 	<select id="nowRank" parameterType="int" resultType="map" >
-		SELECT starAvg, name FROM STORE ORDER BY starAvg DESC Limit 10;	
+		<![CDATA[ 
+			SELECT St_NO, name, img ,TRUNCATE(@curRank := @curRank + 1, 0) AS rank FROM STORE s, (SELECT @curRank := 0) r ORDER BY starAvg DESC Limit 10;	
+			]]>
+	</select>
+	
+	<select id="storeUpdateOne" parameterType="int" resultType="map">
+		SELECT * FROM STORE WHERE St_NO = #{St_NO}
 	</select>
 </mapper>	

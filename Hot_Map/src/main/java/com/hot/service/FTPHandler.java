@@ -10,12 +10,12 @@ import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPReply;
  
-public class FTPUploader {
+public class FTPHandler {
     
     FTPClient ftp = null;
     
     //param( host server ip, username, password )
-    public FTPUploader(String host, String user, String pwd) throws Exception{
+    public FTPHandler(String host, String user, String pwd) throws Exception{
         ftp = new FTPClient();
         ftp.addProtocolCommandListener(new PrintCommandListener(new PrintWriter(System.out)));
         int reply;
@@ -38,7 +38,15 @@ public class FTPUploader {
         }
 //        new File(localFileFullName).delete();
     }
- 
+    public void deleteFile(String fileName, String hostDir) {
+    	String pathname = hostDir + fileName;
+    	System.out.println(pathname);
+    	try {
+			this.ftp.deleteFile(pathname);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+    }
     public void disconnect(){
         if (this.ftp.isConnected()) {
             try {

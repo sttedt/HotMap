@@ -2,17 +2,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- mapper할때 써야됨 -->
 <mapper namespace="review">
-
-	<insert id="reviewInsert">
-		INSERT INTO REVIEW (St_NO,  MEM_ID, CONTENT, DATE, star, img )
-		VALUES ( #{St_NO}, #{mem_id} , #{content}, NOW(),#{star}, #{img} )
-	</insert>
 	
 	<select id="reviewOne" resultType="map" parameterType="_int">
 		SELECT * FROM STORE
 		 WHERE St_NO = #{St_NO}
 	</select>
-		
+	
+	<insert id="reviewInsert">
+		INSERT INTO REVIEW (St_NO,  MEM_ID, CONTENT, DATE, star, img )
+		VALUES ( #{St_NO}, #{mem_id} , #{content}, NOW(),#{star}, #{img} )
+	</insert>
+	
 	<select id="reviewList" resultType="map">
 		SELECT * FROM REVIEW
 		 WHERE St_NO = #{St_NO}
@@ -29,4 +29,19 @@
 		UPDATE store SET starAvg= TRUNCATE((SELECT AVG(star) FROM review 
 		WHERE St_no= #{St_NO}), 2) WHERE St_NO = #{St_NO}
 	</update>
+	
+	<select id="getReview" resultType="map" parameterType="map">
+		SELECT * FROM review
+		 WHERE St_NO = #{St_NO} and Re_NO = #{Re_NO}
+	</select>
+	<update id="reviewUpdate" parameterType="map" >
+		UPDATE review 
+		SET Content=#{content}, img=#{img}, star=#{star}
+		WHERE Re_NO=#{Re_NO}
+	</update>
+	<delete id="reviewDelete" parameterType="map" >
+		DELETE FROM review 
+		WHERE Re_NO=#{Re_NO}
+	
+	</delete>
 </mapper>

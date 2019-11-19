@@ -48,6 +48,7 @@ public class HomeController {
 		}
 		//별점순 랭킹 10위 출력
 		List<Map<String, Object>> rank = storeService.nowRank();
+		System.out.println("rank : " +  rank);
 		model.addAttribute("serverTime", formattedDate );
 		model.addAttribute("s_list", list);
 		model.addAttribute("rank", rank);
